@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Tippy from '@tippy.js/react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCart } from '@fortawesome/free-solid-svg-icons'
+import { faShoppingCart } from '@fortawesome/free-solid-svg-icons'
 
 
 class Cart extends Component {
@@ -11,9 +11,8 @@ class Cart extends Component {
     render() {
         return (
             <Tippy content="Your cart">
-                <a href='#cart'>
-                    <FontAwesomeIcon icon={faCart} size="lg" inverse/>
-                    { this.state.cart }
+                <a href='#cart' className='header__cart' data-count='1'>
+                    <FontAwesomeIcon icon={faShoppingCart} size="lg" className='header__cart' />
                 </a>
             </Tippy>
         )

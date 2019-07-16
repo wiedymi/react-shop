@@ -6,7 +6,7 @@ import Tippy from '@tippy.js/react'
 const social = function HeaderSocialLinks() {
 
     return (
-        <div className='grid-d-4 grid-t-4 grid-tl-4 grid-m-4'>
+        <div className='grid-d-8 grid-t-8 grid-tl-4 grid-m-4'>
             <ul className="header__social__list">
                 <li className='grid-d-4 grid-t-4 grid-tl-4 grid-m-4'>
                     <Tippy content="Twitter">

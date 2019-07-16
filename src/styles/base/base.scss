@@ -5,6 +5,13 @@ body {
     background: rgb(238, 238, 238);
 }
 
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}
 
 //reset and grid css 
 @import 'reset-css';
