@@ -1,11 +1,56 @@
 .header {
     height: $lg-size;
     background: $primary;
+    border-bottom: 2px solid darken($primary, 10%);
 }
 
 .header__title {
     color: $white;
     font-size: $m-size;
     text-align: center;
-    line-height: $lg-size
+    padding: 0;
+}
+
+.header__title a {
+    text-decoration: none;
+    color: $white;
+    transition: .2s all;
+
+}
+.header__language {
+    padding: 0px;
+}
+.header__social__list {
+    display: none;
+}
+.header__social__list li {
+    padding: 3px;
+    text-align: center;
+}
+
+.header__cart {
+    color: #009394;
+    line-height: 1.9rem;
+    position: relative;
+}
+.header__cart[data-count]:after{
+    position: absolute;
+    right: -30%;
+    top: none;
+    content: attr(data-count);
+    font-size: 0.5rem;
+    padding: .6em;
+    border-radius: 50%;
+    line-height: .75em;
+    color: white;
+    background: #00ad9a;
+    text-align: center;
+    min-width: 2em;
+    font-weight: bold;
+}
+
+@media (min-width: 720px) {
+    .header__social__list {
+        display: inline;
+    }
 }

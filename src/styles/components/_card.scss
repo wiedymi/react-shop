@@ -1,0 +1,44 @@
+.card {
+    display:flex;
+}
+
+.card .info{
+    flex-grow:0;
+    flex-shrink:0;
+    margin-left: .6rem;
+    flex: 1;
+}
+
+.card img {
+    height: 20rem;
+    border: 1px solid $bg-off
+}
+
+.card a{
+    color: black;
+    font-size: $lg-size;
+    transition: 0.3s all;
+}
+
+
+.card a:hover{
+    color: $primary;
+}
+
+.star-ratings {
+    float: left;
+}
+.info__title__rating {
+    flex: 1
+}
+.info div {
+    float: left;
+}
+
+.info span {
+    color: $black
+}
+
+.readMoreText {
+    color: $primary-off
+}

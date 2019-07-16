@@ -1,9 +1,29 @@
+a {
+    text-decoration: none;
+}
+body {
+    background: rgb(238, 238, 238);
+}
+
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}
+
 //reset and grid css 
 @import 'reset-css';
 @import './rwdgrid.css';
+
 //variables
 @import './color.scss';
 @import './size.scss';
 
 //Components
 @import '../components/_header.scss';
+@import '../components/_content.scss';
+@import '../components/_filter.scss';
+@import '../components/_dropdown.scss';
+@import '../components/card.scss';
