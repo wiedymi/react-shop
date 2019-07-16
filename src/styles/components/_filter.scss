@@ -10,7 +10,7 @@
     height: $lg-size;
     font-size: $lg-size - 1rem;
     padding: 10px;
-    border-bottom: 2px solid $primary-off;
+    border-bottom: 2px solid lighten($primary-off, 10%);
     
 }
 

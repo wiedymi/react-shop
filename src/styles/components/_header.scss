@@ -17,12 +17,15 @@
     transition: .2s all;
 
 }
-
+.header__language {
+    padding: 0px;
+}
 .header__social__list {
-    display: none; 
+    display: none;
 }
 .header__social__list li {
     padding: 3px;
+    text-align: center;
 }
 
 @media (min-width: 720px) {

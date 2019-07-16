@@ -1,6 +1,7 @@
 //reset and grid css 
 @import 'reset-css';
 @import './rwdgrid.css';
+
 //variables
 @import './color.scss';
 @import './size.scss';
@@ -9,3 +10,4 @@
 @import '../components/_header.scss';
 @import '../components/_content.scss';
 @import '../components/_filter.scss';
+@import '../components/_dropdown.scss';
