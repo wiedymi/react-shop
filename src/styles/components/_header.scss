@@ -1,6 +1,7 @@
 .header {
     height: $lg-size;
     background: $primary;
+    border-bottom: 2px solid darken($primary, 10%);
 }
 
 .header__title {
@@ -21,7 +22,7 @@
     display: none; 
 }
 .header__social__list li {
-    padding: 5px;
+    padding: 3px;
 }
 
 @media (min-width: 720px) {
