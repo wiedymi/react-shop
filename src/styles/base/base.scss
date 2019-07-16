@@ -1,0 +1,9 @@
+//reset and grid css 
+@import 'reset-css';
+@import './rwdgrid.css';
+//variables
+@import './color.scss';
+@import './size.scss';
+
+//Components
+@import '../components/_header.scss';

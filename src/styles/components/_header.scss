@@ -1,0 +1,11 @@
+.header {
+    height: $lg-size;
+    background: $primary;
+}
+
+.header__title {
+    color: $white;
+    font-size: $m-size;
+    text-align: center;
+    line-height: $lg-size
+}
