@@ -7,5 +7,25 @@
     color: $white;
     font-size: $m-size;
     text-align: center;
-    line-height: $lg-size
+    padding: 0;
+}
+
+.header__title a {
+    text-decoration: none;
+    color: $white;
+    transition: .2s all;
+
+}
+
+.header__social__list {
+    display: none; 
+}
+.header__social__list li {
+    padding: 5px;
+}
+
+@media (min-width: 720px) {
+    .header__social__list {
+        display: inline;
+    }
 }
