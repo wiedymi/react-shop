@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Filter from '../Filter/Filter'
+import Card from '../Card/Card'
 
 class Content extends Component {
     render() {
@@ -9,7 +10,7 @@ class Content extends Component {
                     <Filter />
                 </div>
                 <div className='content'>
-
+                    <Card />
                 </div>
             </div>
         )

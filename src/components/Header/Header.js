@@ -1,13 +1,13 @@
 import React from 'react'
+import Tippy from '@tippy.js/react'
 import Social from './social'
 import Lang from './Language'
-import Tippy from '@tippy.js/react'
-
+import Container from '../Container'
 
 const Header = () => {
     return (
         <div className='header'>
-            <div>
+            <Container>
                 <div className='grid-d-2 grid-t-2 grid-tl-2 grid-m-4'>
                     <Tippy content='Some info about the company, blah blah blah'>
                         <h1 className='header__title'><a href='/'>React Shop</a></h1>
@@ -20,7 +20,7 @@ const Header = () => {
                 > 
                     <Lang />
                 </div>
-            </div>
+            </Container>
         </div>
     )
 }

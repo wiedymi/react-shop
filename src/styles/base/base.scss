@@ -1,3 +1,11 @@
+a {
+    text-decoration: none;
+}
+body {
+    background: rgb(238, 238, 238);
+}
+
+
 //reset and grid css 
 @import 'reset-css';
 @import './rwdgrid.css';
@@ -11,3 +19,4 @@
 @import '../components/_content.scss';
 @import '../components/_filter.scss';
 @import '../components/_dropdown.scss';
+@import '../components/card.scss';
