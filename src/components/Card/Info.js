@@ -6,6 +6,7 @@ import Size from './Size'
 import Description from './Description'
 import Tags from '../Tags'
 import Button from '../Button'
+import Counter from './Counter'
 
 const Info = ({ 
         title, rating, description, tags, color, size 
@@ -24,6 +25,7 @@ const Info = ({
             <Description description={description} />
             <div className='purchase'>
                 <Button name='buy' text='Buy'/>
+                <Counter />
             </div>
         </div>
     )

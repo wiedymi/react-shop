@@ -1,0 +1,27 @@
+.counter div {
+    padding: 0.7rem 1rem;
+    margin-top: $md-size - 0.4rem;
+    font-size: $md-size;
+   
+}
+.counter {
+    margin-left: $md-margin
+}
+
+.counter .result {
+
+}
+.purchase a.button {
+    float: left;
+    
+}
+.counter .decrement, .increment {
+    color: $white;
+    cursor: pointer;
+}
+.counter .decrement {
+    background: $danger;
+}
+.counter .increment {
+    background: $primary;
+}
