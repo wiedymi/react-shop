@@ -2,14 +2,13 @@ import React, { Component } from 'react'
 import Form from '../Form/Form'
 import Input from '../Form/inputs'
 
-class Filter extends Component {
+class Search extends Component {
     handleSubmit = (e) => {
         e.preventDefault();
     }
     render() {
-        const tags = ['hello', 'dsfdsf', 'fdsfsdf'];
         return (
-            <div className='filter'>
+            <div className='search'>
                 <Form handleSubmit={this.handleSubmit}>
                     <Input name='search' placeholder='Something...'/>
                 </Form>
@@ -18,4 +17,4 @@ class Filter extends Component {
     }
 }
 
-export default Filter;
+export default Search;

@@ -1,5 +1,6 @@
 .card {
     display:flex;
+    margin-bottom: $md-margin
 }
 
 .card .info{
@@ -11,7 +12,7 @@
 
 .card img {
     height: 20rem;
-    border: 1px solid $bg-off
+    border: 1px solid $bg-img
 }
 
 .card a{
@@ -41,4 +42,63 @@
 
 .readMoreText {
     color: $primary-off
+}
+
+.start__tags {
+    position: relative;
+}
+
+.color {
+    width: 100%;
+    
+}
+.color .button {
+    display: inline-block;
+    width: $m-size;
+    height: $m-size;
+    cursor: pointer;
+    border: 1px solid $bg-img;
+
+}
+
+.color .button:focus {
+   outline: 0;
+}
+
+.color label {
+    width: 100%;
+    float: left;
+}
+
+.size {
+    width: 100%;
+    
+}
+.size .button {
+    display: inline-block;
+    width: $m-size;
+    height: $m-size;
+    cursor: pointer;
+    border: 1px solid $bg-img;
+    background: $white;
+    margin-right: $m-margin
+}
+.size .button.selected {
+    border-color: $primary;
+}
+.size .button:focus {
+   outline: 0;
+}
+.size label {
+    width: 100%;
+    float: left;
+}
+
+.color label {
+    width: 100%;
+    float: left;
+}
+.purchase {
+    width: 100%;
+    float: left;
 }

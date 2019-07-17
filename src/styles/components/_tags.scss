@@ -1,7 +1,7 @@
 .tags {
-    width: 100%;
-    position: relative;
-    margin-top: 10px;
+    position: absolute;
+    left: 10rem;
+    top: 0.6rem;
 }
 .tags .tag  {
     border: 1px solid $primary;
