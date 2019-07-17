@@ -536,7 +536,8 @@ class Card extends Component {
                     description={item.description} 
                     tags={item.tags}
                     color={item.color}
-                    size={item.size}                 
+                    size={item.size}
+                    price={item.price}                     
                 />
               
             </div>

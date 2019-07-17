@@ -9,7 +9,7 @@ import Button from '../Button'
 import Counter from './Counter'
 
 const Info = ({ 
-        title, rating, description, tags, color, size 
+        title, rating, description, tags, color, size, price 
     }) => {
     return (
         <div className='info'>  
@@ -25,7 +25,7 @@ const Info = ({
             <Description description={description} />
             <div className='purchase'>
                 <Button name='buy' text='Buy'/>
-                <Counter />
+                <Counter price={price}/>
             </div>
         </div>
     )

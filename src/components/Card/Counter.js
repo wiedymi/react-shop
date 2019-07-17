@@ -25,7 +25,7 @@ class Counter extends Component {
                 <div className='decrement' onClick={this.decrement}>-</div>
                 <div className='result'>{this.state.count}</div>
                 <div className='increment' onClick={this.increment}>+</div>
-                <Price count={this.state.count}/>
+                <Price count={this.state.count} price={this.props.price}/>
             </div>
         )
     }
