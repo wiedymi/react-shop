@@ -22,8 +22,11 @@ body {
 @import './size.scss';
 
 //Components
-@import '../components/_header.scss';
-@import '../components/_content.scss';
-@import '../components/_filter.scss';
-@import '../components/_dropdown.scss';
+@import '../components/header.scss';
+@import '../components/content.scss';
+@import '../components/filter.scss';
+@import '../components/dropdown.scss';
 @import '../components/card.scss';
+@import '../components/form.scss';
+@import '../components/button.scss';
+@import '../components/tags.scss';

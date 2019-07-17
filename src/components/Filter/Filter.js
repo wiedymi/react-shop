@@ -1,17 +1,18 @@
 import React, { Component } from 'react'
+import Form from '../Form/Form'
+import Input from '../Form/inputs'
 
 class Filter extends Component {
     handleSubmit = (e) => {
         e.preventDefault();
     }
     render() {
+        const tags = ['hello', 'dsfdsf', 'fdsfsdf'];
         return (
             <div className='filter'>
-                <form className='filter__form' onSubmit={this.handleSubmit}>
-                    <label name='search'>Search</label>
-                    <input type='text' name='search' placeholder='Something...' />
-                    <button>Search It!</button>
-                </form>
+                <Form handleSubmit={this.handleSubmit}>
+                    <Input name='search' placeholder='Something...'/>
+                </Form>
             </div>
         )
     }

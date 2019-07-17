@@ -1,0 +1,19 @@
+.tags {
+    width: 100%;
+    position: relative;
+    margin-top: 10px;
+}
+.tags .tag  {
+    border: 1px solid $primary;
+    margin-right: 5px;
+    padding: $m-margin 0.8rem;
+    border-radius: $m-size;
+    color: $white;
+    background: $primary;
+}
+
+.tags .tag.selected  {
+    border: 1px solid $primary-off;
+    color: $white;
+    background: $primary-off;
+}

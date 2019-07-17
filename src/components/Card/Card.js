@@ -25,8 +25,8 @@ class Card extends Component {
     }
     
     render() {
-        const card = this.state.items.map((item) => (
-            <div className='card'>
+        const card = this.state.items.map((item, index) => (
+            <div className='card' key={index}>
                 <img src={item.images[0]} alt="" />
                 <div className='info'>
                     <div className='info__title__rating'>

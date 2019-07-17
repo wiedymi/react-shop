@@ -1,0 +1,13 @@
+a.button {
+    font-size: $md-size;
+    display: inline-block;
+    background: $primary-off;
+    color: $white;
+    padding: $m-padding;
+    margin-top: $md-margin;
+    transition: 0.3s all;
+}
+
+a.button:hover {
+    background: darken($primary-off, 10%);
+}
