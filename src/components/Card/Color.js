@@ -8,12 +8,13 @@ class Color extends Component {
 
     }
     render() {
+        const color =  this.props.color.map((color, index) => (
+            <button className='button' style={{ background: color}} key={index}></button>
+        ))
         return (
-            <div className='color m-top'>
+            <div className='color'>
                 <label>Avalible colors</label>
-                <button className='button' style={{ background: this.props.color[0]}}>
-
-                </button>
+                {color}
             </div>
         )
     }

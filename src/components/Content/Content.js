@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Search from '../Search/Search'
 import Card from '../Card/Card'
+import Filter from '../Filter/Filter'
 
 class Content extends Component {
     render() {
@@ -14,7 +15,7 @@ class Content extends Component {
                 </div>
                 <div className='grid-3 lf-padding'>              
                     <div className='content'>
-                        Filters
+                        <Filter />
                     </div>
                 </div>
             </div>
