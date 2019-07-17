@@ -11,7 +11,7 @@ class Cart extends Component {
     render() {
         return (
             <Tippy content="Your cart">
-                <a href='#cart' className='header__cart' data-count='1'>
+                <a href='#cart' className='header__cart' data-count={this.state.cart}>
                     <FontAwesomeIcon icon={faShoppingCart} size="lg" className='header__cart' />
                 </a>
             </Tippy>

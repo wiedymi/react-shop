@@ -1,0 +1,30 @@
+.form .field {
+    width: 100%;
+}
+.form .field label{
+    font-size: $m-size;
+    text-transform: capitalize;
+}
+
+.form .field input{
+    width: 100%;
+    padding: $m-size - 1.2rem;
+    border: 1px solid $white;
+    outline: 0;
+    background: darken($white, 5%);
+    margin-top: $m-margin; 
+    font-size: $md-size;
+}
+
+.form .field input:focus{
+    border: 1px solid $bg;
+}
+
+.form h1 {
+    font-size: $m-size;
+    margin-bottom: $md-margin
+}
+
+.css-2b097c-container {
+    margin-bottom: $m-margin
+}
