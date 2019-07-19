@@ -20,3 +20,7 @@ export const fetchedItemError = () => {
 export const setItems = (items) => {
     return { type: 'SET_ITEMS', items }
 }
+
+export const setColors = (colors) => {
+    return { type: 'SET_FILTER_COLORS', colors }
+}

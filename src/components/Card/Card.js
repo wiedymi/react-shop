@@ -54,27 +54,10 @@ class Card extends PureComponent {
           )
     }
 }
-const getVisibleItems = (items) => {
-  switch (items.text) {
-    case 'all':
-        return items
-    default:
-        // const array = Object.keys(items).map(i => items[i]);
-        // console.log(items);
-        // items = array.filter((item) => {
-        //   if(item.title !== undefined){
-        //     return item.title.includes(items.text) 
-        //   }
-        //   return false
-        // });
-        
-        return items
-  }
-};
 
 const mapStateToProps = state => {
   return {
-    items: getVisibleItems(state.items.items),
+    items: state.items.items,
     isLoading: state.items.isFetching,
     isError: state.items.isError
   };
