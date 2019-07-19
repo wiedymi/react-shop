@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Search from '../Search/Search'
-import Card from '../Card/Card'
+import Card from '../../redux/container/Card'
 import Filter from '../Filter/Filter'
 
 class Content extends Component {

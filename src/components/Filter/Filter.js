@@ -27,25 +27,28 @@ class Filter extends Component {
             this.setState({ colors, size, tags });
         } 
     }
-    handleChange = (selectedOprion, type) => {
+    handleChange = (selectedOption, type) => {
         const { dispatch } = this.props;
         switch (type.name){
             case 'color': 
-                return dispatch(setFilterByColor(selectedOprion));
+                return dispatch(setFilterByColor(selectedOption));
             case 'tags': 
-                return dispatch(setFilterByTags(selectedOprion));
+                return dispatch(setFilterByTags(selectedOption));
             case 'size': 
-                return dispatch(setFilterBySize(selectedOprion)); 
+                return dispatch(setFilterBySize(selectedOption)); 
             case 'sortBy': 
-                return dispatch(setFilterBySortBy(selectedOprion.value));
+                return dispatch(setFilterBySortBy(selectedOption.value));
             default:
                 return console.log('Filter default');
         } 
+        
     }
     render() {
         const price = [
-            { value: 'price', label: 'Price' },
-            { value: 'rating', label: 'Rating' }
+            { value: 'price', label: 'Price Desc' },
+            { value: 'priceAsc', label: 'Price Asc' },
+            { value: 'rating', label: 'Rating Desc' },
+            { value: 'ratingAsc', label: 'Rating Asc' },
         ]
         return (
             <Form handleSubmit={this.handleSubmit}>

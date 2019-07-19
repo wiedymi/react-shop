@@ -2,8 +2,8 @@ export const getItems = () => {
     return { type: 'GET_ITEMS' }
 }
 
-export const search = (text) => {
-    return { type: 'GET_ITEMS_SEARCH', text }
+export const search = (search) => {
+    return { type: 'SET_FILTER_SEARCH', search }
 }
 
 export const fetchItem = () => {
