@@ -24,3 +24,21 @@ export const setItems = (items) => {
 export const setColors = (colors) => {
     return { type: 'SET_FILTER_COLORS', colors }
 }
+
+export const setFilterByColor = (colors) => {
+    return { type: 'SET_FILTER_COLORS', colors }
+}
+
+
+export const setFilterBySize = (size) => {
+    return { type: 'SET_FILTER_SIZE', size }
+}
+
+
+export const setFilterByTags = (tags) => {
+    return { type: 'SET_FILTER_TAGS', tags }
+}
+
+export const setFilterBySortBy = (sortBy) => {
+    return { type: 'SET_FILTER_SORT_BY', sortBy}
+}
