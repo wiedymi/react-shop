@@ -8,14 +8,14 @@ export default function() {
         dispatch(fetchItem());
         return fetch(url)
                 .then((res) => res.json())
-                .then((item) => {
-                    if(!handleCheckLocalStorage('item')){
-                        localStorage.setItem('item', JSON.stringify(item));
+                .then((products) => {
+                    if(!handleCheckLocalStorage('products')){
+                        localStorage.setItem('products', JSON.stringify(products));
                         dispatch(fetchedItem());
-                        dispatch(setColors(item));
-                        return dispatch(setItems(item)); 
+                        dispatch(setColors(products));
+                        return dispatch(setItems(products)); 
                     } else {
-                        return dispatch(fetchedItem(handleGetData('item')));
+                        return dispatch(fetchedItem(handleGetData('products')));
                     }            
                 })
                 .catch(() => {

@@ -1,18 +1,19 @@
 let initState = {
-    items: [],
+    products: [],
+    page: 1,
     isFetching: false,
     isError: false
 };
 
 export default (state = initState, action) => {
-    const { items } = action;
+    const { products } = action;
     switch (action.type){
         case 'GET_ITEMS':
             return state;
         case 'SET_ITEMS':
             return {
                 ...state,
-                items
+                products
             };
         case 'FETCH':
             return {
@@ -22,7 +23,7 @@ export default (state = initState, action) => {
         case 'FETCHED':
             return {
                 ...state,
-                items,
+                products,
                 isFetching: false
             }
         case 'FETCHED_ERROR':
@@ -30,7 +31,17 @@ export default (state = initState, action) => {
                 ...state,
                 isFetching: false,
                 isError: true
-            } 
+            }
+        case 'NEXT_PAGE':
+            return {
+                ...state,
+                page: state.page + 1,
+            }
+        case 'PREV_PAGE':
+            return {
+                ...state,
+                page: state.page - 1,
+            }    
         default:
             return state;
     }

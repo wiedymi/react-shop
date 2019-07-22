@@ -1,9 +1,6 @@
 a {
     text-decoration: none;
 }
-body {
-    background: rgb(238, 238, 238);
-}
 
 .left {
     float: left;
@@ -17,6 +14,10 @@ body {
 @import 'reset-css';
 @import './rwdgrid.css';
 
+body {
+    background: rgb(238, 238, 238);
+    font-family: 'Roboto', sans-serif;
+}
 //variables
 @import './color.scss';
 @import './size.scss';

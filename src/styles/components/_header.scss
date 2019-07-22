@@ -5,7 +5,7 @@
 }
 
 .header__title {
-    color: $white;
+    color: $black;
     font-size: $m-size;
     text-align: center;
     padding: 0;
@@ -13,7 +13,7 @@
 
 .header__title a {
     text-decoration: none;
-    color: $white;
+    color: $black;
     transition: .2s all;
 
 }
@@ -29,8 +29,8 @@
 }
 
 .header__cart {
-    color: #009394;
-    line-height: 1.9rem;
+    color: $black;
+    line-height: 2.1rem;;
     position: relative;
 }
 .header__cart[data-count]:after{
@@ -43,7 +43,7 @@
     border-radius: 50%;
     line-height: .75em;
     color: white;
-    background: #00ad9a;
+    background: $danger;
     text-align: center;
     min-width: 2em;
     font-weight: bold;

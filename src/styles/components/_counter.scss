@@ -8,7 +8,6 @@
     margin-left: $md-margin
 }
 
-
 .purchase a.button {
     float: left;
     
@@ -18,8 +17,8 @@
     cursor: pointer;
 }
 .counter .decrement {
-    background: $danger;
+    background: lighten($black, 10%);
 }
 .counter .increment {
-    background: $primary;
+    background: $black;
 }

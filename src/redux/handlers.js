@@ -39,4 +39,73 @@ const getAllSizeFromItems = (items) => {
 })
 }
 
-export { handleCheckLocalStorage, handleGetData, getAllColorsFromItems, getAllSizeFromItems, getAllTagsFromItems }
+
+const filterList = (type, value, name) => {
+  if(type === 'rating' || type === 'price' || type === 'priceAsc' || type === 'ratingAsc') {
+      let asc = false;
+      value = value.sort((a, b) => {
+          if(type === 'priceAsc' || type === 'ratingAsc') {
+              type = type.slice(0, -3);
+              asc = true;
+          }
+          let value1 = a[type];
+          let value2 = b[type];
+          
+          if(value1 < value2) return 1;
+          if(value1 > value2) return -1;
+          
+          return 0
+      })
+
+      if(asc) {
+          value = value.reverse();
+      }
+
+  } else if(typeof type === 'string' ) {
+      value = value.filter((product) => {
+          return product.title.includes(type);
+      });
+  } 
+
+  if(typeof type === 'object' && type !== null) {
+      const i = value.filter((product) => {
+          const productVal = product[name];  
+          const sizes = type.map((size) => size.value);
+          return sizes.every(i => productVal.includes(i));    
+      })
+      value = i;  
+  }
+  return value;
+}
+
+const filterProduct = (products, filter) => {
+  switch (true) {
+      case filter.search !== '':
+          products = filterList(filter.search, products);
+          /* falls through */
+      case filter.sortBy !== '':
+          products = filterList(filter.sortBy, products)
+          /* falls through */
+      case filter.tags.length !== 0:
+          products = filterList(filter.tags, products, 'tags')
+          /* falls through */
+      case filter.size.length !== 0:
+          products = filterList(filter.size, products, 'size')
+          /* falls through */
+      case filter.colors.length !== 0:
+          products = filterList(filter.colors, products, 'color')  
+          /* falls through */
+      default:
+          return products        
+  }   
+}
+
+
+export { 
+  handleCheckLocalStorage, 
+  handleGetData,
+  getAllColorsFromItems, 
+  getAllSizeFromItems, 
+  getAllTagsFromItems, 
+  filterProduct
+}

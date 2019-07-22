@@ -10,15 +10,16 @@ export const fetchItem = () => {
     return { type: 'FETCH' }
 }
 
-export const fetchedItem = (items) => {
-    return { type: 'FETCHED', items }
+export const fetchedItem = (products) => {
+    return { type: 'FETCHED', products }
 }
+
 export const fetchedItemError = () => {
     return { type: 'FETCHED_ERROR' }
 }
 
-export const setItems = (items) => {
-    return { type: 'SET_ITEMS', items }
+export const setItems = (products) => {
+    return { type: 'SET_ITEMS', products }
 }
 
 export const setColors = (colors) => {
@@ -41,4 +42,16 @@ export const setFilterByTags = (tags) => {
 
 export const setFilterBySortBy = (sortBy) => {
     return { type: 'SET_FILTER_SORT_BY', sortBy}
+}
+
+export const addToCart = (id, count) => {
+    return { type: 'SET_PRODUCT_TO_CART', id, count}
+}
+
+export const nextPage = () => {
+    return { type: 'NEXT_PAGE' }
+}
+
+export const prevPage = () => {
+    return { type: 'PREV_PAGE' }
 }

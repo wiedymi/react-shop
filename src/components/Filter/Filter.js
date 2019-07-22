@@ -67,9 +67,9 @@ class Filter extends Component {
 }
 
 const mapStateToProps = state => {
-    const colors = getAllColorsFromItems(state.items.items);
-    const size = getAllSizeFromItems(state.items.items);
-    const tags = getAllTagsFromItems(state.items.items);
+    const colors = getAllColorsFromItems(state.products.products);
+    const size = getAllSizeFromItems(state.products.products);
+    const tags = getAllTagsFromItems(state.products.products);
     return {
         colors,
         size,

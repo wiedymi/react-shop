@@ -26,5 +26,10 @@
 }
 
 .css-2b097c-container {
-    margin-bottom: $m-margin
+    margin-bottom: 0.5rem;
+    margin-top: 0.1rem;
+}
+
+.css-2b097c-container:last-child {
+    margin-bottom: 0.1rem
 }

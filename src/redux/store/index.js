@@ -1,8 +1,10 @@
 import { combineReducers } from 'redux'
-import items from '../reducers/items'
+import products from '../reducers/products'
 import filter from '../reducers/filter'
+import cart from '../reducers/cart'
 
 export default combineReducers({
-    items,
-    filter
+    products,
+    filter,
+    cart
 })
