@@ -17,6 +17,7 @@
     "react-infinite-scroller": "^1.2.4",
     "react-lazy-load": "^3.0.13",
     "react-localization": "^1.0.14",
+    "react-modal": "^3.9.1",
     "react-read-more-less": "^0.1.6",
     "react-redux": "^7.1.0",
     "react-scripts": "3.0.1",

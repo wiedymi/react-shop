@@ -11,24 +11,13 @@ import thunk from 'redux-thunk'
 
 const store = createStore(
     shop,
-   applyMiddleware(thunk)
+    applyMiddleware(thunk)
 );
-
-
 
 store.subscribe(() => {
     console.log('Store: ', store.getState())
 })
 
-store.dispatch({
-    type: 'SET_PRODUCT_TO_CART',
-    id: 12,
-    count: 1
-})
-
-// store.dispatch({
-//     type: 'NEXT_PAGE',
-// })
 
 ReactDOM.render(
 <Provider store={store}>

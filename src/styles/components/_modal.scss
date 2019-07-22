@@ -1,0 +1,31 @@
+.cart-modal {
+    min-width: 500px;
+    
+}
+
+.cart-modal-purchase .price{
+    padding: 0.7rem 1rem;
+    margin-top: 0.7rem;
+    font-size: 1.1rem;
+    
+}
+.cart-modal-purchase > * {
+    float: left;
+}
+
+.cart-modal h3 {
+    font-size: $m-size;
+}
+
+.cart-modal .cart-list-product {
+    margin: $m-size 0
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    background: #0000004d;
+}

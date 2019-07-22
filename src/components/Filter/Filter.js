@@ -52,7 +52,7 @@ class Filter extends Component {
         ]
         return (
             <Form handleSubmit={this.handleSubmit}>
-                <h1>Filter</h1>
+                <h3>Filter</h3>
                 <label name='sortBy'>Sort By</label>
                 <Select name='sortBy' onChange={this.handleChange} options={price} />
                 <label name='color'>Color</label>

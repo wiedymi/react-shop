@@ -41,7 +41,9 @@ class Info extends Component {
         e.preventDefault();
         const { id, count } = this.state;
         const { dispatch } = this.props;
+        this.setState({ count: 1 })
         dispatch(addToCart(id, count))
+        
     }
     handleCount = (count) => {
         this.setState({ count })
