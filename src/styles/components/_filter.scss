@@ -1,9 +1,31 @@
 .lf-padding {
     padding: 0
 }
-
+@media(min-width: 724px) {
+  .content.desktop {
+    display: inline-block;
+  }
+  .content.mobile {
+    display: none;
+  }
+  .no-padding {
+    padding: 0 $md-size;
+  }
+  .lf-padding {
+    padding-right: $md-size;
+  }
+}
 @media (min-width: 1080px) {
     .lf-padding {
       padding: 0 0 0 1rem
     }
+}
+
+@media (min-width: 1200px) {
+  .no-padding {
+    padding: 0;
+  }
+  .lf-padding {
+    padding-right: 0;
+  }
 }

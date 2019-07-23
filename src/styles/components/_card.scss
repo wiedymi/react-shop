@@ -127,13 +127,61 @@
 .cards .card:last-child {
     margin-bottom: 0px;
 }
+.size.desktop label{
+    display: none;
+}
 
-@media (min-width: 1080px) {
+@media (min-width: 540px) {
+    .size.desktop {
+        display: inline-block;
+    }
+    .card img {
+        height: 10rem;
+    }
+    
+    .size.desktop button{
+        margin-top: 10px;
+    }
+}
+@media (min-width: 724px) {
+    .card img {
+        height: 10.15rem;
+    
+    }
+    .size.desktop label{
+        display: inline-block;
+    }
+    .size.desktop button{
+        margin-top: 0;
+    }
+}
+@media (min-width: 1024px) {
+    .card img {
+        height: 13.3rem;
+    }
+    .card a {
+        font-size: 2.4rem;
+    }
+    .size.desktop label{
+        display: inline-block;
+    }
+    .size.desktop button{
+        margin-top: 0;
+    }
+    .color.desktop {
+        display: inline-block
+    }
+}
+
+@media (min-width: 1200px) {
     .card a {
         font-size: 3rem;
     }
     .card img {
         height: 20rem;
-        border: 1px solid $bg-img
     }
+    .text-break-and-justify.desktop {
+        display: inline-block
+    }
+ 
 }

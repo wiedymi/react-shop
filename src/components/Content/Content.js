@@ -13,11 +13,11 @@ class Content extends Component {
     render() {
         return (
             <div className='container'>
-                <div className='grid-9 no-padding'>
+                <div className='grid-d-9 grid-t-8 grid-tl-8 grid-m-12 no-padding'>
                     <div className='content grid-12'>
                         <Search /> 
                     </div>
-                    <div className='grid-12 no-margin'>
+                    <div className='grid-d-12 rid-t-4 grid-tl-4 grid-m-12 no-margin'>
                         <Filter mobile={true}/>
                     </div>
                    
@@ -25,7 +25,7 @@ class Content extends Component {
                         <Card />
                     </div>                                
                 </div>
-                <div className='grid-3 lf-padding'>                         
+                <div className='grid-d-3 grid-t-4 grid-tl-4 grid-m-12 lf-padding'>                         
                     <Filter mobile={false}/>
                 </div>
             </div>

@@ -38,7 +38,7 @@ class Counter extends Component {
                     <Price count={this.state.count} price={this.props.price}/>
                 </div>
                 <div className="counter mobile">
-                    <Price count={this.state.count} price={this.props.price} text=''/>
+                    <Price count={this.state.count} price={this.props.price} text='Price: '/>
                 </div>
             </>
         )

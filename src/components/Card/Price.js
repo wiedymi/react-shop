@@ -5,7 +5,7 @@ class Price extends Component {
         const { price = 0, count = 1, text = 'Price: ' } = this.props;
         return (
             <div className='price'>
-                {text}{ count * price }$
+                <span>{text}</span> { count * price }$
             </div>
         )
     }

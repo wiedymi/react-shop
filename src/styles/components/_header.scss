@@ -60,6 +60,12 @@
     .header-social-list {
         display: inline;
     }
+    .header-title a {
+        margin-left: $m-size
+    }
+    .mobile-right {
+        margin-right: 30px
+    }
 }
 
 @media (min-width: 1024px) {
@@ -68,8 +74,5 @@
     }
     .right {
         float: right;
-    }
-    .desktop {
-        display: inline-block;
     }
 }

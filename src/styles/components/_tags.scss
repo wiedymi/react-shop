@@ -2,7 +2,7 @@
     margin-top: 0.6rem;
     left: 10rem;
     top: 0.6rem;
-    width: 320px;
+    width: 100%;
 }
 .tags .tag  {
     border: 1px solid $primary-off;
@@ -24,9 +24,26 @@ label.tags {
     display: inline-block;
 }
 
+
+
+@media (min-width: 440px) {
+    .tags {
+        margin-left: 10px;
+        width: unset;
+    }
+}
+
 @media (min-width: 1080px) {
     .tags {
         position: absolute;
         margin-top: 0;
+        width: unset;
+    }
+}
+
+@media (min-width: 1200px) {
+
+    .tags {
+        margin-left: 0;
     }
 }
