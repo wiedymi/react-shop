@@ -50,18 +50,21 @@ class Filter extends Component {
             { value: 'rating', label: 'Rating Desc' },
             { value: 'ratingAsc', label: 'Rating Asc' },
         ]
+        const { colors, size, tags} = this.state;
         return (
-            <Form handleSubmit={this.handleSubmit}>
-                <h3>Filter</h3>
-                <label name='sortBy'>Sort By</label>
-                <Select name='sortBy' onChange={this.handleChange} options={price} />
-                <label name='color'>Color</label>
-                <Select onChange={this.handleChange} name='color' options={this.state.colors} isMulti/>
-                <label name='size'>Size</label>
-                <Select onChange={this.handleChange} name='size' options={this.state.size} isMulti/>
-                <label name='tags'>Tag</label>
-                <Select onChange={this.handleChange} name='tags' options={this.state.tags} isMulti/>
-            </Form>
+            <div className={`content grid-12 ${!this.props.mobile ? 'desktop' : 'mobile'}`}>         
+                <Form handleSubmit={this.handleSubmit}>
+                    <h3>Filter</h3>
+                    <label name='sortBy'>Sort By</label>
+                    <Select name='sortBy' onChange={this.handleChange} options={price}/>
+                    <label name='color'>Color</label>
+                    <Select onChange={this.handleChange} name='color' options={colors} isMulti/>
+                    <label name='size'>Size</label>
+                    <Select onChange={this.handleChange} name='size' options={size} isMulti/>
+                    <label name='tags'>Tag</label>
+                    <Select onChange={this.handleChange} name='tags' options={tags} isMulti/>
+                </Form>
+            </div>
         )
     }
 }

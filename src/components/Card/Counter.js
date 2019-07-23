@@ -20,8 +20,8 @@ class Counter extends Component {
         })
         
     }
-    componentWillReceiveProps () {
-        const { count } = this.state;
+    componentWillReceiveProps (nextProps) {
+        const { count } = nextProps;
         if(this.state.count !== count) {
             this.setState({ count });
             this.props.handleCount(count);
@@ -30,12 +30,17 @@ class Counter extends Component {
 
     render() {
         return (
-            <div className="counter">
-                <div className='decrement' onClick={this.decrement}>-</div>
-                <div className='result'>{this.state.count}</div>
-                <div className='increment' onClick={this.increment}>+</div>
-                <Price count={this.state.count} price={this.props.price}/>
-            </div>
+            <>
+                <div className="counter desktop">
+                    <div className='decrement' onClick={this.decrement}>-</div>
+                    <div className='result'>{this.state.count}</div>
+                    <div className='increment' onClick={this.increment}>+</div>
+                    <Price count={this.state.count} price={this.props.price}/>
+                </div>
+                <div className="counter mobile">
+                    <Price count={this.state.count} price={this.props.price} text=''/>
+                </div>
+            </>
         )
     }
 }

@@ -1,63 +1,9 @@
-.filter__form{
-    width: 100%;
+.lf-padding {
+    padding: 0
 }
 
-.filter__form input{
-    background: $primary-off;
-    color: $white;
-    border: 0;
-    width: 100%;
-    height: $lg-size;
-    font-size: $lg-size - 1rem;
-    padding: 10px;
-    border-bottom: 2px solid lighten($primary-off, 10%);
-    
-}
-
-.filter__form input::placeholder { 
-    color: $white;
-    opacity: 1;
-}
-
-.filter__form input[name='search']::-webkit-search-cancel-button{
-   color: $white;
-}
-.filter__form input:focus{
-    outline: none;
-    border-bottom: 2px solid $primary;
-}
-
-.filter__form input.info{
-    color: $yellow;
-    border-bottom: 2px solid $yellow;
-}
-
-.filter__form input.dager{
-    color: $danger;
-    border-bottom: 2px solid $danger;
-}
-
-.filter__form label[name='search']{
-    font-size: $lg-size;
-    color: $black;
-    text-align: center;
-}
-
-.filter__form button {
-    margin-top: 20px;
-    background: $primary;
-    font-size: $m-size - 0.5rem;
-    border: 0;
-    cursor: pointer;
-    color: $white;
-    padding: ($m-size - 0.6rem) $lg-size;
-    transition: 0.2s all;
-}
-
-.filter__form button:hover{
-    background: darken($primary, 10%);
-}
-
-.filter__form button:focus{
-    outline: none;
+@media (min-width: 1080px) {
+    .lf-padding {
+      padding: 0 0 0 1rem
+    }
 }

@@ -1,5 +1,6 @@
-.cart-modal {
-    min-width: 500px;
+
+div.mobile {
+    display: inline-block;
     
 }
 
@@ -18,7 +19,7 @@
 }
 
 .cart-modal .cart-list-product {
-    margin: $m-size 0
+    margin: $md-size 0
 }
 
 .modal-overlay {
@@ -28,4 +29,13 @@
     right: 0px;
     bottom: 0px;
     background: #0000004d;
+}
+
+@media (min-width: 1080px) {
+    div.content.desktop {
+        display: inline-block;
+    }
+    div.mobile {
+        display: none;
+    }
 }

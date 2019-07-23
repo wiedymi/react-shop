@@ -13,15 +13,20 @@ class Content extends Component {
     render() {
         return (
             <div className='container'>
-                <div className='content grid-9'>
-                    <Search />
-                    <br/>
-                    <Card />          
-                </div>
-                <div className='grid-3 lf-padding'>              
-                    <div className='content'>
-                        <Filter />
+                <div className='grid-9 no-padding'>
+                    <div className='content grid-12'>
+                        <Search /> 
                     </div>
+                    <div className='grid-12 no-margin'>
+                        <Filter mobile={true}/>
+                    </div>
+                   
+                    <div className='content grid-12 tn-top'>
+                        <Card />
+                    </div>                                
+                </div>
+                <div className='grid-3 lf-padding'>                         
+                    <Filter mobile={false}/>
                 </div>
             </div>
         )

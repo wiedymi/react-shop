@@ -43,7 +43,7 @@ class Info extends Component {
         const { dispatch } = this.props;
         this.setState({ count: 1 })
         dispatch(addToCart(id, count))
-        
+        alert(`Added To Your Cart: \n${this.state.title} x${this.state.count}`)
     }
     handleCount = (count) => {
         this.setState({ count })
@@ -54,9 +54,9 @@ class Info extends Component {
         } = this.state;
         return (
             <div className='info'>  
-                <div className='info__title__rating'>
+                <div className='info-title-rating'>
                     <Title title={title} />
-                    <div className='start__tags'>
+                    <div className='start-tags'>
                         <Stars rating={rating} />
                         <Tags tags={tags}/>
                     </div>                

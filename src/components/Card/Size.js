@@ -25,7 +25,7 @@ class Size extends Component {
             </button>
         ));
         return (
-            <div className='size'>
+            <div className='size desktop'>
                 <label>Avalible size</label>
                 {size}
             </div>

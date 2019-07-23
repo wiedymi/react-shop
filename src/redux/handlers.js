@@ -80,13 +80,14 @@ const filterList = (type, value, name) => {
 
 const filterProduct = (products, filter) => {
   switch (true) {
-      case filter.search !== '':
+      case filter.search.length !== 0: 
           products = filterList(filter.search, products);
           /* falls through */
-      case filter.sortBy !== '':
+      case filter.sortBy.length !== 0:
           products = filterList(filter.sortBy, products)
           /* falls through */
       case filter.tags.length !== 0:
+        
           products = filterList(filter.tags, products, 'tags')
           /* falls through */
       case filter.size.length !== 0:

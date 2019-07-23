@@ -1,6 +1,6 @@
 let initState = {
     products: [],
-    page: 1,
+    page: 0,
     isFetching: false,
     isError: false
 };

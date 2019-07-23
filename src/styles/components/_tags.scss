@@ -1,15 +1,15 @@
 .tags {
-    position: absolute;
+    margin-top: 0.6rem;
     left: 10rem;
     top: 0.6rem;
     width: 320px;
 }
 .tags .tag  {
-    border: 1px solid $primary;
+    border: 1px solid $primary-off;
     margin-right: 5px;
     padding: $m-margin 0.8rem;
     border-radius: $m-size;
-    color: $white;
+    color: $primary-off;
     background: $primary;
 }
 
@@ -22,4 +22,11 @@
 label.tags {
     margin-bottom: 3px;
     display: inline-block;
+}
+
+@media (min-width: 1080px) {
+    .tags {
+        position: absolute;
+        margin-top: 0;
+    }
 }

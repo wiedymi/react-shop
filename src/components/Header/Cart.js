@@ -33,10 +33,9 @@ class Cart extends Component {
         return (
             <>
                 <Tippy content="Your cart">
-                    <a href='#cart' className='header__cart' data-count={this.state.cart} onClick={this.toggleModal}>
-                        <FontAwesomeIcon icon={faShoppingCart} size="lg" className='header__cart' />
-                    </a>
-                    
+                    <a href='#cart' className='header-cart mobile-right right' data-count={this.state.cart} onClick={this.toggleModal}>
+                        <FontAwesomeIcon icon={faShoppingCart} size="lg" className='header-cart' />
+                    </a>    
                 </Tippy>
                 <CartModal products={this.state.products} isOpen={this.state.isOpen} toggleModal={this.toggleModal}/>
             </>
@@ -46,7 +45,7 @@ class Cart extends Component {
 
 const mapStateToProps = state => {
     return { 
-        cart: state.cart.count,
+        cart: state.cart.products.length,
         products: state.cart.products
     }
 }

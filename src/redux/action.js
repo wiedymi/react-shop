@@ -55,3 +55,15 @@ export const nextPage = () => {
 export const prevPage = () => {
     return { type: 'PREV_PAGE' }
 }
+
+export const removeFromCart = function removeProductFromCartById(id, count) {
+    return {
+        type: 'REMOVE_PRODUCT_FROM_CART', id, count
+    }
+}
+
+export const changeCart = function changeCartProductCount(id, count) {
+    return {
+        type: 'CHANGE_CART_PRODUCT_COUNT', id, count
+    }
+}

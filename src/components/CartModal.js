@@ -15,16 +15,10 @@ class CartModal extends Component {
     componentDidMount() {
         Modal.setAppElement('body');
     }
-
- 
     componentWillReceiveProps(nextProps) {
         const { isOpen, products, price } = nextProps;
         
         this.setState({ isOpen, products, price })
-    }
-
-    componentDidUpdate(nextProps){
-        console.log(nextProps)
     }
     render() {
         const customStyles = {
@@ -35,7 +29,7 @@ class CartModal extends Component {
               bottom                : 'auto',
               marginRight           : '-50%',
               transform             : 'translate(-50%, -50%)',
-              border : '2px solid #eee'
+              border                : '2px solid #eee'
             }
         };
         return (
@@ -55,7 +49,7 @@ class CartModal extends Component {
                     <hr/>
                     <div className='cart-modal-purchase'>
                         <Button text='Purchase' />
-                        <Price price={this.state.price}/>
+                        <Price price={this.state.price} text='Total: '/>
                     </div>
                 </div>
             </Modal>
@@ -73,7 +67,7 @@ const mapStateToProps = state => {
             return cartids.includes(id);
         })
     })
-
+    
     products = products.map((product) => {
         return {
             ...product, 
@@ -83,7 +77,7 @@ const mapStateToProps = state => {
                     count = cart.count
                 }  
                 return count 
-            }).toString().replace(',','')
+            }).toString().replace(/,/g,'')
         }
     })
     return {

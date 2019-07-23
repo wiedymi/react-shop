@@ -2,10 +2,10 @@ import React, { Component } from 'react'
 
 class Price extends Component {
     render() {
-        const { price = 0, count = 1 } = this.props;
+        const { price = 0, count = 1, text = 'Price: ' } = this.props;
         return (
             <div className='price'>
-                Price: { count * price }$
+                {text}{ count * price }$
             </div>
         )
     }

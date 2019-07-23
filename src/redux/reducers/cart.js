@@ -1,20 +1,19 @@
 let initState = {
-    count: 0,
     products: []
 };
 
 export default (state = initState, action) => {
+    let { products } = state;
+    const { id, count } = action;
+    
     switch (action.type){
         case 'SET_PRODUCT_TO_CART':
-            let { products } = state;
-            const { id, count } = action;
-                       
-            if(state.products.length > 0) {
-                let cartids = state.products.map(cart => cart.id);
+            if(products.length > 0) {
+                let cartids = products.map(cart => cart.id);
                 cartids = [...new Set(cartids)];
                
                 if(cartids.includes(id)) {
-                    products = state.products.map((product) => {
+                    products = products.map((product) => {
                         let output = {
                             id: product.id,
                             count: product.count
@@ -41,13 +40,34 @@ export default (state = initState, action) => {
                 })
             }
            
-            const counts = count + state.count;
 
             return {
                 ...state,
-                count: counts,
                 products
-            };      
+            };
+        case 'REMOVE_PRODUCT_FROM_CART':
+            products = products.filter((product) => {
+                return product.id !== id
+            })           
+            return {
+                ...state,
+                products
+            } 
+        case 'CHANGE_CART_PRODUCT_COUNT':
+            products = products.map((product) => {
+                if(product.id === id) {
+                    product = {
+                        id: product.id,
+                        count
+                    }
+                } 
+                return product;         
+            })
+            
+            return {
+                ...state,
+                products
+            }     
         default:
             return state;
     }

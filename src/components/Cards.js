@@ -6,6 +6,7 @@ import { filterProduct  } from '../redux/handlers'
 class Cards extends Component {
     state = {
         products: [],
+        selectedProducts: [],
         search: '',
         isLoading: true,
         isError: false,
@@ -26,14 +27,12 @@ class Cards extends Component {
     }
     componentDidUpdate(){
         let { products, search = '', isLoading, isError, filter } = this.props;
-        if(this.state.isLoading !== isLoading){
-            
+        if(this.state.isLoading !== isLoading){ 
             products = filterProduct(products, filter)
-
             this.setState({ products, search, isLoading, isError })
         }
        
-      }
+    }
   
     componentWillReceiveProps(nextProps) {
         let { products, search = '', isLoading, isError, page, filter } = nextProps; 
@@ -42,8 +41,7 @@ class Cards extends Component {
             this.setState({ products }) 
         }
 
-        if(this.state.products.length === 0) {
-            
+        if(this.state.products.length === 0) {     
             this.setState({ hasMoreProducts: true })
         } else if (products.length === 0) {
             this.setState({ hasMoreProducts: false })
@@ -69,13 +67,13 @@ class Cards extends Component {
         )
         return (
             <InfiniteScroll 
-                pageStart={this.state.page}
+                pageStart={0}
                 loadMore={this.loadProducts}
                 hasMore={this.state.hasMoreProducts}
                 loader={ <div className='loading' key={0}>Loading...</div>}
             >
                 <div className='cards'>
-                    {cards}
+                    {cards.length > 0 ? cards : (<div>Nothing to show</div>)}
                 </div>
             </InfiniteScroll>   
         )

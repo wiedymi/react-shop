@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
+import CartItem from './CartItem';
 
-export default class SmCard extends Component {
+
+class SmCard extends Component {
     state = {
         products: []
     }
@@ -14,10 +16,14 @@ export default class SmCard extends Component {
         this.setState({ products });
     }
     
- 
-
+   
     render() {
-        const products = this.state.products.map((product, i) => <div key={i}>{product.title} x{product.count}</div>)
+        const products = this.state.products.map((product, i) => 
+            <CartItem
+                key={i}
+                product={product}
+            />
+        )
         return (
             <div className='cart-list-product'>
                {products.length > 0 ? products : (<div>Nothing to show</div>) }
@@ -25,3 +31,7 @@ export default class SmCard extends Component {
         )
     }
 }
+
+
+
+export default SmCard

@@ -1,6 +1,6 @@
 let initState = {
     search: '',
-    sortBy: undefined,
+    sortBy: '',
     colors: [],
     size: [],
     tags: []

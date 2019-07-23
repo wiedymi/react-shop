@@ -1,6 +1,6 @@
 import React from 'react'
 import Social from './social'
-import Lang from './Language'
+import Carts from './Carts'
 import Logo from './Logo'
 import Container from '../Container'
 
@@ -10,7 +10,7 @@ const Header = () => {
             <Container>
                 <Logo />
                 <Social />               
-                <Lang />
+                <Carts />
             </Container>
         </div>
     )

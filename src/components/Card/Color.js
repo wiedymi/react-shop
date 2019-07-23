@@ -12,9 +12,9 @@ class Color extends Component {
             <button className='button' style={{ background: color}} key={index}></button>
         ))
         return (
-            <div className='color'>
+            <div className='color desktop'>
                 <label>Avalible colors</label>
-                {color}
+                <p>{color}</p>
             </div>
         )
     }
