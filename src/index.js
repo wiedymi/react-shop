@@ -3,7 +3,28 @@ import ReactDOM from 'react-dom';
 import './styles/base/base.scss';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-ReactDOM.render(<App />, document.getElementById('root'));
+
+import { Provider } from 'react-redux'
+import { createStore, applyMiddleware } from 'redux'
+import shop from './redux/store'
+import thunk from 'redux-thunk'
+
+const store = createStore(
+    shop,
+    applyMiddleware(thunk)
+);
+
+store.subscribe(() => {
+    console.log('Store: ', store.getState())
+})
+
+
+
+ReactDOM.render(
+<Provider store={store}>
+    <App />
+</Provider>
+, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

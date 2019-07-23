@@ -4,7 +4,7 @@ import LazyLoad from 'react-lazy-load'
 const Img = ({ image }) => {
     return (
         <LazyLoad>
-              <img src={image} alt="" height={320} width={240}/>
+              <img src={image} alt="" />
         </LazyLoad>
     )
 }

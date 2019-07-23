@@ -4,7 +4,7 @@ import ReadMoreAndLess from 'react-read-more-less';
 class Description extends Component {
     render() {
         return (
-            <div className="m-top text-break-and-justify">
+            <div className="m-top text-break-and-justify desktop">
                 <ReadMoreAndLess
                 ref={this.ReadMore}
                 className="m-top"

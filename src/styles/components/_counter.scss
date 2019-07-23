@@ -1,14 +1,14 @@
 .counter div {
-    padding: 0.7rem 1rem;
-    margin-top: $md-size - 0.4rem;
+    padding: 0.7rem 0.4rem;
+    margin-top: $md-size - 0.35rem;
     font-size: $md-size;
-   
 }
 .counter {
     margin-left: $md-margin
 }
-
-
+.price span {
+    display: none;
+}
 .purchase a.button {
     float: left;
     
@@ -18,8 +18,26 @@
     cursor: pointer;
 }
 .counter .decrement {
-    background: $danger;
+    background: lighten($black, 10%);
 }
 .counter .increment {
-    background: $primary;
+    background: $black;
+}
+@media (min-width: 640px) {
+    .price span {
+        display: inline-block;
+    }
+}
+@media (min-width: 1024px) {
+    .counter div {
+        padding: 0.7rem 1rem;
+        margin-top: $md-size - 0.35rem;
+        font-size: $md-size;
+    }
+}
+
+@media (min-width: 1200px) {
+    .counter.desktop {
+        display: inline-block
+    }
 }
