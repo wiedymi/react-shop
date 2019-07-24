@@ -78,22 +78,25 @@ const filterList = (type, value, name) => {
   return value;
 }
 
+const checkFilter = (filter) => {
+  return (filter !== null && filter.length !== 0)
+}
+
 const filterProduct = (products, filter) => {
   switch (true) {
-      case filter.search.length !== 0: 
+      case checkFilter(filter.search): 
           products = filterList(filter.search, products);
           /* falls through */
-      case filter.sortBy.length !== 0:
+      case checkFilter(filter.sortBy):
           products = filterList(filter.sortBy, products)
           /* falls through */
-      case filter.tags.length !== 0:
-        
+      case  checkFilter(filter.tags):
           products = filterList(filter.tags, products, 'tags')
           /* falls through */
-      case filter.size.length !== 0:
+      case checkFilter(filter.size):
           products = filterList(filter.size, products, 'size')
           /* falls through */
-      case filter.colors.length !== 0:
+      case checkFilter(filter.colors):
           products = filterList(filter.colors, products, 'color')  
           /* falls through */
       default:
@@ -101,6 +104,30 @@ const filterProduct = (products, filter) => {
   }   
 }
 
+const LazyLoadInit = () => {
+  const lazyImages = [].slice.call(document.querySelectorAll("img.lazy"));
+
+  if ("IntersectionObserver" in window) {
+    let lazyImageObserver = new IntersectionObserver(function(entries, observer) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          let lazyImage = entry.target;
+          lazyImage.src = lazyImage.dataset.src;
+          lazyImage.classList.remove("lazy");
+          lazyImageObserver.unobserve(lazyImage);
+        }
+      });
+    });
+
+    lazyImages.forEach(function(lazyImage) {
+      lazyImageObserver.observe(lazyImage);
+    });
+  }
+}
+
+const isEquil = (obj1, obj2) => {
+  return (JSON.stringify(obj1) === JSON.stringify(obj2))
+}
 
 export { 
   handleCheckLocalStorage, 
@@ -108,5 +135,7 @@ export {
   getAllColorsFromItems, 
   getAllSizeFromItems, 
   getAllTagsFromItems, 
-  filterProduct
+  isEquil,
+  filterProduct,
+  LazyLoadInit
 }

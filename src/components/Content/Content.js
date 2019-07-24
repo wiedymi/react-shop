@@ -13,7 +13,6 @@ const Content = () => {
         <div className="grid-d-12 rid-t-4 grid-tl-4 grid-m-12 no-margin">
           <Filter mobile />
         </div>
-
         <div className="content grid-12 tn-top">
           <Card />
         </div>
