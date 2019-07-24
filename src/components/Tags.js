@@ -1,17 +1,19 @@
-import React from 'react'
+import React from 'react';
 
-const Tags = ({ tags = [] }) => {
-    const tag = tags.map((tag, index) => (
-        <span className='tag' key={index}>
-            {tag}
+const Tags = ({ tags }) => {
+  return (
+    <div className="tags">
+      {tags.map(tag => (
+        <span className="tag" key={`${tag}`}>
+          {tag}
         </span>
-    ));
+      ))}
+    </div>
+  );
+};
 
-    return (
-        <div className='tags' >
-            {tag}
-        </div>
-    )
-}
+Tags.defaultProps = {
+  tags: []
+};
 
-export default Tags
+export default Tags;
