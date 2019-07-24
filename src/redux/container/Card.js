@@ -1,13 +1,11 @@
 import { connect } from 'react-redux'
 import Cards from '../../components/Cards'
+import { filterProduct  } from '../handlers'
 
-function paginate (array, page_size, page_number) {
-    return array.slice(page_number * page_size, (page_number + 1) * page_size);
-}
 
 const mapStateToProps = (state) => {
     let { products } = state.products;
-    products = paginate(products, 6, state.products.page);
+    products = filterProduct(products, state.filter);
     return {
       products,
       isLoading: state.products.isFetching,
