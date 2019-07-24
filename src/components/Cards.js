@@ -2,7 +2,9 @@ import React, { Component } from 'react'
 import Card from './Card'
 import getProducts from '../redux/thunk'
 import InfiniteScroll from 'react-infinite-scroller';
-import { filterProduct  } from '../redux/handlers'
+import { isEquil, LazyLoadInit } from '../redux/handlers'
+
+
 class Cards extends Component {
     state = {
         products: [],
@@ -16,6 +18,7 @@ class Cards extends Component {
   
     }
     componentDidMount(){
+        LazyLoadInit()
         if(this.state.isLoading){
             try {
                 this.props.dispatch(getProducts());
@@ -23,34 +26,62 @@ class Cards extends Component {
                 return new Error(error)
             }
         }
-        
+     
     }
     componentDidUpdate(){
-        let { products, search = '', isLoading, isError, filter } = this.props;
-        if(this.state.isLoading !== isLoading){ 
-            products = filterProduct(products, filter)
-            this.setState({ products, search, isLoading, isError })
+        LazyLoadInit()
+        let { 
+            products, search = '', isLoading, isError, page, filter 
+        } = this.props;
+
+        if(page === 0) {
+            page = 1;
+        } else {
+            page++;
         }
-       
+        let selectedProducts = products.slice(0, page * 6);
+        
+        if(this.state.isLoading !== isLoading){ 
+            this.setState({ 
+                products, selectedProducts, search, isLoading, isError, page, filter 
+            })
+            
+        }   
     }
   
     componentWillReceiveProps(nextProps) {
         let { products, search = '', isLoading, isError, page, filter } = nextProps; 
-        if(JSON.stringify(this.state.filter) !== JSON.stringify(filter)){
-            products = filterProduct(products, filter);
-            this.setState({ products }) 
-        }
-
+      
         if(this.state.products.length === 0) {     
             this.setState({ hasMoreProducts: true })
-        } else if (products.length === 0) {
+        } else if (products.slice(0, page * 6).length === this.state.products.length) {
+            
             this.setState({ hasMoreProducts: false })
         }
-  
-        
-        if(products.length > 0 && page !== this.state.page){  
-            products = this.state.products.concat(products);
-            this.setState({ products, search, isLoading, isError, load: false, page, filter });
+
+        let selectedProducts = products.slice(0, page * 6);
+        if(!isEquil(filter, this.state.filter)) {
+            selectedProducts =  products.slice(0, ++page * 6)
+            const laod = selectedProducts.length < 3 ? true : false;
+            this.setState({ 
+               selectedProducts, filter, laod
+            })
+        } else {
+            selectedProducts = products;
+        }
+
+        if(products.length > 0 && this.state.page !== page){ 
+            const selectedProducts = products.slice(0, page * 6); 
+            this.setState({ 
+                products, 
+                selectedProducts, 
+                search, 
+                isLoading, 
+                isError, 
+                load: false, 
+                page, 
+                filter 
+            });
         } 
     }
     loadProducts = () => {
@@ -58,11 +89,10 @@ class Cards extends Component {
             const { dispatch } = this.props;
             this.setState({ load: true })
             dispatch({ type: 'NEXT_PAGE'})
-    
         }
     }
     render() {
-        const cards = this.state.products.map((product, i) => 
+        const cards = this.state.selectedProducts.map((product, i) => 
             <Card product={product} key={i}/>
         )
         return (
@@ -70,7 +100,7 @@ class Cards extends Component {
                 pageStart={0}
                 loadMore={this.loadProducts}
                 hasMore={this.state.hasMoreProducts}
-                loader={ <div className='loading' key={0}>Loading...</div>}
+                loader=''
             >
                 <div className='cards'>
                     {cards.length > 0 ? cards : (<div>Nothing to show</div>)}

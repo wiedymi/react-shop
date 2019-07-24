@@ -21,7 +21,7 @@ class Content extends Component {
                         <Filter mobile={true}/>
                     </div>
                    
-                    <div className='content grid-12 tn-top'>
+                    <div className='content grid-12 tn-top m-bottom'>
                         <Card />
                     </div>                                
                 </div>
