@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Colors = ({ colors }) => {
+const ProductColors = ({ colors }) => {
   return (
     <div className="color desktop">
       <label>Avalible colors</label>
@@ -13,4 +13,4 @@ const Colors = ({ colors }) => {
   );
 };
 
-export default Colors;
+export default ProductColors;

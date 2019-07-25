@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
 import StarRatings from 'react-star-ratings';
-import { Colors, CounterPrice, Description, ProductSizeList } from '../subcomponents/index';
+import {
+  ProductColors,
+  ProductCounterPrice,
+  ProductDescription,
+  ProductSizeList
+} from '../subcomponents/index';
 import Button from '../../Button';
 import Tags from '../../Tags';
 
@@ -45,12 +50,12 @@ class Info extends Component {
             <Tags tags={tags} />
           </div>
         </div>
-        <Colors colors={color} />
+        <ProductColors colors={color} />
         <ProductSizeList size={size} />
-        <Description description={description} />
+        <ProductDescription description={description} />
         <div className="purchase">
           <Button name="buy" text="Buy" handleClick={this.handleClick} />
-          <CounterPrice price={price} count={count} handleCount={this.handleCount} />
+          <ProductCounterPrice price={price} count={count} handleCount={this.handleCount} />
         </div>
       </div>
     );

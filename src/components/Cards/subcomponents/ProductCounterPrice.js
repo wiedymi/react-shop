@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Price from './Price';
 
-class CounterPrice extends Component {
+class ProductCounterPrice extends Component {
   state = {
     count: 1
   };
@@ -51,4 +51,4 @@ class CounterPrice extends Component {
   }
 }
 
-export default CounterPrice;
+export default ProductCounterPrice;

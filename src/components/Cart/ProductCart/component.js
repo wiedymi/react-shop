@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { updateCartData, removeFromCart } from '../redux/action';
 
-class CartItem extends Component {
+class ProductCart extends Component {
   state = {
     maxCountOfProduct: 50,
     minCountOfProduct: 1
@@ -58,12 +56,4 @@ class CartItem extends Component {
   }
 }
 
-const mapDispatchToProps = dispatch => ({
-  updateProduct: (id, count) => dispatch(updateCartData(id, count)),
-  removeProduct: (id, count) => dispatch(removeFromCart(id, count))
-});
-
-export default connect(
-  null,
-  mapDispatchToProps
-)(CartItem);
+export default ProductCart;
