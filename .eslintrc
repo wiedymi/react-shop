@@ -11,16 +11,7 @@
     "react/prop-types": 0,
     "no-underscore-dangle": 0,
     "import/imports-first": ["error", "absolute-first"],
-    "import/newline-after-import": "error",
-    "jsx-a11y/label-has-associated-control": [
-      2,
-      {
-        "labelComponents": ["CustomInputLabel"],
-        "labelAttributes": ["label"],
-        "controlComponents": ["CustomInput"],
-        "depth": 3
-      }
-    ]
+    "import/newline-after-import": "error"
   },
   "globals": {
     "window": true,
@@ -29,7 +20,9 @@
     "FormData": true,
     "FileReader": true,
     "Blob": true,
-    "navigator": true
+    "navigator": true,
+    "fetch": false,
+    "label": false
   },
   "parser": "babel-eslint"
 }

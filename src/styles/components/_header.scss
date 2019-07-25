@@ -1,78 +1,84 @@
 .desktop {
-    display: none;
+  display: none;
 }
 .mobile-right {
-    float: right;
-    margin-right: 15px
+  float: right;
+  margin-right: 15px;
 }
 .header {
-    height: $lg-size;
-    background: $primary;
-    border-bottom: 2px solid darken($primary, 10%);
+  height: $lg-size;
+  background: $primary;
+  border-bottom: 2px solid darken($primary, 10%);
 }
 
 .header-title {
-    color: $black;
-    font-size: $m-size;
-    text-align: left;
-    padding: 0;
+  color: $black;
+  font-size: $m-size;
+  text-align: left;
+  padding: 0;
 }
 
 .header-title a {
-    text-decoration: none;
-    color: $black;
-    transition: .2s all;
-
+  text-decoration: none;
+  color: $black;
+  transition: 0.2s all;
 }
 .header-language {
-    padding: 0px;
+  padding: 0px;
 }
 .header-social-list {
-    display: none;
+  display: none;
 }
 .header-social-list li {
-    padding: 3px;
-    text-align: center;
+  padding: 3px;
+  text-align: center;
 }
 
 .header-cart {
-    color: $black;
-    line-height: 2.1rem;;
-    position: relative;
+  color: $black;
+  line-height: 2.1rem;
+  position: relative;
+  cursor: pointer;
 }
-.header-cart[data-count]:after{
-    position: absolute;
-    right: -30%;
-    top: none;
-    content: attr(data-count);
-    font-size: 0.5rem;
-    padding: .6em;
-    border-radius: 50%;
-    line-height: .75em;
-    color: white;
-    background: $danger;
-    text-align: center;
-    min-width: 2em;
-    font-weight: bold;
+.header > .container div:last-child {
+  padding: 3px;
+}
+.header-cart:focus {
+  outline: 0;
+}
+.header-cart[data-count]:after {
+  position: absolute;
+  right: -30%;
+  top: none;
+  content: attr(data-count);
+  font-size: 0.5rem;
+  padding: 0.6em;
+  border-radius: 50%;
+  line-height: 0.75em;
+  color: white;
+  background: $danger;
+  text-align: center;
+  min-width: 2em;
+  font-weight: bold;
 }
 
 @media (min-width: 720px) {
-    .header-social-list {
-        display: inline;
-    }
-    .header-title a {
-        margin-left: $m-size
-    }
-    .mobile-right {
-        margin-right: 30px
-    }
+  .header-social-list {
+    display: inline;
+  }
+  .header-title a {
+    margin-left: $m-size;
+  }
+  .mobile-right {
+    margin-right: 30px;
+  }
 }
 
 @media (min-width: 1024px) {
-    .mobile-right {
-        float: none;
-    }
-    .right {
-        float: right;
-    }
+  .mobile-right {
+    float: none;
+  }
+  .right {
+    float: right;
+  }
 }

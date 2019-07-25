@@ -1,22 +1,23 @@
-a.button {
-    font-size: $md-size;
-    display: inline-block;
-    background: $primary-off;
-    color: $white;
-    padding: $m-padding;
-    border-radius: 4px;
-    margin-top: $md-margin;
-    transition: 0.3s all;
+div.button {
+  font-size: $md-size;
+  display: inline-block;
+  background: $primary-off;
+  color: $white;
+  padding: $m-padding;
+  border-radius: 4px;
+  margin-top: $md-margin;
+  transition: 0.3s all;
+  cursor: pointer;
 }
 
-a.button:hover {
-    background: darken($primary-off, 10%);
+div.button:hover {
+  background: darken($primary-off, 10%);
 }
 .purchase .button:hover {
-    color: $white
+  color: $white;
 }
 
 .lazyload {
-    background: #000;
-    width: 500px;
+  background: #000;
+  width: 500px;
 }
