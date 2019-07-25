@@ -24,14 +24,14 @@ export default (state = initState, action) => {
       return {
         ...state,
         products: products.map(product => {
-          let temp;
+          let temp = product;
           if (product.id === id) {
             temp = {
               id: product.id,
               count
             };
           }
-          return product && temp;
+          return temp;
         })
       };
     default:

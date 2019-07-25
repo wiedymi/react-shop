@@ -1,52 +1,36 @@
 import React, { Component } from 'react';
 import Select from 'react-select';
-import { connect } from 'react-redux';
-import Form from '../Form/Form';
-import {
-  setFilterByColor,
-  setFilterByTags,
-  setFilterBySize,
-  setFilterBySortBy
-} from '../../redux/action';
-import { getDataForFilter } from '../../redux/handlers';
+import Form from '../Form';
 
 class Filter extends Component {
   state = {
-    colors: [],
-    size: [],
-    tags: [],
     sortBy: [
       { value: 'price', label: 'Price Desc' },
       { value: 'priceAsc', label: 'Price Asc' },
       { value: 'rating', label: 'Rating Desc' },
       { value: 'ratingAsc', label: 'Rating Asc' }
-    ],
-    mobile: false
+    ]
   };
 
-  componentWillReceiveProps(nextProps) {
-    const { colors, size, tags, mobile } = nextProps;
-    this.setState({ colors, size, tags, mobile });
-  }
-
   handleChange = (selectedOption, type) => {
-    const { dispatch } = this.props;
+    const { setFilterBy } = this.props;
     switch (type.name) {
       case 'color':
-        return dispatch(setFilterByColor(selectedOption));
+        return setFilterBy('colors', selectedOption);
       case 'tags':
-        return dispatch(setFilterByTags(selectedOption));
+        return setFilterBy('tags', selectedOption);
       case 'size':
-        return dispatch(setFilterBySize(selectedOption));
+        return setFilterBy('size', selectedOption);
       case 'sortBy':
-        return dispatch(setFilterBySortBy(selectedOption.value));
+        return setFilterBy('sortBy', selectedOption.value);
       default:
         throw new Error('Filter default');
     }
   };
 
   render() {
-    const { colors, size, tags, mobile, sortBy } = this.state;
+    const { colors, size, tags, mobile } = this.props;
+    const { sortBy } = this.state;
     return (
       <div className={`content grid-12 ${!mobile ? 'desktop' : 'mobile'}`}>
         <Form handleSubmit={this.handleSubmit}>
@@ -73,16 +57,4 @@ class Filter extends Component {
   }
 }
 
-const mapStateToProps = state => {
-  const { products } = state.products;
-  const colors = getDataForFilter(products, 'color');
-  const size = getDataForFilter(products, 'size');
-  const tags = getDataForFilter(products, 'tags');
-  return {
-    colors,
-    size,
-    tags
-  };
-};
-
-export default connect(mapStateToProps)(Filter);
+export default Filter;

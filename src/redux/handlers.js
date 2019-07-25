@@ -20,70 +20,6 @@ const getDataForFilter = (products, field) => {
   return output;
 };
 
-const filterList = (type, value, name) => {
-  let result = value;
-  if (type === 'rating' || type === 'price' || type === 'priceAsc' || type === 'ratingAsc') {
-    let asc = false;
-    result = result.sort((a, b) => {
-      if (type === 'priceAsc' || type === 'ratingAsc') {
-        type.slice(0, -3);
-        asc = true;
-      }
-      const value1 = a[type];
-      const value2 = b[type];
-
-      if (value1 < value2) return 1;
-      if (value1 > value2) return -1;
-
-      return 0;
-    });
-
-    if (asc) {
-      result = result.reverse();
-    }
-  } else if (name === 'search') {
-    result = result.filter(product => {
-      return product.title.includes(type);
-    });
-  }
-
-  if (typeof type === 'object' && type !== null) {
-    const i = result.filter(product => {
-      const productVal = product[name];
-      const sizes = type.map(size => size.value);
-      return sizes.every(id => productVal.includes(id));
-    });
-    result = i;
-  }
-  return result;
-};
-
-const checkFilter = filter => {
-  return filter !== null && filter.length !== 0;
-};
-
-const filterProduct = (products, filter) => {
-  switch (true) {
-    case checkFilter(filter.search):
-      products = filterList(filter.search, products, 'search');
-    /* falls through */
-    case checkFilter(filter.sortBy):
-      products = filterList(filter.sortBy, products);
-    /* falls through */
-    case checkFilter(filter.tags):
-      products = filterList(filter.tags, products, 'tags');
-    /* falls through */
-    case checkFilter(filter.size):
-      products = filterList(filter.size, products, 'size');
-    /* falls through */
-    case checkFilter(filter.colors):
-      products = filterList(filter.colors, products, 'color');
-    /* falls through */
-    default:
-      return products;
-  }
-};
-
 const LazyLoadInit = () => {
   const lazyImages = [].slice.call(document.querySelectorAll('img.lazy'));
   if ('IntersectionObserver' in window) {
@@ -138,7 +74,6 @@ export {
   getDataFromLocalStorage,
   getDataForFilter,
   isEquil,
-  filterProduct,
   LazyLoadInit,
   constants,
   actionConsts

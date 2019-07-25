@@ -63,11 +63,11 @@ class Cards extends Component {
     let selectedProducts = products.slice(0, page * 6);
     if (!isEquil(filter, this.state.filter)) {
       selectedProducts = products.slice(0, ++page * 6);
-      const laod = selectedProducts.length < 3 ? true : false;
+      const load = selectedProducts.length < 3 ? true : false;
       this.setState({
         selectedProducts,
         filter,
-        laod
+        load
       });
     } else {
       selectedProducts = products;
