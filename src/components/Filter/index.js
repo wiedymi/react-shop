@@ -8,17 +8,19 @@ import {
   setFilterBySize,
   setFilterBySortBy
 } from '../../redux/action';
-import {
-  getAllColorsFromItems,
-  getAllSizeFromItems,
-  getAllTagsFromItems
-} from '../../redux/handlers';
+import { getDataForFilter } from '../../redux/handlers';
 
 class Filter extends Component {
   state = {
     colors: [],
     size: [],
     tags: [],
+    sortBy: [
+      { value: 'price', label: 'Price Desc' },
+      { value: 'priceAsc', label: 'Price Asc' },
+      { value: 'rating', label: 'Rating Desc' },
+      { value: 'ratingAsc', label: 'Rating Asc' }
+    ],
     mobile: false
   };
 
@@ -44,20 +46,14 @@ class Filter extends Component {
   };
 
   render() {
-    const price = [
-      { value: 'price', label: 'Price Desc' },
-      { value: 'priceAsc', label: 'Price Asc' },
-      { value: 'rating', label: 'Rating Desc' },
-      { value: 'ratingAsc', label: 'Rating Asc' }
-    ];
-    const { colors, size, tags, mobile } = this.state;
+    const { colors, size, tags, mobile, sortBy } = this.state;
     return (
       <div className={`content grid-12 ${!mobile ? 'desktop' : 'mobile'}`}>
         <Form handleSubmit={this.handleSubmit}>
           <h3>Filter</h3>
           <span>
             Sort By
-            <Select name="sortBy" onChange={this.handleChange} options={price} id="sortBy" />
+            <Select name="sortBy" onChange={this.handleChange} options={sortBy} id="sortBy" />
           </span>
           <span>
             Color
@@ -78,9 +74,10 @@ class Filter extends Component {
 }
 
 const mapStateToProps = state => {
-  const colors = getAllColorsFromItems(state.products.products);
-  const size = getAllSizeFromItems(state.products.products);
-  const tags = getAllTagsFromItems(state.products.products);
+  const { products } = state.products;
+  const colors = getDataForFilter(products, 'color');
+  const size = getDataForFilter(products, 'size');
+  const tags = getDataForFilter(products, 'tags');
   return {
     colors,
     size,

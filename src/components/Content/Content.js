@@ -1,7 +1,7 @@
 import React from 'react';
-import Search from '../Search/Search';
-import Card from '../../redux/container/Card';
-import Filter from '../Filter/Filter';
+import Search from '../Search/container';
+import Cards from '../Cards/container';
+import Filter from '../Filter';
 
 const Content = () => {
   return (
@@ -14,7 +14,7 @@ const Content = () => {
           <Filter mobile />
         </div>
         <div className="content grid-12 tn-top">
-          <Card />
+          <Cards />
         </div>
       </div>
       <div className="grid-d-3 grid-t-4 grid-tl-4 grid-m-12 lf-padding">

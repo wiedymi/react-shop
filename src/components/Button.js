@@ -1,14 +1,14 @@
 import React from 'react';
 
-const Button = ({ url, text, handleClick }) => {
+const Button = ({ text, handleClick }) => {
   return (
-    <a className="button" href={url} onClick={handleClick}>
+    <div className="button" role="presentation" onClick={handleClick}>
       {text}
-    </a>
+    </div>
   );
 };
+
 Button.defaultProps = {
-  url: '#',
   text: 'Button'
 };
 

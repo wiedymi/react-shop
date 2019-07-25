@@ -1,41 +1,34 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { removeFromCart, changeCart } from '../redux/action';
+import { updateCartData, removeFromCart } from '../redux/action';
 
 class CartItem extends Component {
   state = {
-    id: 0,
-    title: '',
-    price: 0,
-    count: 0
+    maxCountOfProduct: 50,
+    minCountOfProduct: 1
   };
 
-  componentDidMount() {
-    const { price, title, count } = [...this.props].product;
-    const id = [...this.props].product._id.$oid;
-    this.setState({ price, title, count, id });
-  }
-
-  handleChange = e => {
-    const { id } = this.state;
-    const { dispatch } = this.props;
-
-    if (e.target.value === '') {
-      this.setState({ count: 1 });
-    } else {
-      this.setState({ count: e.target.value });
-      dispatch(changeCart(id, e.target.value));
+  handleChange = ({ target }) => {
+    const { id, updateProduct } = this.props;
+    const currentValueInCounter = target.value;
+    const { maxCountOfProduct, minCountOfProduct } = this.state;
+    if (currentValueInCounter === '') {
+      updateProduct(id, 1);
+    } else if (
+      currentValueInCounter >= minCountOfProduct &&
+      currentValueInCounter <= maxCountOfProduct
+    ) {
+      updateProduct(id, target.value);
     }
   };
 
   handleClickDelete = () => {
-    const { count, id } = this.state;
-    const { dispatch } = this.props;
-    dispatch(removeFromCart(id, count));
+    const { id, count, removeProduct } = this.props;
+    removeProduct(id, count);
   };
 
   render() {
-    const { title, price, count } = this.state;
+    const { title, price, count } = this.props;
     return (
       <>
         {title.length > 0 ? (
@@ -65,4 +58,12 @@ class CartItem extends Component {
   }
 }
 
-export default connect()(CartItem);
+const mapDispatchToProps = dispatch => ({
+  updateProduct: (id, count) => dispatch(updateCartData(id, count)),
+  removeProduct: (id, count) => dispatch(removeFromCart(id, count))
+});
+
+export default connect(
+  null,
+  mapDispatchToProps
+)(CartItem);
