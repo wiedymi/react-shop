@@ -1,7 +1,7 @@
 import React from 'react';
 import ReadMoreAndLess from 'react-read-more-less';
 
-const Description = ({ description }) => {
+const ProductDescription = ({ description }) => {
   const charectersToShowInPreview = 350;
   return (
     <div className="m-top text-break-and-justify desktop">
@@ -17,4 +17,4 @@ const Description = ({ description }) => {
   );
 };
 
-export default Description;
+export default ProductDescription;

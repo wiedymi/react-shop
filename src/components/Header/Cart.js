@@ -3,7 +3,7 @@ import Tippy from '@tippy.js/react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import { connect } from 'react-redux';
-import CartModal from '../CartModal';
+import CartModal from '../Cart/container';
 
 class Cart extends Component {
   state = {

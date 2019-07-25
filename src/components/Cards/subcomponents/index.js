@@ -1,8 +1,15 @@
-import Colors from './Colors';
+import ProductColors from './ProductColors';
 import ProductImage from './ProductImage';
 import Price from './Price';
 import ProductSizeList from './ProductSizeList';
-import CounterPrice from './CounterPrice';
-import Description from './Description';
+import ProductCounterPrice from './ProductCounterPrice';
+import ProductDescription from './ProductDescription';
 
-export { Colors, ProductImage, Price, ProductSizeList, CounterPrice, Description };
+export {
+  ProductColors,
+  ProductImage,
+  Price,
+  ProductSizeList,
+  ProductCounterPrice,
+  ProductDescription
+};
