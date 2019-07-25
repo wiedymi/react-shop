@@ -1,10 +1,11 @@
 import { connect } from 'react-redux';
 import Cards from './component';
-import { filterProduct } from '../../redux/handlers';
+import getFilteredProduct from '../../selectors/filter';
 
-const mapStateToProps = ({ products, filter }) => {
+const mapStateToProps = state => {
+  const { products, filter } = state;
   return {
-    products: filterProduct(products.products, filter),
+    products: getFilteredProduct(state),
     isLoading: products.isFetching,
     isError: products.isError,
     page: products.page,

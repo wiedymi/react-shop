@@ -164,7 +164,7 @@
     min-width: 180px;
     max-width: 180px;
   }
-  .card a {
+  .card h3 {
     font-size: 2.4rem;
   }
   .size.desktop label {
@@ -179,7 +179,7 @@
 }
 
 @media (min-width: 1200px) {
-  .card a {
+  .card h3 {
     font-size: 3rem;
   }
   .card img {

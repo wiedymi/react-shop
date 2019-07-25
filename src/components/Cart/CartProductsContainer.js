@@ -1,9 +1,9 @@
 import React from 'react';
-import ProductCart from './ProductCart/container';
+import ProductItem from './ProductItem/container';
 
 const CartProductsContainer = ({ products }) => {
   const CartProducts = products.map(product => (
-    <ProductCart key={product._id.$oid} {...product} id={product._id.$oid} />
+    <ProductItem key={product._id.$oid} {...product} id={product._id.$oid} />
   ));
   return (
     <div className="cart-list-product">

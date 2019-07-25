@@ -28,20 +28,19 @@ export const setColors = colors => {
   return { type: actionConsts.SET_FILTER_COLORS, colors };
 };
 
-export const setFilterByColor = colors => {
-  return { type: actionConsts.SET_FILTER_COLORS, colors };
-};
-
-export const setFilterBySize = size => {
-  return { type: actionConsts.SET_FILTER_SIZE, size };
-};
-
-export const setFilterByTags = tags => {
-  return { type: actionConsts.SET_FILTER_TAGS, tags };
-};
-
-export const setFilterBySortBy = sortBy => {
-  return { type: actionConsts.SET_FILTER_SORT_BY, sortBy };
+export const setFilterBy = (type, value) => {
+  switch (type) {
+    case 'colors':
+      return { type: actionConsts.SET_FILTER_COLORS, colors: value };
+    case 'tags':
+      return { type: actionConsts.SET_FILTER_TAGS, tags: value };
+    case 'size':
+      return { type: actionConsts.SET_FILTER_SIZE, size: value };
+    case 'sortBy':
+      return { type: actionConsts.SET_FILTER_SORT_BY, sortBy: value };
+    default:
+      return {};
+  }
 };
 
 export const addToCart = (id, count, products) => {
