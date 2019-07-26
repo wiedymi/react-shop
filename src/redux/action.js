@@ -1,43 +1,47 @@
-import { actionConsts } from './handlers';
+import actionConsts from './actionConsts';
 
-export const getItems = () => {
-  return { type: actionConsts.GET_ITEMS };
-};
+const {
+  SET_PRODUCT_TO_CART,
+  CHANGE_CART_PRODUCT_COUNT,
+  SET_FILTER_COLORS,
+  SET_FILTER_SEARCH,
+  SET_FILTER_SIZE,
+  SET_FILTER_SORT_BY,
+  SET_FILTER_TAGS,
+  REMOVE_PRODUCT_FROM_CART,
+  PREV_PAGE,
+  NEXT_PAGE,
+  FETCH,
+  FETCHED,
+  FETCHED_ERROR
+} = actionConsts;
 
 export const search = searchText => {
-  return { type: actionConsts.SET_FILTER_SEARCH, search: searchText };
+  return { type: SET_FILTER_SEARCH, search: searchText };
 };
 
 export const fetchItem = () => {
-  return { type: actionConsts.FETCH };
+  return { type: FETCH };
 };
 
 export const fetchedItem = products => {
-  return { type: actionConsts.FETCHED, products };
+  return { type: FETCHED, products };
 };
 
 export const fetchedItemError = () => {
-  return { type: actionConsts.FETCHED_ERROR };
-};
-
-export const setItems = products => {
-  return { type: actionConsts.SET_ITEMS, products };
-};
-
-export const setColors = colors => {
-  return { type: actionConsts.SET_FILTER_COLORS, colors };
+  return { type: FETCHED_ERROR };
 };
 
 export const setFilterBy = (type, value) => {
   switch (type) {
-    case 'colors':
-      return { type: actionConsts.SET_FILTER_COLORS, colors: value };
+    case 'color':
+      return { type: SET_FILTER_COLORS, colors: value };
     case 'tags':
-      return { type: actionConsts.SET_FILTER_TAGS, tags: value };
+      return { type: SET_FILTER_TAGS, tags: value };
     case 'size':
-      return { type: actionConsts.SET_FILTER_SIZE, size: value };
+      return { type: SET_FILTER_SIZE, size: value };
     case 'sortBy':
-      return { type: actionConsts.SET_FILTER_SORT_BY, sortBy: value };
+      return { type: SET_FILTER_SORT_BY, sortBy: value };
     default:
       return {};
   }
@@ -75,20 +79,20 @@ export const addToCart = (id, count, products) => {
       count
     });
   }
-  return { type: actionConsts.SET_PRODUCT_TO_CART, products: result };
+  return { type: SET_PRODUCT_TO_CART, products: result };
 };
 
 export const nextPage = () => {
-  return { type: actionConsts.NEXT_PAGE };
+  return { type: NEXT_PAGE };
 };
 
 export const prevPage = () => {
-  return { type: actionConsts.PREV_PAGE };
+  return { type: PREV_PAGE };
 };
 
 export const removeFromCart = function removeProductFromCartById(id, count) {
   return {
-    type: actionConsts.REMOVE_PRODUCT_FROM_CART,
+    type: REMOVE_PRODUCT_FROM_CART,
     id,
     count
   };
@@ -96,7 +100,7 @@ export const removeFromCart = function removeProductFromCartById(id, count) {
 
 export const updateCartData = function changeCartProductCount(id, count) {
   return {
-    type: actionConsts.CHANGE_CART_PRODUCT_COUNT,
+    type: CHANGE_CART_PRODUCT_COUNT,
     id,
     count
   };

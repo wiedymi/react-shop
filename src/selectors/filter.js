@@ -1,19 +1,20 @@
 import { createSelector } from 'reselect';
 
-const getFilter = state => state.filter;
-const getProducts = state => state.products.products;
+const getFilter = ({ filter }) => filter;
+const getProducts = ({ products }) => products;
 
-const filterList = (type, value, name) => {
+const filterList = (filterValue, value, type) => {
   let result = value;
-  if (type === 'rating' || type === 'price' || type === 'priceAsc' || type === 'ratingAsc') {
+  let types = type;
+  if (types === 'rating' || types === 'price' || types === 'priceAsc' || types === 'ratingAsc') {
     let asc = false;
     result = result.sort((a, b) => {
-      if (type === 'priceAsc' || type === 'ratingAsc') {
-        type.slice(0, -3);
+      if (types === 'priceAsc' || types === 'ratingAsc') {
+        types = types.slice(0, -3);
         asc = true;
       }
-      const value1 = a[type];
-      const value2 = b[type];
+      const value1 = a[types];
+      const value2 = b[types];
 
       if (value1 < value2) return 1;
       if (value1 > value2) return -1;
@@ -24,16 +25,16 @@ const filterList = (type, value, name) => {
     if (asc) {
       result = result.reverse();
     }
-  } else if (name === 'search') {
+  } else if (types === 'search') {
     result = result.filter(product => {
-      return product.title.includes(type);
+      return product.title.toLowerCase().includes(filterValue.toLowerCase());
     });
   }
 
-  if (typeof type === 'object' && type !== null) {
+  if (types === 'tags' || types === 'color' || types === 'size') {
     const i = result.filter(product => {
-      const productVal = product[name];
-      const sizes = type.map(size => size.value);
+      const productVal = product[types];
+      const sizes = filterValue.map(size => size.value);
       return sizes.every(id => productVal.includes(id));
     });
     result = i;
@@ -42,7 +43,7 @@ const filterList = (type, value, name) => {
 };
 
 const checkFilter = filter => {
-  return filter !== null && filter.length !== 0;
+  return filter.length > 0 && filter !== null;
 };
 
 const filterProduct = (products, filter) => {
@@ -52,7 +53,7 @@ const filterProduct = (products, filter) => {
       result = filterList(filter.search, result, 'search');
     /* falls through */
     case checkFilter(filter.sortBy):
-      result = filterList(filter.sortBy, result);
+      result = filterList(filter.sortBy, result, filter.sortBy);
     /* falls through */
     case checkFilter(filter.tags):
       result = filterList(filter.tags, result, 'tags');
@@ -61,7 +62,7 @@ const filterProduct = (products, filter) => {
       result = filterList(filter.size, result, 'size');
     /* falls through */
     case checkFilter(filter.colors):
-      result = filterList(filter.colors, result, 'colors');
+      result = filterList(filter.colors, result, 'color');
     /* falls through */
     default:
       return result;
@@ -69,8 +70,8 @@ const filterProduct = (products, filter) => {
 };
 
 export default createSelector(
-  [getFilter, getProducts],
-  (filter, products) => {
+  [getProducts, getFilter],
+  (products, filter) => {
     return filterProduct(products, filter);
   }
 );

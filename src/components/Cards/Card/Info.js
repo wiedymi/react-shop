@@ -6,6 +6,7 @@ import {
   ProductDescription,
   ProductSizeList
 } from '../subcomponents/index';
+import theme from './theme';
 import Button from '../../Button';
 import Tags from '../../Tags';
 
@@ -17,12 +18,11 @@ class Info extends Component {
   handleClick = e => {
     e.preventDefault();
     const { count } = this.state;
-    const { id, add, products, title } = this.props;
+    const { id, add, products } = this.props;
     this.setState(() => {
       add(id, count, products);
       return { count: 1 };
     });
-    alert(`Added To Your Cart: \n${title} x${count}`);
   };
 
   handleCount = count => {
@@ -41,10 +41,10 @@ class Info extends Component {
           <div className="start-tags">
             <StarRatings
               rating={rating}
-              starRatedColor="#00e0c7"
+              starRatedColor={theme.STAR_COLOR}
               numberOfStars={5}
-              starDimension="30px"
-              starSpacing="0px"
+              starDimension={theme.STAR_SIZE}
+              starSpacing={theme.STAR_SPACE}
               name="rating"
             />
             <Tags tags={tags} />

@@ -5,7 +5,14 @@ const Inputs = ({ type, name, placeholder, onChange }) => {
     <div className="field">
       <label htmlFor={name}>
         {name}
-        <input id={name} type={type} name={name} placeholder={placeholder} onChange={onChange} />
+        <input
+          id={name}
+          type={type}
+          name={name}
+          placeholder={placeholder}
+          onChange={onChange}
+          autoComplete="off"
+        />
       </label>
     </div>
   );

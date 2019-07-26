@@ -1,16 +1,27 @@
 import { connect } from 'react-redux';
 import Cards from './component';
-import getFilteredProduct from '../../selectors/filter';
+import getVisibleProducts from '../../selectors/card';
+import getProducts from '../../redux/thunk';
+import { nextPage } from '../../redux/action';
 
 const mapStateToProps = state => {
-  const { products, filter } = state;
+  const { products } = state;
   return {
-    products: getFilteredProduct(state),
+    visibleProducts: getVisibleProducts({ state, hasMoreProducts: false }),
     isLoading: products.isFetching,
     isError: products.isError,
-    page: products.page,
-    filter
+    hasMoreProducts: getVisibleProducts({ state, hasMoreProducts: true })
   };
 };
 
-export default connect(mapStateToProps)(Cards);
+const mapDispatchToProps = dispatch => {
+  return {
+    getProducts: () => dispatch(getProducts()),
+    nextPage: () => dispatch(nextPage())
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Cards);

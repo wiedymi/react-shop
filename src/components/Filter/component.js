@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import Select from 'react-select';
 import Form from '../Form';
+import FilterConst from './constants';
+
+const { COLOR, TAGS, SIZE, SORT_BY } = FilterConst;
 
 class Filter extends Component {
   state = {
@@ -14,15 +17,19 @@ class Filter extends Component {
 
   handleChange = (selectedOption, type) => {
     const { setFilterBy } = this.props;
+    let value = selectedOption;
+    if (value === null) {
+      value = [];
+    }
     switch (type.name) {
-      case 'color':
-        return setFilterBy('colors', selectedOption);
-      case 'tags':
-        return setFilterBy('tags', selectedOption);
-      case 'size':
-        return setFilterBy('size', selectedOption);
-      case 'sortBy':
-        return setFilterBy('sortBy', selectedOption.value);
+      case COLOR:
+        return setFilterBy(COLOR, value);
+      case TAGS:
+        return setFilterBy(TAGS, value);
+      case SIZE:
+        return setFilterBy(SIZE, value);
+      case SORT_BY:
+        return setFilterBy(SORT_BY, selectedOption.value);
       default:
         throw new Error('Filter default');
     }

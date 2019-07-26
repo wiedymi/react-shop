@@ -1,27 +1,26 @@
-import { isInLocalStorage, getDataFromLocalStorage, constants } from './handlers';
-import { setItems, fetchItem, fetchedItem, fetchedItemError, setColors } from './action';
+import API from './api';
+import { fetchItem, fetchedItem } from './action';
 
-const url = constants.API;
+const url = API.URL;
 
 export default function() {
   return function fetchProductData(dispatch) {
     dispatch(fetchItem());
     return fetch(url)
-      .then(res => res.json())
+      .then(res => {
+        if (res.status !== 200) {
+          throw new Error('Not 200 response');
+        }
+        return res.json();
+      })
       .then(products => {
         if (products.length > 0) {
-          if (!isInLocalStorage(constants.PRODUCTS)) {
-            localStorage.setItem(constants.PRODUCTS, JSON.stringify(products));
-            dispatch(setItems(products));
-            dispatch(setColors(products));
-            return dispatch(fetchedItem());
-          }
-          return dispatch(fetchedItem(getDataFromLocalStorage(constants.PRODUCTS)));
+          return dispatch(fetchedItem(products));
         }
         return true;
       })
-      .catch(() => {
-        return dispatch(fetchedItemError());
+      .catch(err => {
+        return new Error(err);
       });
   };
 }

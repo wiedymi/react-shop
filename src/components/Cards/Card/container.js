@@ -1,6 +1,6 @@
 import React from 'react';
 import { ProductImage } from '../subcomponents/index';
-import ProductInfo from './component';
+import ProductInfo from './InfoContainer';
 
 const Card = ({ product }) => {
   return (
