@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import InfiniteScroll from 'react-infinite-scroller';
-import { LazyLoadInit } from '../../redux/handlers';
-import Card from './Card/container';
+import { LazyLoadInit } from '@/redux/handlers';
+import Card from '@/components/Cards/Card/container';
 
 class Cards extends Component {
   componentDidMount() {

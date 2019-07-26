@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Price from './Price';
+import Price from '@/components/Cards/subcomponents/Price';
 
 class ProductCounterPrice extends Component {
   decrement = () => {

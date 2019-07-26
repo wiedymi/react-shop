@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
-import CartModal from './component';
-import getCartProducts from '../../selectors/cart';
+import CartModal from '@/components/Cart/component';
+import getCartProducts from '@/selectors/cart';
 
 const mapStateToProps = state => {
   return getCartProducts(state);

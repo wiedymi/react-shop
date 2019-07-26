@@ -1,4 +1,4 @@
-import actionConsts from '../actionConsts';
+import actionConsts from '@/redux/actionConsts';
 
 const { SET_PRODUCT_TO_CART, CHANGE_CART_PRODUCT_COUNT, REMOVE_PRODUCT_FROM_CART } = actionConsts;
 

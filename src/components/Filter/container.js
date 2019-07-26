@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
-import { getDataForFilter } from '../../redux/handlers';
-import { setFilterBy } from '../../redux/action';
-import Filter from './component';
+import { getDataForFilter } from '@/redux/handlers';
+import { setFilterBy } from '@/redux/action';
+import Filter from '@/components/Filter/component';
 
 const mapStateToProps = state => {
   const { products } = state.products;

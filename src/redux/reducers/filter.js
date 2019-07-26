@@ -1,4 +1,4 @@
-import actionConsts from '../actionConsts';
+import actionConsts from '@/redux/actionConsts';
 
 const {
   SET_FILTER_COLORS,

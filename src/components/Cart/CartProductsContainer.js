@@ -1,5 +1,5 @@
 import React from 'react';
-import ProductItem from './ProductItem/container';
+import ProductItem from '@/components/Cart/ProductItem/container';
 
 const CartProductsContainer = ({ products }) => {
   const CartProducts = products.map(product => (

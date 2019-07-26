@@ -1,9 +1,9 @@
-import ProductColors from './ProductColors';
-import ProductImage from './ProductImage';
-import Price from './Price';
-import ProductSizeList from './ProductSizeList';
-import ProductCounterPrice from './ProductCounterPrice';
-import ProductDescription from './ProductDescription';
+import ProductColors from '@/components/Cards/subcomponents/ProductColors';
+import ProductImage from '@/components/Cards/subcomponents/ProductImage';
+import Price from '@/components/Cards/subcomponents/Price';
+import ProductSizeList from '@/components/Cards/subcomponents/ProductSizeList';
+import ProductCounterPrice from '@/components/Cards/subcomponents/ProductCounterPrice';
+import ProductDescription from '@/components/Cards/subcomponents/ProductDescription';
 
 export {
   ProductColors,

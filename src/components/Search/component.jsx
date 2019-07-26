@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Form from '../Form';
-import Input from '../Inputs';
+import Form from '@/components/Form';
+import Input from '@/components/Inputs';
 
 class Search extends Component {
   handleChange = e => {

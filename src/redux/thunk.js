@@ -1,5 +1,5 @@
-import API from './api';
-import { fetchItem, fetchedItem } from './action';
+import API from '@/redux/api';
+import { fetchItem, fetchedItem } from '@/redux/action';
 
 const url = API.URL;
 
