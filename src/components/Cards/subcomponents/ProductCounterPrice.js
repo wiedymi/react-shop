@@ -2,35 +2,18 @@ import React, { Component } from 'react';
 import Price from './Price';
 
 class ProductCounterPrice extends Component {
-  state = {
-    count: 1
-  };
-
-  componentDidMount() {
-    const { count, price } = this.props;
-    this.setState(() => ({ count, price }));
-  }
-
   decrement = () => {
-    this.setState(prevState => {
-      const { handleCount } = this.props;
-      const count = prevState.count === 1 ? 1 : prevState.count - 1;
-      handleCount(count);
-      return { count };
-    });
+    const { handleCount, count } = this.props;
+    handleCount(count === 1 ? 1 : count - 1);
   };
 
   increment = () => {
-    this.setState(prevState => {
-      const count = prevState.count + 1;
-      const { handleCount } = this.props;
-      handleCount(count);
-      return { count };
-    });
+    const { handleCount, count } = this.props;
+    handleCount(count + 1);
   };
 
   render() {
-    const { count, price } = this.state;
+    const { count, price } = this.props;
     return (
       <>
         <div className="counter desktop">

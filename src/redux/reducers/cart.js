@@ -1,4 +1,6 @@
-import { actionConsts } from '../handlers';
+import actionConsts from '../actionConsts';
+
+const { SET_PRODUCT_TO_CART, CHANGE_CART_PRODUCT_COUNT, REMOVE_PRODUCT_FROM_CART } = actionConsts;
 
 const initState = {
   products: []
@@ -8,19 +10,19 @@ export default (state = initState, action) => {
   const { products } = state;
   const { id, count } = action;
   switch (action.type) {
-    case actionConsts.SET_PRODUCT_TO_CART:
+    case SET_PRODUCT_TO_CART:
       return {
         ...state,
         products: action.products
       };
-    case actionConsts.REMOVE_PRODUCT_FROM_CART:
+    case REMOVE_PRODUCT_FROM_CART:
       return {
         ...state,
         products: products.filter(product => {
           return product.id !== id;
         })
       };
-    case actionConsts.CHANGE_CART_PRODUCT_COUNT:
+    case CHANGE_CART_PRODUCT_COUNT:
       return {
         ...state,
         products: products.map(product => {

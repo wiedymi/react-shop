@@ -5,13 +5,10 @@ import Filter from './component';
 
 const mapStateToProps = state => {
   const { products } = state.products;
-  const colors = getDataForFilter(products, 'colors');
-  const size = getDataForFilter(products, 'size');
-  const tags = getDataForFilter(products, 'tags');
   return {
-    colors,
-    size,
-    tags
+    colors: getDataForFilter(products, 'color'),
+    size: getDataForFilter(products, 'size'),
+    tags: getDataForFilter(products, 'tags')
   };
 };
 

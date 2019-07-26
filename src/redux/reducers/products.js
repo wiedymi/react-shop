@@ -1,44 +1,39 @@
-import { actionConsts } from '../handlers';
+import actionConsts from '../actionConsts';
+
+const { PREV_PAGE, NEXT_PAGE, FETCH, FETCHED, FETCHED_ERROR } = actionConsts;
 
 const initState = {
   products: [],
-  page: 0,
-  isFetching: false,
+  page: 1,
+  isFetching: true,
   isError: false
 };
 
 export default (state = initState, action) => {
   switch (action.type) {
-    case actionConsts.GET_ITEMS:
-      return state;
-    case actionConsts.SET_ITEMS:
-      return {
-        ...state,
-        products: action.products
-      };
-    case actionConsts.FETCH:
+    case FETCH:
       return {
         ...state,
         isFetching: true
       };
-    case actionConsts.FETCHED:
+    case FETCHED:
       return {
         ...state,
         products: action.products,
         isFetching: false
       };
-    case actionConsts.FETCHED_ERROR:
+    case FETCHED_ERROR:
       return {
         ...state,
         isFetching: false,
         isError: true
       };
-    case actionConsts.NEXT_PAGE:
+    case NEXT_PAGE:
       return {
         ...state,
         page: state.page + 1
       };
-    case actionConsts.PREV_PAGE:
+    case PREV_PAGE:
       return {
         ...state,
         page: state.page - 1
