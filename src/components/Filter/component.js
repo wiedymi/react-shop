@@ -44,7 +44,7 @@ class Filter extends Component {
           <h3>Filter</h3>
           <span>
             Sort By
-            <Select name="sortBy" onChange={this.handleChange} options={sortBy} id="sortBy" />
+            <Select name="sortBy" onChange={this.handleChange} options={sortBy} />
           </span>
           <span>
             Color

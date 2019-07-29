@@ -1,5 +1,5 @@
 import API from '@/redux/api';
-import { fetchItem, fetchedItem } from '@/redux/action';
+import { fetchItem, fetchedItem, fetchedError } from '@/redux/action';
 
 const url = API.URL;
 
@@ -19,8 +19,8 @@ export default function() {
         }
         return true;
       })
-      .catch(err => {
-        return new Error(err);
+      .catch(() => {
+        return dispatch(fetchedError());
       });
   };
 }

@@ -1,8 +1,8 @@
 import React from 'react';
-import Search from '@/components/Search/container';
-import Cards from '@/components/Cards/container';
-import Filter from '@/components/Filter/container';
 import Container from '@/components/Container';
+import Search from '@/components/Search/container';
+import Filter from '@/components/Filter/container';
+import Cards from '@/components/Cards/container';
 
 const Content = () => {
   return (

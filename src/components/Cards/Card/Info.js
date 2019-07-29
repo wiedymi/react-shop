@@ -5,10 +5,10 @@ import {
   ProductCounterPrice,
   ProductDescription,
   ProductSizeList
-} from '../subcomponents/index';
-import theme from './theme';
-import Button from '../../Button';
-import Tags from '../../Tags';
+} from '@/components/Cards/subcomponents/index';
+import theme from '@/components/Cards/Card/theme';
+import Button from '@/components/Button';
+import Tags from '@/components/Tags';
 
 class Info extends Component {
   state = {

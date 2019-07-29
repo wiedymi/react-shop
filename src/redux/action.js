@@ -28,7 +28,7 @@ export const fetchedItem = products => {
   return { type: FETCHED, products };
 };
 
-export const fetchedItemError = () => {
+export const fetchedError = () => {
   return { type: FETCHED_ERROR };
 };
 

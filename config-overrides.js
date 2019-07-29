@@ -1,4 +1,5 @@
 const path = require('path');
+const { rewireWorkboxInject, defaultInjectConfig } = require('react-app-rewire-workbox');
 
 module.exports = function override(config, env) {
   config.resolve = {
