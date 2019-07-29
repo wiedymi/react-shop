@@ -1,6 +1,6 @@
 import React from 'react';
-import { ProductImage } from '../subcomponents/index';
-import ProductInfo from './InfoContainer';
+import { ProductImage } from '@/components/Cards/subcomponents/index';
+import ProductInfo from '@/components/Cards/Card/InfoContainer';
 
 const Card = ({ product }) => {
   return (

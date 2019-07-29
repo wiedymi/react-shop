@@ -1,4 +1,4 @@
-import actionConsts from '../actionConsts';
+import actionConsts from '@/redux/actionConsts';
 
 const { PREV_PAGE, NEXT_PAGE, FETCH, FETCHED, FETCHED_ERROR } = actionConsts;
 

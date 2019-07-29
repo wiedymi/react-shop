@@ -1,4 +1,4 @@
-import actionConsts from './actionConsts';
+import actionConsts from '@/redux/actionConsts';
 
 const {
   SET_PRODUCT_TO_CART,
@@ -28,7 +28,7 @@ export const fetchedItem = products => {
   return { type: FETCHED, products };
 };
 
-export const fetchedItemError = () => {
+export const fetchedError = () => {
   return { type: FETCHED_ERROR };
 };
 

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Select from 'react-select';
-import Form from '../Form';
-import FilterConst from './constants';
+import Form from '@/components/Form';
+import FilterConst from '@/components/Filter/constants';
 
 const { COLOR, TAGS, SIZE, SORT_BY } = FilterConst;
 
@@ -44,7 +44,7 @@ class Filter extends Component {
           <h3>Filter</h3>
           <span>
             Sort By
-            <Select name="sortBy" onChange={this.handleChange} options={sortBy} id="sortBy" />
+            <Select name="sortBy" onChange={this.handleChange} options={sortBy} />
           </span>
           <span>
             Color

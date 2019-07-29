@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
-import { updateCartData, removeFromCart } from '../../../redux/action';
-import ProductaItem from './component';
+import { updateCartData, removeFromCart } from '@/redux/action';
+import ProductaItem from '@/components/Cart/ProductItem/component';
 
 const mapDispatchToProps = dispatch => ({
   updateProduct: (id, count) => dispatch(updateCartData(id, count)),

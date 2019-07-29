@@ -1,8 +1,8 @@
 import { connect } from 'react-redux';
 import Cards from './component';
-import getVisibleProducts from '../../selectors/card';
-import getProducts from '../../redux/thunk';
-import { nextPage } from '../../redux/action';
+import getVisibleProducts from '@/selectors/card';
+import getProducts from '@/redux/thunk';
+import { nextPage } from '@/redux/action';
 
 const mapStateToProps = state => {
   const { products } = state;

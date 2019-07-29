@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import InfiniteScroll from 'react-infinite-scroller';
-import { LazyLoadInit } from '../../redux/handlers';
-import Card from './Card/container';
+import { LazyLoadInit } from '@/redux/handlers';
+import Card from '@/components/Cards/Card/container';
 
 class Cards extends Component {
   componentDidMount() {
@@ -31,7 +31,7 @@ class Cards extends Component {
   };
 
   render() {
-    const { visibleProducts, hasMoreProducts } = this.props;
+    const { visibleProducts, hasMoreProducts, isError } = this.props;
     const cards = visibleProducts.map(product => <Card product={product} key={product._id.$oid} />);
     return (
       <InfiniteScroll
@@ -40,7 +40,11 @@ class Cards extends Component {
         hasMore={hasMoreProducts}
         loader="Load"
       >
-        <div className="cards">{cards.length > 0 ? cards : <div>Nothing to show</div>}</div>
+        {isError ? (
+          <div>No Internet Connection</div>
+        ) : (
+          <div className="cards">{cards.length > 0 ? cards : <div>Nothing to show</div>}</div>
+        )}
       </InfiniteScroll>
     );
   }

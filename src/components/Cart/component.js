@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import Modal from 'react-modal';
-import Button from '../Button';
-import { Price } from '../Cards/subcomponents/index';
-import CartProductsContainer from './CartProductsContainer';
+import Button from '@/components/Button';
+import { Price } from '@/components/Cards/subcomponents/index';
+import CartProductsContainer from '@/components/Cart/CartProductsContainer';
 
 const modalStyles = {
   content: {

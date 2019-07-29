@@ -141,16 +141,15 @@
     min-width: 130px;
     max-width: 130px;
   }
-
-  .size.desktop button {
-    margin-top: 10px;
-  }
 }
 @media (min-width: 724px) {
   .card img {
     height: 10.15rem;
     min-width: 130px;
     max-width: 130px;
+  }
+  .info > .size > div.grid-12 {
+    padding: 0;
   }
   .size.desktop label {
     display: inline-block;
@@ -164,6 +163,9 @@
     height: 13.3rem;
     min-width: 180px;
     max-width: 180px;
+  }
+  .info > .size > div.grid-12 {
+    padding: 0;
   }
   .card h3 {
     font-size: 2.4rem;
