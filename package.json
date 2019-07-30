@@ -7,9 +7,10 @@
     "@fortawesome/free-solid-svg-icons": "^5.9.0",
     "@fortawesome/react-fontawesome": "^0.1.4",
     "@tippy.js/react": "^2.2.2",
+    "eslint-config-standard-react": "^8.0.0",
     "node-sass": "^4.12.0",
+    "prop-types": "^15.7.2",
     "react": "^16.8.6",
-    "react-app-rewire-workbox": "^2.0.1",
     "react-dom": "^16.8.6",
     "react-infinite-scroller": "^1.2.4",
     "react-lazy-load": "^3.0.13",
@@ -24,8 +25,8 @@
     "reselect": "^4.0.0",
     "reset-css": "^4.0.1",
     "serve": "^11.1.0",
-    "webpack": "^4.29.6",
-    "workbox-webpack-plugin": "^4.3.1"
+    "stylelint-config-recommended": "^2.2.0",
+    "webpack": "^4.29.6"
   },
   "scripts": {
     "start": "react-app-rewired start",
@@ -58,15 +59,21 @@
     "eslint": "^5.16.0",
     "eslint-config-airbnb": "^17.1.1",
     "eslint-config-prettier": "^6.0.0",
+    "eslint-config-standard": "^13.0.1",
     "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-node": "^9.1.0",
     "eslint-plugin-prettier": "^3.1.0",
+    "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-react": "^7.14.3",
+    "eslint-plugin-standard": "^4.0.0",
     "husky": "^3.0.1",
     "lint-staged": "^9.2.0",
+    "offline-plugin": "^5.0.7",
     "prettier": "^1.18.2",
+    "prettier-eslint": "^9.0.0",
     "pretty-quick": "^1.11.1",
     "react-app-rewired": "^2.1.3",
-    "workbox-build": "^4.3.1"
+    "stylelint-config-styled-components": "^0.1.1"
   }
 }
