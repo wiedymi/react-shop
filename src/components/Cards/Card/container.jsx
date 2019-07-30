@@ -1,6 +1,7 @@
-import React from 'react';
-import { ProductImage } from '@/components/Cards/subcomponents/index';
-import ProductInfo from '@/components/Cards/Card/InfoContainer';
+import React from 'react'
+import PropTypes from 'prop-types'
+import { ProductImage } from '@/components/Cards/subcomponents/index'
+import ProductInfo from '@/components/Cards/Card/InfoContainer'
 
 const Card = ({ product }) => {
   return (
@@ -14,10 +15,13 @@ const Card = ({ product }) => {
         tags={product.tags}
         color={product.color}
         size={product.size}
-        price={product.price}
-      />
+        price={product.price} />
     </div>
-  );
-};
+  )
+}
 
-export default Card;
+Card.propTypes = {
+  product: PropTypes.object.isRequired,
+}
+
+export default Card

@@ -1,4 +1,5 @@
-import React from 'react';
+import React from 'react'
+import PropTypes from 'prop-types'
 
 const Tags = ({ tags }) => {
   return (
@@ -9,11 +10,15 @@ const Tags = ({ tags }) => {
         </span>
       ))}
     </div>
-  );
-};
+  )
+}
 
 Tags.defaultProps = {
-  tags: []
-};
+  tags: [],
+}
 
-export default Tags;
+Tags.propTypes = {
+  tags: PropTypes.array.isRequired,
+}
+
+export default Tags

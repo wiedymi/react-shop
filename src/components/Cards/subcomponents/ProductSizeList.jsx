@@ -1,23 +1,23 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 
 class ProductSizeList extends Component {
   state = {
-    selected: undefined
-  };
+    selected: undefined,
+  }
 
   handleSize = ({ target }) => {
-    const selected = target.value;
+    const selected = target.value
     this.setState(state => {
       return {
         ...state,
-        selected
-      };
-    });
-  };
+        selected,
+      }
+    })
+  }
 
-  render() {
-    const { size } = this.props;
-    const { selected } = this.state;
+  render () {
+    const { size } = this.props
+    const { selected } = this.state
     return (
       <div className="size desktop">
         <p>Avalible size</p>
@@ -35,8 +35,8 @@ class ProductSizeList extends Component {
           ))}
         </div>
       </div>
-    );
+    )
   }
 }
 
-export default ProductSizeList;
+export default ProductSizeList

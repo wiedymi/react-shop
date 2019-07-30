@@ -1,44 +1,44 @@
-import actionConsts from '@/redux/actionConsts';
+import actionConsts from '@/redux/actionConsts'
 
-const { PREV_PAGE, NEXT_PAGE, FETCH, FETCHED, FETCHED_ERROR } = actionConsts;
+const { PREV_PAGE, NEXT_PAGE, FETCH, FETCHED, FETCHED_ERROR } = actionConsts
 
 const initState = {
   products: [],
   page: 1,
   isFetching: true,
-  isError: false
-};
+  isError: false,
+}
 
 export default (state = initState, action) => {
   switch (action.type) {
     case FETCH:
       return {
         ...state,
-        isFetching: true
-      };
+        isFetching: true,
+      }
     case FETCHED:
       return {
         ...state,
         products: action.products,
-        isFetching: false
-      };
+        isFetching: false,
+      }
     case FETCHED_ERROR:
       return {
         ...state,
         isFetching: false,
-        isError: true
-      };
+        isError: true,
+      }
     case NEXT_PAGE:
       return {
         ...state,
-        page: state.page + 1
-      };
+        page: state.page + 1,
+      }
     case PREV_PAGE:
       return {
         ...state,
-        page: state.page - 1
-      };
+        page: state.page - 1,
+      }
     default:
-      return state;
+      return state
   }
-};
+}

@@ -1,8 +1,9 @@
-import React, { Component } from 'react';
-import Modal from 'react-modal';
-import Button from '@/components/Button';
-import { Price } from '@/components/Cards/subcomponents/index';
-import CartProductsContainer from '@/components/Cart/CartProductsContainer';
+import React, { Component } from 'react'
+import Modal from 'react-modal'
+import PropTypes from 'prop-types'
+import Button from '@/components/Button'
+import { Price } from '@/components/Cards/subcomponents/index'
+import CartProductsContainer from '@/components/Cart/CartProductsContainer'
 
 const modalStyles = {
   content: {
@@ -12,17 +13,17 @@ const modalStyles = {
     bottom: 'auto',
     marginRight: '-50%',
     transform: 'translate(-50%, -50%)',
-    border: '2px solid #eee'
-  }
-};
+    border: '2px solid #eee',
+  },
+}
 
 class CartModal extends Component {
-  componentDidMount() {
-    Modal.setAppElement('body');
+  componentDidMount () {
+    Modal.setAppElement('body')
   }
 
-  render() {
-    const { isOpen, toggleModal, products, price } = this.props;
+  render () {
+    const { isOpen, toggleModal, products, price } = this.props
     return (
       <Modal
         isOpen={isOpen}
@@ -43,8 +44,15 @@ class CartModal extends Component {
           </div>
         </div>
       </Modal>
-    );
+    )
   }
 }
 
-export default CartModal;
+CartModal.propTypes = {
+  isOpen: PropTypes.bool.isRequired,
+  toggleModal: PropTypes.func.isRequired,
+  products: PropTypes.array.isRequired,
+  price: PropTypes.number.isRequired,
+}
+
+export default CartModal

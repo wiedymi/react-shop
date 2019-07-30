@@ -1,7 +1,7 @@
-import React from 'react';
-import Cart from '@/components/Header/Cart';
-import Logo from '@/components/Header/Logo';
-import Container from '@/components/Container';
+import React from 'react'
+import Cart from '@/components/Header/Cart'
+import Logo from '@/components/Header/Logo'
+import Container from '@/components/Container'
 
 const Header = () => {
   return (
@@ -12,7 +12,7 @@ const Header = () => {
         <Cart />
       </Container>
     </div>
-  );
-};
+  )
+}
 
-export default Header;
+export default Header

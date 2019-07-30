@@ -1,8 +1,8 @@
-import React from 'react';
-import Container from '@/components/Container';
-import Search from '@/components/Search/container';
-import Filter from '@/components/Filter/container';
-import Cards from '@/components/Cards/container';
+import React from 'react'
+import Container from '@/components/Container'
+import Search from '@/components/Search/container'
+import Filter from '@/components/Filter/container'
+import Cards from '@/components/Cards/container'
 
 const Content = () => {
   return (
@@ -22,7 +22,7 @@ const Content = () => {
         <Filter mobile={false} />
       </div>
     </Container>
-  );
-};
+  )
+}
 
-export default Content;
+export default Content

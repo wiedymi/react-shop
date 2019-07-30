@@ -1,5 +1,5 @@
-import React from 'react';
-import Tippy from '@tippy.js/react';
+import React from 'react'
+import Tippy from '@tippy.js/react'
 
 const Logo = () => {
   return (
@@ -10,7 +10,7 @@ const Logo = () => {
         </a>
       </Tippy>
     </div>
-  );
-};
+  )
+}
 
-export default Logo;
+export default Logo

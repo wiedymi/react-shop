@@ -1,32 +1,33 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 
 class ProductCart extends Component {
   state = {
     maxCountOfProduct: 50,
-    minCountOfProduct: 1
-  };
+    minCountOfProduct: 1,
+  }
 
   handleChange = ({ target }) => {
-    const { id, updateProduct } = this.props;
-    const currentValueInCounter = target.value;
-    const { maxCountOfProduct, minCountOfProduct } = this.state;
+    const { id, updateProduct } = this.props
+    const currentValueInCounter = target.value
+    const { maxCountOfProduct, minCountOfProduct } = this.state
     if (currentValueInCounter === '') {
-      updateProduct(id, 1);
+      updateProduct(id, 1)
     } else if (
       currentValueInCounter >= minCountOfProduct &&
       currentValueInCounter <= maxCountOfProduct
     ) {
-      updateProduct(id, target.value);
+      updateProduct(id, target.value)
     }
-  };
+  }
 
   handleClickDelete = () => {
-    const { id, count, removeProduct } = this.props;
-    removeProduct(id, count);
-  };
+    const { id, count, removeProduct } = this.props
+    removeProduct(id, count)
+  }
 
-  render() {
-    const { title, price, count } = this.props;
+  render () {
+    const { title, price, count } = this.props
     return (
       <>
         {title.length > 0 ? (
@@ -37,7 +38,8 @@ class ProductCart extends Component {
               </p>
             </div>
             <div className="cart-item-counter">
-              <input type="number" value={count} onChange={this.handleChange} />
+              <input type="number" value={count}
+                onChange={this.handleChange} />
               <div
                 className="cart-item-close"
                 onClick={this.handleClickDelete}
@@ -52,8 +54,17 @@ class ProductCart extends Component {
           <></>
         )}
       </>
-    );
+    )
   }
 }
 
-export default ProductCart;
+ProductCart.propTypes = {
+  title: PropTypes.string.isRequired,
+  price: PropTypes.number.isRequired,
+  count: PropTypes.number.isRequired,
+  removeProduct: PropTypes.func.isRequired,
+  id: PropTypes.number.isRequired,
+  updateProduct: PropTypes.func.isRequired,
+}
+
+export default ProductCart

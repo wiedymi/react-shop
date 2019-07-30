@@ -1,4 +1,5 @@
-import React from 'react';
+import React from 'react'
+import PropTypes from 'prop-types'
 
 const Inputs = ({ type, name, placeholder, onChange }) => {
   return (
@@ -11,17 +12,23 @@ const Inputs = ({ type, name, placeholder, onChange }) => {
           name={name}
           placeholder={placeholder}
           onChange={onChange}
-          autoComplete="off"
-        />
+          autoComplete="off" />
       </label>
     </div>
-  );
-};
+  )
+}
 
 Inputs.defaultProps = {
   type: 'text',
   name: 'Label',
-  placeholder: ''
-};
+  placeholder: '',
+}
 
-export default Inputs;
+Inputs.propTypes = {
+  type: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  placeholder: PropTypes.string,
+  onChange: PropTypes.func,
+}
+
+export default Inputs
