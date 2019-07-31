@@ -1,6 +1,6 @@
 .card {
   display: flex;
-  margin-bottom: 0.4rem;
+  margin-bottom: 0.6rem;
   overflow: hidden;
 }
 .text-break-and-justify {
@@ -17,7 +17,7 @@
 }
 
 .card img {
-  height: 8.99rem;
+  height: 10rem;
   min-width: 110px;
   max-width: 110px;
   border: 1px solid $bg-img;
@@ -40,7 +40,7 @@
   width: 100%;
 }
 .info h3 {
-  padding: 0 0.2rem 0 0;
+  padding: 0.2rem 0;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -66,6 +66,7 @@
 
 .color {
   width: 100%;
+  margin-top: 0.2rem;
 }
 .color .button {
   display: inline-block;
@@ -87,6 +88,7 @@
 
 .size {
   width: 100%;
+  margin-top: 0.2rem;
 }
 .size .button {
   display: inline-block;
@@ -97,20 +99,19 @@
   background: $white;
   margin-right: $m-margin;
 }
-.size .button.selected {
+.button.selected {
+  border: 1px solid $bg-img;
   border-color: $black;
 }
 .size .button:focus {
   outline: 0;
 }
-.size label {
-  width: 100%;
-  float: left;
+.size p {
+  margin-bottom: 0.4rem;
 }
 
-.color label {
-  width: 100%;
-  float: left;
+.color p {
+  margin-bottom: 0.4rem;
 }
 .purchase {
   width: 100%;
@@ -137,16 +138,22 @@
     display: inline-block;
   }
   .card img {
-    height: 10rem;
+    height: 11.3rem;
     min-width: 130px;
     max-width: 130px;
   }
 }
 @media (min-width: 724px) {
   .card img {
-    height: 10.15rem;
+    height: 11.15rem;
     min-width: 130px;
     max-width: 130px;
+  }
+  .no-padding.relative {
+    padding: 0;
+  }
+  .fixed {
+    width: 30.9%;
   }
   .info > .size > div.grid-12 {
     padding: 0;
@@ -160,9 +167,12 @@
 }
 @media (min-width: 1024px) {
   .card img {
-    height: 13.3rem;
+    height: 15.3rem;
     min-width: 180px;
     max-width: 180px;
+  }
+  .fixed {
+    width: 31.6%;
   }
   .info > .size > div.grid-12 {
     padding: 0;
@@ -185,8 +195,11 @@
   .card h3 {
     font-size: 3rem;
   }
+  .fixed {
+    width: 15.16%;
+  }
   .card img {
-    height: 20rem;
+    height: 21.3rem;
     min-width: 230px;
     max-width: 230px;
   }

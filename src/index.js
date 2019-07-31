@@ -20,15 +20,23 @@ ReactDOM.render(
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: https://bit.ly/CRA-PWA
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', () => {
-    navigator.serviceWorker.register('./sw.js').then(reg => {
-      console.log('Service worker registered.')
-    })
-  })
-}
 
 OfflinePluginRuntime.install({
-  onUpdateReady: () => OfflinePluginRuntime.applyUpdate(),
-  onUpdated: () => (window.swUpdate = true),
+  onUpdating: () => {
+    console.log('SW Event:', 'onUpdating')
+  },
+  onUpdateReady: () => {
+    console.log('SW Event:', 'onUpdateReady')
+    // Tells to new SW to take control immediately
+    OfflinePluginRuntime.applyUpdate()
+  },
+  onUpdated: () => {
+    console.log('SW Event:', 'onUpdated')
+    // Reload the webpage to load into the new version
+    window.location.reload()
+  },
+
+  onUpdateFailed: () => {
+    console.log('SW Event:', 'onUpdateFailed')
+  },
 })

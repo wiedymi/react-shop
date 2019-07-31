@@ -19,7 +19,9 @@ const Content = () => {
         </div>
       </div>
       <div className="grid-d-3 grid-t-4 grid-tl-4 grid-m-12 lf-padding">
-        <Filter mobile={false} />
+        <div className="grid-12 no-padding relative">
+          <Filter mobile={false} />
+        </div>
       </div>
     </Container>
   )

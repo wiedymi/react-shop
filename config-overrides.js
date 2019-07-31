@@ -1,24 +1,25 @@
-const path = require('path');
-const OfflinePlugin = require('offline-plugin');
+const path = require('path')
+const OfflinePlugin = require('offline-plugin')
 
-module.exports = function override(config, env) {
+module.exports = function override (config, env) {
   config.resolve = {
     ...config.resolve,
-    alias: { '@': path.resolve(__dirname, 'src') }
-  };
+    alias: { '@': path.resolve(__dirname, 'src') },
+  }
   config.plugins = [
     ...config.plugins,
     new OfflinePlugin({
-      caches: "all",
-      updateStrategy: "all",
+      caches: 'all',
+      updateStrategy: 'all',
       responseStrategy: 'cache-first',
-      autoUpdate: 1000 * 60 * 2, // 2 min
-      externals: ['manifest.json', 'favicon.ico', 'sw.js'],
+      externals: ['manifest.json', 'favicon.ico'],
       ServiceWorker: {
+        output: './service-worker.js',
+        entry: './src/service-worker.js',
         events: true,
-        navigateFallbackURL: "/"
-      }
-    })
-  ];
-  return config;
-};
+        navigateFallbackURL: '/',
+      },
+    }),
+  ]
+  return config
+}
