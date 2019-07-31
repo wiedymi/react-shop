@@ -1,12 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import StyledForm from '@/components/styled/StyledForm'
 
 const Form = ({ children, onSubmit }) => {
-  return (
-    <form className="form" onSubmit={onSubmit}>
-      {children}
-    </form>
-  )
+  return <StyledForm onSubmit={onSubmit}>{children}</StyledForm>
 }
 
 Form.propTypes = {
