@@ -55,3 +55,25 @@ select:-webkit-autofill:focus {
     padding: 0;
   }
 }
+
+.relative {
+  position: relative;
+}
+
+.fixed {
+  position: fixed;
+  top: 3rem;
+  margin-top: 0;
+  width: 15.16%;
+}
+
+.fixed-header {
+  position: fixed;
+  width: 100%;
+  z-index: 999;
+}
+html,
+body {
+  overflow-x: hidden;
+  overflow-y: auto;
+}

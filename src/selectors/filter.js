@@ -56,6 +56,7 @@ const filterProduct = (products, filter) => {
       result = filterList(filter.sortBy, result, filter.sortBy)
     /* falls through */
     case checkFilter(filter.tags):
+      console.log(filter.tags)
       result = filterList(filter.tags, result, 'tags')
     /* falls through */
     case checkFilter(filter.size):

@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import { addToCart } from '@/redux/action'
+import { addToCart, setFilterBy } from '@/redux/action'
 import Info from '@/components/Cards/Card/Info'
 
 const mapStateToProps = state => ({
@@ -8,6 +8,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   add: (id, count, products) => dispatch(addToCart(id, count, products)),
+  setTags: tag => dispatch(setFilterBy('tags', [{ value: tag[0] }])),
 })
 
 export default connect(

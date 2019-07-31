@@ -32,6 +32,11 @@ class Info extends Component {
     }))
   }
 
+  handleTags = e => {
+    const { setTags, tags } = this.props
+    setTags(tags)
+  }
+
   render () {
     const { count } = this.state
     const { title, rating, description, tags, color, size, price } = this.props
@@ -46,8 +51,10 @@ class Info extends Component {
               numberOfStars={5}
               starDimension={theme.STAR_SIZE}
               starSpacing={theme.STAR_SPACE}
-              name="rating" />
-            <Tags tags={tags} />
+              isSelectable
+              name="rating"
+              changeRating={e => console.log(e)} />
+            <Tags tags={tags} handleClick={this.handleTags} />
           </div>
         </div>
         <ProductColors colors={color} />
@@ -75,6 +82,7 @@ Info.propTypes = {
   id: PropTypes.string.isRequired,
   add: PropTypes.func.isRequired,
   products: PropTypes.array.isRequired,
+  setTags: PropTypes.func.isRequired,
 }
 
 export default Info
