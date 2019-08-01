@@ -61,7 +61,7 @@ class Info extends Component {
         <ProductSizeList size={size} />
         <ProductDescription description={description} />
         <div className="purchase">
-          <Button name="buy" text="Buy"
+          <Button name="buy" text="Add To Cart"
             handleClick={this.handleClick} />
           <ProductCounterPrice price={price} count={count}
             handleCount={this.handleCount} />
