@@ -1,13 +1,14 @@
 import React from 'react'
-import Header from './components/Header'
-import Content from './components/Content'
+import Header from '@/components/Header'
+import Content from '@/components/Content'
+import StyledApp from '@/components/styled/StyledApp'
 
 const App = () => {
   return (
-    <div className="App relative">
+    <StyledApp>
       <Header />
       <Content />
-    </div>
+    </StyledApp>
   )
 }
 

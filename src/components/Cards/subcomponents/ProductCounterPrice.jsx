@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import Price from '@/components/Cards/subcomponents/Price'
-
+import StyledCounter from '@/components/styled/StyledCounter'
 class ProductCounterPrice extends Component {
   decrement = () => {
     const { handleCount, count } = this.props
@@ -16,7 +16,7 @@ class ProductCounterPrice extends Component {
   render () {
     const { count, price } = this.props
     return (
-      <>
+      <StyledCounter>
         <div className="counter desktop">
           <div className="decrement" onClick={this.decrement}
             role="presentation"
@@ -35,7 +35,7 @@ class ProductCounterPrice extends Component {
           <Price count={count} price={price}
             text="Price: " />
         </div>
-      </>
+      </StyledCounter>
     )
   }
 }

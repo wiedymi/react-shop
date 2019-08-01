@@ -1,10 +1,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import StyledContainer from '@/components/styled/StyledContainer'
 
 const Container = ({ children = '' }) => {
-  return <div className="container">{children}</div>
+  return <StyledContainer>{children}</StyledContainer>
 }
+
 Container.propTypes = {
-  children: PropTypes.any,
+  children: PropTypes.any.isRequired,
 }
+
 export default Container

@@ -1,13 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import StyledButton from '@/components/styled/StyledButton'
 
 const Button = ({ text, handleClick }) => {
   return (
-    <div className="button" role="presentation"
-      onClick={handleClick}
-    >
+    <StyledButton role="presentation" onClick={handleClick}>
       {text}
-    </div>
+    </StyledButton>
   )
 }
 

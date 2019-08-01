@@ -13,7 +13,7 @@ const StyledInput = styled.input`
   width: 100%;
   padding: 0.4rem;
   outline: 0;
-  border: 1px solid ${darken(0.05, white)};
+  border: 1px solid ${darken(0.2, white)};
   background: ${darken(0.1, white)};
   margin-top: ${mmargin};
   font-size: ${mdsize};

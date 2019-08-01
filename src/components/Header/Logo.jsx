@@ -1,15 +1,16 @@
 import React from 'react'
 import Tippy from '@tippy.js/react'
+import { StyledHeaderH1, StyledLogo } from '@/components/styled/StyledHeader'
 
 const Logo = () => {
   return (
-    <div className="grid-d-2 grid-t-8 grid-tl-8 grid-m-8">
-      <Tippy content="Some info about the company, blah blah blah">
-        <a href="/">
-          <h1 className="header-title">React Shop</h1>
-        </a>
-      </Tippy>
-    </div>
+    <StyledLogo>
+      <a href="/">
+        <Tippy content="Some info about the company, blah blah blah">
+          <StyledHeaderH1>React Shop</StyledHeaderH1>
+        </Tippy>
+      </a>
+    </StyledLogo>
   )
 }
 
