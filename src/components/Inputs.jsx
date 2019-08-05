@@ -1,20 +1,21 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { StyledField, StyledInput, StyledLabel } from '@/components/styled/StyledInputs'
 
 const Inputs = ({ type, name, placeholder, onChange }) => {
   return (
-    <div className="field">
-      <label htmlFor={name}>
+    <StyledField>
+      <StyledLabel>
         {name}
-        <input
+        <StyledInput
           id={name}
           type={type}
           name={name}
           placeholder={placeholder}
           onChange={onChange}
           autoComplete="off" />
-      </label>
-    </div>
+      </StyledLabel>
+    </StyledField>
   )
 }
 

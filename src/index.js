@@ -4,7 +4,7 @@ import { Provider } from 'react-redux'
 import { createStore, applyMiddleware } from 'redux'
 import thunk from 'redux-thunk'
 import * as OfflinePluginRuntime from 'offline-plugin/runtime'
-import '@/styles/base/index.scss'
+import '@/index.scss'
 import App from '@/App'
 import shop from '@/redux/store'
 

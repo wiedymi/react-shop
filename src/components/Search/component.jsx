@@ -24,7 +24,7 @@ class Search extends Component {
 }
 
 Search.propTypes = {
-  searchByText: PropTypes.func,
+  searchByText: PropTypes.func.isRequired,
   text: PropTypes.string,
 }
 

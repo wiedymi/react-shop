@@ -1,17 +1,16 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { StyledTags, StyledSpan } from '@/components/styled/StyledTags'
 
 const Tags = ({ tags, handleClick }) => {
   return (
-    <div className="tags">
+    <StyledTags>
       {tags.map(tag => (
-        <span className="tag" key={`${tag}`}
-          onClick={handleClick}
-        >
+        <StyledSpan key={`${tag}`} onClick={handleClick}>
           {tag}
-        </span>
+        </StyledSpan>
       ))}
-    </div>
+    </StyledTags>
   )
 }
 

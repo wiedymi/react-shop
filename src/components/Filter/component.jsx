@@ -15,7 +15,6 @@ class Filter extends Component {
       { value: 'rating', label: 'Rating Desc' },
       { value: 'ratingAsc', label: 'Rating Asc' },
     ],
-    fixed: false,
   }
 
   handleChange = (selectedOption, type) => {
@@ -45,32 +44,11 @@ class Filter extends Component {
     }
   }
 
-  handleScroll = e => {
-    const { scrollY } = window
-
-    if (scrollY > 50) {
-      this.setState(() => ({
-        fixed: true,
-      }))
-    } else {
-      this.setState(() => ({
-        fixed: false,
-      }))
-    }
-  }
-
-  componentDidMount () {
-    const { mobile } = this.props
-    if (!mobile) window.addEventListener('scroll', this.handleScroll)
-  }
-
   render () {
     const { colors, size, tags, mobile } = this.props
-    const { sortBy, fixed } = this.state
+    const { sortBy } = this.state
     return (
-      <div
-        className={`content ${!fixed ? 'grid-12' : ' fixed'}  ${!mobile ? 'desktop' : 'mobile'}`}
-      >
+      <div className={`content ${!mobile ? 'desktop' : 'mobile'}`}>
         <Form handleSubmit={this.handleSubmit}>
           <h3>Filter</h3>
           <FilterSelect

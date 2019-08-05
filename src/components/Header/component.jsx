@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import Cart from '@/components/Header/Cart'
 import Logo from '@/components/Header/Logo'
 import Container from '@/components/Container'
+import { StyledHeader } from '@/components/styled/StyledHeader'
 
 const Header = () => {
   const [fixedHeader, setFixedHeader] = useState(null)
@@ -15,13 +16,12 @@ const Header = () => {
   }
   if (window.innerWidth > 724) window.addEventListener('scroll', handleScroll)
   return (
-    <div className={`header ${fixedHeader}`}>
+    <StyledHeader fixedHeader={fixedHeader}>
       <Container>
         <Logo />
-        <div className="grid-d-8 grid-t-1 grid-tl-1 grid-m-1"> </div>
         <Cart />
       </Container>
-    </div>
+    </StyledHeader>
   )
 }
 

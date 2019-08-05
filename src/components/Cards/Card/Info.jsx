@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { NotificationManager } from 'react-notifications'
 import StarRatings from 'react-star-ratings'
 import PropTypes from 'prop-types'
 import {
@@ -19,8 +20,9 @@ class Info extends Component {
   handleClick = e => {
     e.preventDefault()
     const { count } = this.state
-    const { id, add, products } = this.props
+    const { id, add, products, title } = this.props
     this.setState(() => {
+      NotificationManager.success('Added to your cart', title)
       add(id, count, products)
       return { count: 1 }
     })
@@ -61,7 +63,7 @@ class Info extends Component {
         <ProductSizeList size={size} />
         <ProductDescription description={description} />
         <div className="purchase">
-          <Button name="buy" text="Buy"
+          <Button name="buy" text="Add To Cart"
             handleClick={this.handleClick} />
           <ProductCounterPrice price={price} count={count}
             handleCount={this.handleCount} />

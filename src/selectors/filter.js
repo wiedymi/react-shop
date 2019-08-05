@@ -1,3 +1,4 @@
+/* eslint-disable no-fallthrough */
 import { createSelector } from 'reselect'
 
 const getFilter = ({ filter }) => filter
@@ -51,20 +52,14 @@ const filterProduct = (products, filter) => {
   switch (true) {
     case checkFilter(filter.search):
       result = filterList(filter.search, result, 'search')
-    /* falls through */
     case checkFilter(filter.sortBy):
       result = filterList(filter.sortBy, result, filter.sortBy)
-    /* falls through */
     case checkFilter(filter.tags):
-      console.log(filter.tags)
       result = filterList(filter.tags, result, 'tags')
-    /* falls through */
     case checkFilter(filter.size):
       result = filterList(filter.size, result, 'size')
-    /* falls through */
     case checkFilter(filter.colors):
       result = filterList(filter.colors, result, 'color')
-    /* falls through */
     default:
       return result
   }

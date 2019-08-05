@@ -5,7 +5,7 @@ const { PREV_PAGE, NEXT_PAGE, FETCH, FETCHED, FETCHED_ERROR } = actionConsts
 const initState = {
   products: [],
   page: 1,
-  isFetching: true,
+  isFetching: false,
   isError: false,
 }
 

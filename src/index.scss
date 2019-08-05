@@ -1,3 +1,5 @@
+//reset and grid css
+@import 'reset-css';
 *,
 :after,
 :before {
@@ -229,4 +231,101 @@ img.scale,
 img.responsive {
   max-width: 100%;
   height: auto;
+}
+
+//Helpers
+a {
+  text-decoration: none;
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+body {
+  background: rgb(238, 238, 238);
+  font-family: 'Roboto', sans-serif;
+}
+
+.lf-padding {
+  padding: 0 0 0 1rem;
+}
+
+.m-top {
+  margin-top: 0.7rem;
+}
+
+.tn-top {
+  margin-top: 0;
+}
+.no-padding {
+  padding: 0;
+}
+.no-margin {
+  margin-top: 0;
+  padding: 0;
+}
+
+.m-bottom {
+  margin-bottom: 1.1rem;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  -webkit-appearance: none;
+}
+
+@media only screen and (min-width: 1024px) {
+  .no-margin {
+    padding: 0;
+  }
+}
+
+.relative {
+  position: relative;
+}
+
+.fixed {
+  position: fixed;
+  top: 3rem;
+  margin-top: 0;
+  width: 15.16%;
+}
+
+html,
+body {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  background: #0000004d;
+}
+
+.css-2b097c-container {
+  margin-bottom: 0.5rem;
+  margin-top: 0.1rem;
+}
+
+.css-2b097c-container:last-child {
+  margin-bottom: 0.1rem;
+}
+.notification-container {
+  top: 3rem;
 }

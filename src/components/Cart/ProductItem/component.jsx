@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import StyledCart from '@/components/styled/StyledCart'
 
 class ProductCart extends Component {
   state = {
@@ -29,7 +30,7 @@ class ProductCart extends Component {
   render () {
     const { title, price, count } = this.props
     return (
-      <>
+      <StyledCart>
         {title.length > 0 ? (
           <div className="cart-item">
             <div className="cart-item-info">
@@ -53,7 +54,7 @@ class ProductCart extends Component {
         ) : (
           <></>
         )}
-      </>
+      </StyledCart>
     )
   }
 }
@@ -63,7 +64,7 @@ ProductCart.propTypes = {
   price: PropTypes.number.isRequired,
   count: PropTypes.number.isRequired,
   removeProduct: PropTypes.func.isRequired,
-  id: PropTypes.number.isRequired,
+  id: PropTypes.string.isRequired,
   updateProduct: PropTypes.func.isRequired,
 }
 

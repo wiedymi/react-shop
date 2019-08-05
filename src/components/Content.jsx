@@ -1,28 +1,40 @@
 import React from 'react'
+import { NotificationContainer } from 'react-notifications'
+import 'react-notifications/lib/notifications.css'
 import Container from '@/components/Container'
-import Search from '@/components/Search/container'
-import Filter from '@/components/Filter/container'
-import Cards from '@/components/Cards/container'
+import Search from '@/components/Search'
+import Filter from '@/components/Filter'
+import Cards from '@/components/Cards'
+import {
+  StyledSearch,
+  StyledSearchContent,
+  StyledCardContent,
+  StyledFilter,
+  StyledFilterMobile,
+} from '@/components/styled/StyledContent'
 
 const Content = () => {
   return (
     <Container>
-      <div className="grid-d-9 grid-t-8 grid-tl-8 grid-m-12 no-padding">
-        <div className="content grid-12">
+      <StyledSearch>
+        <StyledSearchContent>
           <Search />
-        </div>
-        <div className="grid-d-12 rid-t-4 grid-tl-4 grid-m-12 no-margin">
+        </StyledSearchContent>
+        <StyledFilter>
           <Filter mobile />
-        </div>
-        <div className="content grid-12 tn-top m-bottom">
+        </StyledFilter>
+        <StyledCardContent>
           <Cards />
-        </div>
-      </div>
-      <div className="grid-d-3 grid-t-4 grid-tl-4 grid-m-12 lf-padding">
+        </StyledCardContent>
+      </StyledSearch>
+      <StyledFilterMobile>
         <div className="grid-12 no-padding relative">
-          <Filter mobile={false} />
+          <div className="absolute">
+            <Filter mobile={false} />
+          </div>
         </div>
-      </div>
+      </StyledFilterMobile>
+      <NotificationContainer />
     </Container>
   )
 }

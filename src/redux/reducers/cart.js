@@ -8,7 +8,7 @@ const initState = {
 
 export default (state = initState, action) => {
   const { products } = state
-  const { id, count } = action
+
   switch (action.type) {
     case SET_PRODUCT_TO_CART:
       return {
@@ -19,7 +19,7 @@ export default (state = initState, action) => {
       return {
         ...state,
         products: products.filter(product => {
-          return product.id !== id
+          return product.id !== action.id
         }),
       }
     case CHANGE_CART_PRODUCT_COUNT:
@@ -27,10 +27,10 @@ export default (state = initState, action) => {
         ...state,
         products: products.map(product => {
           let temp = product
-          if (product.id === id) {
+          if (product.id === action.id) {
             temp = {
               id: product.id,
-              count,
+              count: +action.count,
             }
           }
           return temp

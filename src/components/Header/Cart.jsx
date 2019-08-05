@@ -5,6 +5,7 @@ import { faShoppingCart } from '@fortawesome/free-solid-svg-icons'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import CartModal from '@/components/Cart/container'
+import { StyledCart, StyledCartIcon } from '@/components/styled/StyledHeader'
 
 class Cart extends Component {
   state = {
@@ -21,21 +22,18 @@ class Cart extends Component {
     const { products, cart } = this.props
     const { isOpen } = this.state
     return (
-      <div className="grid-d-2 grid-t-3 grid-tl-3 grid-m-3">
+      <StyledCart>
         <Tippy content="Your cart">
-          <div
-            role="presentation"
-            className="header-cart mobile-right right"
-            data-count={cart}
+          <StyledCartIcon role="presentation" data-count={cart}
             onClick={this.toggleModal}
           >
             <FontAwesomeIcon icon={faShoppingCart} size="lg"
               className="header-cart" />
-          </div>
+          </StyledCartIcon>
         </Tippy>
         <CartModal products={products} isOpen={isOpen}
           toggleModal={this.toggleModal} />
-      </div>
+      </StyledCart>
     )
   }
 }
