@@ -1,4 +1,6 @@
 import React from 'react'
+import { NotificationContainer } from 'react-notifications'
+import 'react-notifications/lib/notifications.css'
 import Container from '@/components/Container'
 import Search from '@/components/Search'
 import Filter from '@/components/Filter'
@@ -32,6 +34,7 @@ const Content = () => {
           </div>
         </div>
       </StyledFilterMobile>
+      <NotificationContainer />
     </Container>
   )
 }

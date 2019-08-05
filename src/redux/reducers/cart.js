@@ -23,15 +23,14 @@ export default (state = initState, action) => {
         }),
       }
     case CHANGE_CART_PRODUCT_COUNT:
-      const { id, count } = action
       return {
         ...state,
         products: products.map(product => {
           let temp = product
-          if (product.id === id) {
+          if (product.id === action.id) {
             temp = {
               id: product.id,
-              count,
+              count: +action.count,
             }
           }
           return temp

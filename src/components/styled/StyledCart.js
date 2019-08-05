@@ -12,14 +12,12 @@ const StyledCart = styled.div`
     line-height: 20px;
   }
 
-  .cart-item {
-    margin: 10px 0px;
-  }
+  margin: 10px 0px;
 
-  .cart-item:first-child {
+  :first-child {
     margin-top: 0;
   }
-  .cart-item:last-child {
+  :last-child {
     margin-bottom: 0;
   }
   .cart-item-counter input {
