@@ -24,7 +24,11 @@ const StyledModal = styled.div`
   .cart-modal .cart-list-product {
     margin: ${mdsize} 0;
   }
-
+  @media (min-width: 320px) {
+    .cart-modal-purchase .price {
+      margin-top: 1.05rem;
+    }
+  }
   @media (min-width: 1080px) {
     div.content.desktop {
       display: inline-block;

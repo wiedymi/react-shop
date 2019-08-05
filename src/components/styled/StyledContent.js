@@ -107,13 +107,13 @@ const StyledFilterMobile = styled.div.attrs({
     left: 0;
     width: 100%;
   }
-  margin-top: 2.9rem;
 
   .desktop {
     display: none;
   }
   padding: 0;
   @media (min-width: 720px) {
+    margin-top: 2.9rem;
     padding-right: 1.1rem;
     .desktop {
       display: inline-block;
@@ -138,15 +138,4 @@ const StyledFilterMobile = styled.div.attrs({
   }
 `
 
-const StyledCardMobileContent = styled.div.attrs({
-  className: 'grid-12 no-padding relative',
-})``
-
-export {
-  StyledSearch,
-  StyledCardMobileContent,
-  StyledFilterMobile,
-  StyledSearchContent,
-  StyledCardContent,
-  StyledFilter,
-}
+export { StyledSearch, StyledFilterMobile, StyledSearchContent, StyledCardContent, StyledFilter }

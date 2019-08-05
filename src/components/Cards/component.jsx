@@ -9,7 +9,7 @@ class Cards extends Component {
   componentDidMount () {
     const { getProducts, isLoading } = this.props
     let result
-    if (isLoading) {
+    if (!isLoading) {
       try {
         getProducts()
       } catch (error) {

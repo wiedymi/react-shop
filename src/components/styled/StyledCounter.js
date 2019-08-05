@@ -9,7 +9,7 @@ const { mdsize } = StyleSize
 const StyledCounter = styled.div`
   .counter div {
     padding: 0.7rem 0.4rem;
-    margin-top: 0.6rem;
+    margin-top: 1rem;
     font-size: ${mdsize};
   }
   .counter {
@@ -49,6 +49,10 @@ const StyledCounter = styled.div`
     .counter.desktop {
       display: inline-block;
     }
+    .counter div {
+      margin-top: 0.6rem;
+    }
+
     .counter.mobile {
       display: none;
     }

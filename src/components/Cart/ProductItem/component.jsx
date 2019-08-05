@@ -64,7 +64,7 @@ ProductCart.propTypes = {
   price: PropTypes.number.isRequired,
   count: PropTypes.number.isRequired,
   removeProduct: PropTypes.func.isRequired,
-  id: PropTypes.number.isRequired,
+  id: PropTypes.string.isRequired,
   updateProduct: PropTypes.func.isRequired,
 }
 

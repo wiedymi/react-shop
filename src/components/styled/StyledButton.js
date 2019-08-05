@@ -16,8 +16,11 @@ const StyledButton = styled.div`
 
   transition: 0.3s all;
   cursor: pointer;
-  @media (min-width: 360px) {
+  @media (min-width: 320px) {
     margin-top: 1rem;
+  }
+  @media (min-width: 550px) {
+    margin-top: 0.6rem;
   }
 
   @media (min-width: 1200px) {

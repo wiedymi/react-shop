@@ -7,6 +7,7 @@ import {
   addToCart,
   removeFromCart,
   updateCartData,
+  prevPage,
 } from '@/redux/action'
 import types from '@/redux/actionConsts'
 
@@ -31,12 +32,11 @@ describe('actions', () => {
     }
     expect(nextPage()).toEqual(expectedAction)
   })
-
-  it('SET_FILTER_SEARCH', () => {
+  it('PREV_PAGE', () => {
     const expectedAction = {
-      type: types.SET_FILTER_SEARCH,
+      type: types.PREV_PAGE,
     }
-    expect(search()).toEqual(expectedAction)
+    expect(prevPage()).toEqual(expectedAction)
   })
 
   it('SET_FILTER_SEARCH', () => {

@@ -1,14 +1,13 @@
 import React from 'react'
 import Container from '@/components/Container'
-import Search from '@/components/Search/container'
-import Filter from '@/components/Filter/container'
-import Cards from '@/components/Cards/container'
+import Search from '@/components/Search'
+import Filter from '@/components/Filter'
+import Cards from '@/components/Cards'
 import {
   StyledSearch,
   StyledSearchContent,
   StyledCardContent,
   StyledFilter,
-  StyledCardMobileContent,
   StyledFilterMobile,
 } from '@/components/styled/StyledContent'
 
@@ -27,11 +26,11 @@ const Content = () => {
         </StyledCardContent>
       </StyledSearch>
       <StyledFilterMobile>
-        <StyledCardMobileContent>
+        <div className="grid-12 no-padding relative">
           <div className="absolute">
             <Filter mobile={false} />
           </div>
-        </StyledCardMobileContent>
+        </div>
       </StyledFilterMobile>
     </Container>
   )
