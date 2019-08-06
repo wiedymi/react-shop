@@ -1,27 +1,47 @@
-import React, { useState } from 'react'
+import React from 'react'
 import Cart from '@/components/Header/Cart'
-import Logo from '@/components/Header/Logo'
 import Container from '@/components/Container'
 import { StyledHeader } from '@/components/styled/StyledHeader'
+import Search from '@/components/Search'
+import Logo from '@/components/Header/Logo'
+import StyledNavbar from '@/components/Header/styled'
 
 const Header = () => {
-  const [fixedHeader, setFixedHeader] = useState(null)
-  const handleScroll = () => {
-    const { scrollY } = window
-
-    window.addEventListener(
-      'onchange',
-      scrollY > 50 ? setFixedHeader('fixed-header') : setFixedHeader(null),
-    )
-  }
-  if (window.innerWidth > 724) window.addEventListener('scroll', handleScroll)
   return (
-    <StyledHeader fixedHeader={fixedHeader}>
-      <Container>
-        <Logo />
-        <Cart />
-      </Container>
-    </StyledHeader>
+    <>
+      <StyledHeader>
+        <Container>
+          <Cart />
+          <Search />
+        </Container>
+      </StyledHeader>
+      <StyledNavbar>
+        <div className="navbar">
+          <Container>
+            <Logo />
+            <div className="grid-d-6">
+              <ul>
+                <li>
+                  <a href="/">Home</a>
+                </li>
+              </ul>
+            </div>
+          </Container>
+        </div>
+        <div className="banner">
+          <div className="blur">
+            <Container>
+              <div className="info">
+                <h2>
+                  Sign up and get <span>27%</span> off
+                </h2>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+              </div>
+            </Container>
+          </div>
+        </div>
+      </StyledNavbar>
+    </>
   )
 }
 

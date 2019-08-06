@@ -7,6 +7,10 @@ const { msize, mmargin } = StyleSize
 const { bgimg, black, primaryoff, white } = StyleColors
 
 const StyledCard = styled.div`
+  float: left;
+  margin: 1.6rem 0;
+  margin-top: 0.6rem;
+  width: 100%;
   .desktop {
     display: none;
   }
@@ -19,6 +23,7 @@ const StyledCard = styled.div`
     text-align: justify;
     text-justify: inter-word;
     word-break: break-word;
+    margin-top: 0.4rem;
   }
   .card .info {
     margin-left: 0.6rem;
@@ -30,15 +35,20 @@ const StyledCard = styled.div`
     height: 10rem;
     min-width: 110px;
     max-width: 110px;
-    border: 1px solid ${bgimg};
+    border: 3px solid ${bgimg};
   }
 
   .card h3 {
     color: ${black};
     font-size: 2rem;
+    height: 2.6rem;
     transition: 0.3s all;
+    margin-bottom: 0.4rem;
   }
-
+  .info h4 {
+    font-size: 1.6rem;
+    color: ${primaryoff};
+  }
   .card a:hover {
     color: ${lighten(0.3, black)};
   }
@@ -50,13 +60,23 @@ const StyledCard = styled.div`
     width: 100%;
   }
   .info h3 {
-    padding: 0.2rem 0;
+    float: left;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    padding-top: 0.4rem;
   }
+
   .info div {
     float: left;
+
+    .star-ratings .star-container {
+      float: left;
+    }
+    .star-ratings {
+      float: right;
+      padding: 0.2rem 0;
+    }
   }
 
   .readMoreText {
@@ -177,9 +197,7 @@ const StyledCard = styled.div`
     .info > .size > div.grid-12 {
       padding: 0;
     }
-    .card .info h3 {
-      font-size: 2.4rem;
-    }
+
     .size.desktop label {
       display: inline-block;
     }
@@ -193,12 +211,12 @@ const StyledCard = styled.div`
 
   @media (min-width: 1200px) {
     .card .info h3 {
-      font-size: 3rem;
+      font-size: 2rem;
     }
     .card img {
-      height: 21.3rem;
-      min-width: 230px;
-      max-width: 230px;
+      height: 12.5rem;
+      min-width: 150px;
+      max-width: 150px;
     }
     .text-break-and-justify.desktop {
       display: inline-block;

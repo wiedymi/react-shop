@@ -1,5 +1,5 @@
 export default {
-  STAR_COLOR: '#00e0c7',
-  STAR_SIZE: '30px',
+  STAR_COLOR: '#ee7501',
+  STAR_SIZE: '2rem',
   STAR_SPACE: '0px',
 }

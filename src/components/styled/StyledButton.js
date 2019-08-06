@@ -12,8 +12,8 @@ const StyledButton = styled.div`
   background: ${primaryoff};
   color: ${white};
   padding: 0.7rem 1rem;
-  border-radius: 4px;
-
+  border-radius: 5rem;
+  font-weight: 600;
   transition: 0.3s all;
   cursor: pointer;
   @media (min-width: 320px) {
