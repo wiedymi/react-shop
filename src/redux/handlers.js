@@ -49,8 +49,4 @@ const LazyLoadInit = () => {
   }
 }
 
-const isEquil = (obj1, obj2) => {
-  return JSON.stringify(obj1) === JSON.stringify(obj2)
-}
-
-export { getDataForFilter, isEquil, LazyLoadInit }
+export { getDataForFilter, LazyLoadInit }

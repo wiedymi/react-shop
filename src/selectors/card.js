@@ -10,13 +10,13 @@ export default createSelector(
   [getProducts, getPage, getFilter, getType],
   (products, page, filter, hasMoreProducts) => {
     const productsPerPage = 6
-    const filteredProducts = getFilteredProducts({ products, filter })
-    let result = filteredProducts.slice(0, page * productsPerPage)
+    const filteredProducts = getFilteredProducts({ products, filter }).slice(
+      0,
+      page * productsPerPage,
+    )
     if (hasMoreProducts === true) {
-      result = filteredProducts.length > result.length
-    } else {
-      result = filteredProducts.slice(0, page * productsPerPage)
+      return filteredProducts.length > getFilteredProducts({ products, filter }).length
     }
-    return result
+    return filteredProducts
   },
 )

@@ -105,6 +105,7 @@ const StyledCard = styled.div`
 
   .star-ratings {
     float: left;
+    margin-top: 8.19px;
   }
   .info-title-rating {
     width: 100%;

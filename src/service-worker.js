@@ -1,7 +1,7 @@
 /* global self, location */
 /* eslint no-restricted-globals: ["error"] */
 
-const DYNAMIC_CACHE = 'medlab-dynamic-cache'
+const DYNAMIC_CACHE = 'reactshop-dynamic-cache'
 
 self.addEventListener('fetch', event => {
   const req = event.request

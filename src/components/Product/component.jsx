@@ -39,8 +39,8 @@ const Product = ({ product, recommendation }) => {
               <h4>recommendation</h4>
             </div>
 
-            {isMuteRecommendation
-              ? isMuteRecommendation.map(product => (
+            {isMuteRecommendation &&
+              isMuteRecommendation.map(product => (
                 <div className="card grid-d-2 grid-t-3 grid-tl-3 grid-m-6" key={product._id.$oid}>
                   <a href={`/product/${product._id.$oid}`}>
                     <ProductImage image={product.images[0]} isShow />
@@ -50,8 +50,7 @@ const Product = ({ product, recommendation }) => {
                   </a>
                   <h4>{product.price}$</h4>
                 </div>
-              ))
-              : ''}
+              ))}
           </div>
         </StyledProduct>
       ) : (

@@ -6,7 +6,7 @@ const Tags = ({ tags, handleClick }) => {
   return (
     <StyledTags>
       {tags.map(tag => (
-        <StyledSpan key={`${tag}`} onClick={handleClick}>
+        <StyledSpan key={tag} onClick={handleClick}>
           {tag}
         </StyledSpan>
       ))}
@@ -19,7 +19,7 @@ Tags.defaultProps = {
 }
 
 Tags.propTypes = {
-  tags: PropTypes.array.isRequired,
+  tags: PropTypes.arrayOf(PropTypes.string).isRequired,
   handleClick: PropTypes.func.isRequired,
 }
 
