@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import StyledCart from '@/components/styled/StyledCart'
+import { NotificationManager } from 'react-notifications'
 
 class ProductCart extends Component {
   state = {
@@ -19,6 +20,8 @@ class ProductCart extends Component {
       currentValueInCounter <= maxCountOfProduct
     ) {
       updateProduct(id, target.value)
+    } else {
+      NotificationManager.error('You can add to your cart only 50 items')
     }
   }
 

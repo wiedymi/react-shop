@@ -6,21 +6,6 @@ import Card from '@/components/Cards/Card/container'
 import StyledCard from '@/components/styled/StyledCard'
 
 class Cards extends Component {
-  componentDidMount () {
-    const { getProducts, isLoading } = this.props
-    let result
-    if (!isLoading) {
-      try {
-        getProducts()
-      } catch (error) {
-        result = new Error(error)
-        return result
-      }
-    }
-
-    return result
-  }
-
   componentDidUpdate () {
     LazyLoadInit()
   }
@@ -59,8 +44,6 @@ Cards.propTypes = {
   hasMoreProducts: PropTypes.bool.isRequired,
   isError: PropTypes.bool.isRequired,
   nextPage: PropTypes.func.isRequired,
-  getProducts: PropTypes.func.isRequired,
-  isLoading: PropTypes.bool.isRequired,
 }
 
 export default Cards

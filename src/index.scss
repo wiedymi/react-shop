@@ -69,7 +69,7 @@
 .grid-m-1 {
   width: 8.33%;
 }
-@media (min-width: 720px) {
+@media (min-width: 640px) {
   .grid-12 {
     width: 100%;
   }
@@ -247,8 +247,8 @@ a {
 }
 
 body {
-  background: rgb(238, 238, 238);
-  font-family: 'Roboto', sans-serif;
+  background: #fff;
+  font-family: 'Quicksand', sans-serif;
 }
 
 .lf-padding {
@@ -296,19 +296,6 @@ select:-webkit-autofill:focus {
   position: relative;
 }
 
-.fixed {
-  position: fixed;
-  top: 3rem;
-  margin-top: 0;
-  width: 15.16%;
-}
-
-html,
-body {
-  overflow-x: hidden;
-  overflow-y: auto;
-}
-
 .modal-overlay {
   position: fixed;
   top: 0px;
@@ -318,14 +305,6 @@ body {
   background: #0000004d;
 }
 
-.css-2b097c-container {
-  margin-bottom: 0.5rem;
-  margin-top: 0.1rem;
-}
-
-.css-2b097c-container:last-child {
-  margin-bottom: 0.1rem;
-}
 .notification-container {
-  top: 3rem;
+  top: 3.5rem;
 }

@@ -10,7 +10,7 @@ const {
 
 const initState = {
   search: '',
-  sortBy: '',
+  sortBy: 'rating',
   colors: [],
   size: [],
   tags: [],

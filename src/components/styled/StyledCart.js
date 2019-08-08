@@ -11,6 +11,9 @@ const StyledCart = styled.div`
     justify-content: space-between;
     line-height: 20px;
   }
+  .cart-item-info {
+    margin-right: 6rem;
+  }
 
   margin: 10px 0px;
 

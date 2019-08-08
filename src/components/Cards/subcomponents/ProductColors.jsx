@@ -8,7 +8,7 @@ const ProductColors = ({ colors }) => {
   const [selectedColor, setColor] = useState(0)
 
   return (
-    <div className="color desktop">
+    <div className="color">
       <p>Colors:</p>
       <p>
         {colors.map(color => (

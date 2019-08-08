@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import Form from '@/components/Form'
-import Input from '@/components/Inputs'
+import { StyledInput } from '@/components/styled/StyledInputs'
 
 class Search extends Component {
   handleChange = e => {
@@ -13,11 +12,12 @@ class Search extends Component {
   render () {
     const { text } = this.props
     return (
-      <div className="search">
-        <Form onSubmit={this.handleChange}>
-          <Input name="search" onChange={this.handleChange}
-            placeholder={text} value={text} />
-        </Form>
+      <div className="search grid-d-4 grid-t-4 grid-tl-4 grid-m-8 no-padding right">
+        <StyledInput
+          name="search"
+          onChange={this.handleChange}
+          placeholder={text}
+          autoComplete="off" />
       </div>
     )
   }

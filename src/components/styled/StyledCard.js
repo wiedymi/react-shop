@@ -7,38 +7,98 @@ const { msize, mmargin } = StyleSize
 const { bgimg, black, primaryoff, white } = StyleColors
 
 const StyledCard = styled.div`
+  float: left;
+  margin: 1.6rem 0;
+  margin-top: 0.6rem;
+  width: 100%;
+  @media (min-width: 1200px) {
+    width: 100%;
+  }
+
   .desktop {
     display: none;
   }
   .card {
     display: flex;
+    padding: 0 !important;
+    flex-direction: column;
     margin-bottom: 0.6rem;
     overflow: hidden;
+
+    @media (min-width: 1200px) {
+      flex-direction: row;
+    }
+  }
+  .cards {
+    padding: 1rem;
+    text-align: center;
+    @media (min-width: 1200px) {
+      text-align: left;
+      padding: 0;
+    }
   }
   .text-break-and-justify {
     text-align: justify;
     text-justify: inter-word;
     word-break: break-word;
+    margin-top: 0.4rem;
+    display: none;
+    @media (min-width: 1200px) {
+      display: block;
+    }
   }
   .card .info {
-    margin-left: 0.6rem;
     flex: 1;
     min-width: 0;
+    width: 100%;
+    overflow: hidden;
+    @media (min-width: 1200px) {
+      margin-left: 0.6rem;
+      width: 100%;
+    }
+
+    h3 {
+      &:hover {
+        color: rgb(0, 123, 255);
+      }
+      transition: 0.2s all;
+    }
   }
 
   .card img {
-    height: 10rem;
-    min-width: 110px;
-    max-width: 110px;
-    border: 1px solid ${bgimg};
+    @media (min-width: 1200px) {
+      height: 10rem;
+      min-width: 110px;
+      max-width: 110px;
+    }
+    height: 14rem;
+    min-width: 160px;
+    max-width: 160px;
+
+    border: 3px solid ${bgimg};
   }
 
   .card h3 {
     color: ${black};
-    font-size: 2rem;
+    text-align: left;
+    font-size: 1.3rem;
+    height: 1.5rem;
+    @media (min-width: 1200px) {
+      font-size: 2rem;
+      height: 2.6rem;
+      margin-bottom: 0.4rem;
+    }
+
     transition: 0.3s all;
   }
-
+  .info h4 {
+    font-size: 1.3rem;
+    text-align: left;
+    @media (min-width: 1200px) {
+      font-size: 1.6rem;
+    }
+    color: ${primaryoff};
+  }
   .card a:hover {
     color: ${lighten(0.3, black)};
   }
@@ -50,13 +110,38 @@ const StyledCard = styled.div`
     width: 100%;
   }
   .info h3 {
-    padding: 0.2rem 0;
+    float: left;
+
+    width: 100%;
     white-space: nowrap;
-    overflow: hidden;
     text-overflow: ellipsis;
+    word-break: break-word;
+
+    overflow: hidden;
+
+    @media (min-width: 1200px) {
+      height: 2.3rem;
+      width: 70%;
+      white-space: nowrap;
+      white-space: normal;
+      padding-top: 0.4rem;
+    }
   }
+
   .info div {
     float: left;
+
+    .star-ratings .star-container {
+      float: left;
+    }
+    .star-ratings {
+      float: right;
+      display: none !important;
+      @media (min-width: 1200px) {
+        display: inline-block !important;
+        display: block;
+      }
+    }
   }
 
   .readMoreText {
@@ -120,6 +205,10 @@ const StyledCard = styled.div`
   .purchase {
     width: 100%;
     float: left;
+    display: none;
+    @media (min-width: 1200px) {
+      display: block;
+    }
   }
 
   .cards .card:first-child {
@@ -177,9 +266,7 @@ const StyledCard = styled.div`
     .info > .size > div.grid-12 {
       padding: 0;
     }
-    .card .info h3 {
-      font-size: 2.4rem;
-    }
+
     .size.desktop label {
       display: inline-block;
     }
@@ -193,12 +280,12 @@ const StyledCard = styled.div`
 
   @media (min-width: 1200px) {
     .card .info h3 {
-      font-size: 3rem;
+      font-size: 2rem;
     }
     .card img {
-      height: 21.3rem;
-      min-width: 230px;
-      max-width: 230px;
+      height: 12.5rem;
+      min-width: 150px;
+      max-width: 150px;
     }
     .text-break-and-justify.desktop {
       display: inline-block;

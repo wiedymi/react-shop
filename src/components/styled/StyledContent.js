@@ -1,25 +1,64 @@
 import styled, { css } from 'styled-components'
+import { lighten } from 'polished'
 import StyleColors from '@/components/styled/vars/StyleColors'
 import StyleSize from '@/components/styled/vars/StyleSize'
 
-const { white } = StyleColors
+const { primaryoff } = StyleColors
 const { mdsize } = StyleSize
 
 const content = css`
   margin-top: ${mdsize};
-  background: ${white};
-  padding: 0.6rem;
-  box-shadow: 0 0.25rem 0.125rem 0 rgba(0, 0, 0, 0.05);
-  float: left;
   .content {
     margin-top: ${mdsize};
-    background: ${white};
-    padding: 0.6rem;
-    box-shadow: 0 0.25rem 0.125rem 0 rgba(0, 0, 0, 0.05);
+  }
+`
+
+const StyledSort = styled.div`
+  display: none;
+  @media (min-width: 1200px) {
+    display: block;
+  }
+  p {
+    float: left;
+    margin-top: 1.2rem;
+    font-weight: 500;
+    margin-left: 0;
+  }
+  .grid-d-12 {
+    padding: 0;
+    margin-top: 3rem;
+  }
+  .react-select__control {
+    border-radius: 0;
+    box-shadow: none;
+    border-color: #ccc;
+    &:hover {
+      border-color: ${primaryoff};
+    }
+  }
+  .react-select__control--menu-is-open {
+    box-shadow: none;
+    border-color: ${primaryoff};
+    &:hover {
+      border-color: ${primaryoff};
+    }
+  }
+
+  .react-select__option--is-focused {
+    background: ${lighten(0.4, primaryoff)};
+    &:hover {
+      background: ${lighten(0.4, primaryoff)};
+    }
+  }
+  .react-select__option--is-selected {
+    background: ${primaryoff};
+  }
+  .react-select__menu {
+    border-radius: 0;
   }
 `
 const StyledSearch = styled.div.attrs({
-  className: 'grid-d-9 grid-t-8 grid-tl-8 grid-m-12 no-padding',
+  className: 'grid-d-9 grid-t-12 grid-tl-12 grid-m-12 no-padding',
 })`
   padding: 0;
   @media (min-width: 720px) {
@@ -95,6 +134,9 @@ const StyledCardContent = styled.div.attrs({
   className: 'tn-top m-bottom',
 })`
   width: 100%;
+  margin: 1.6rem 0;
+  margin-top: 0.6rem;
+
   ${content}
 `
 const StyledFilterMobile = styled.div.attrs({
@@ -106,6 +148,7 @@ const StyledFilterMobile = styled.div.attrs({
     top: 0;
     left: 0;
     width: 100%;
+    margin-bottom: 1.6rem;
   }
 
   .desktop {
@@ -113,7 +156,6 @@ const StyledFilterMobile = styled.div.attrs({
   }
   padding: 0;
   @media (min-width: 720px) {
-    margin-top: 2.9rem;
     padding-right: 1.1rem;
     .desktop {
       display: inline-block;
@@ -122,20 +164,17 @@ const StyledFilterMobile = styled.div.attrs({
       width: 31%;
     }
   }
-  .content {
-    position: fixed;
-    @media (min-width: 720px) {
-      width: 31%;
-    }
-    @media (min-width: 1000px) {
-      width: 31.3%;
-    }
-    @media (min-width: 1200px) {
-      width: 277.28px;
-    }
 
-    ${content};
+  .content {
+    width: 277.28px;
   }
 `
 
-export { StyledSearch, StyledFilterMobile, StyledSearchContent, StyledCardContent, StyledFilter }
+export {
+  StyledSearch,
+  StyledFilterMobile,
+  StyledSearchContent,
+  StyledCardContent,
+  StyledFilter,
+  StyledSort,
+}

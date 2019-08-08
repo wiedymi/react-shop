@@ -43,22 +43,22 @@ const filterList = (filterValue, value, type) => {
   return result
 }
 
-const checkFilter = filter => {
+const applyFilter = filter => {
   return filter.length > 0 && filter !== null
 }
 
 const filterProduct = (products, filter) => {
   let result = products
   switch (true) {
-    case checkFilter(filter.search):
+    case applyFilter(filter.search):
       result = filterList(filter.search, result, 'search')
-    case checkFilter(filter.sortBy):
+    case applyFilter(filter.sortBy):
       result = filterList(filter.sortBy, result, filter.sortBy)
-    case checkFilter(filter.tags):
+    case applyFilter(filter.tags):
       result = filterList(filter.tags, result, 'tags')
-    case checkFilter(filter.size):
+    case applyFilter(filter.size):
       result = filterList(filter.size, result, 'size')
-    case checkFilter(filter.colors):
+    case applyFilter(filter.colors):
       result = filterList(filter.colors, result, 'color')
     default:
       return result

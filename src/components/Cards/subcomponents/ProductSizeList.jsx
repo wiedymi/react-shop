@@ -5,7 +5,7 @@ const ProductSizeList = ({ size }) => {
   const [selectedSize, setSize] = useState(0)
 
   return (
-    <div className="size desktop">
+    <div className="size ">
       <p>Size:</p>
       <div className="grid-12 no-padding">
         {size.map(sizeProduct => (

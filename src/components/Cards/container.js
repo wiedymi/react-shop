@@ -1,7 +1,6 @@
 import { connect } from 'react-redux'
 import Cards from './component'
 import getVisibleProducts from '@/selectors/card'
-import getProducts from '@/redux/thunk'
 import { nextPage } from '@/redux/action'
 
 const mapStateToProps = state => {
@@ -16,7 +15,6 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    getProducts: () => dispatch(getProducts()),
     nextPage: () => dispatch(nextPage()),
   }
 }

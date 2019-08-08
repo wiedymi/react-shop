@@ -4,7 +4,7 @@ import Search from '@/components/Search/component'
 
 const mapStateToProps = state => {
   return {
-    text: state.text ? state.text : 'Something...',
+    text: state.text ? state.text : 'Search for your style...',
   }
 }
 

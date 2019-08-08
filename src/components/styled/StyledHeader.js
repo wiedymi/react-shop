@@ -1,46 +1,49 @@
 import styled from 'styled-components'
-import { darken } from 'polished'
+
 import StyleColors from '@/components/styled/vars/StyleColors'
 import StyleSize from '@/components/styled/vars/StyleSize'
 
-const { primary, black, danger, white } = StyleColors
-const { lgsize, msize } = StyleSize
+const { black, white } = StyleColors
+const { lgsize } = StyleSize
 
 const StyledHeader = styled.div`
-  height: ${lgsize};
-  background: ${primary};
-  border-bottom: 2px solid ${darken(0.1, primary)};
+  height: 3.5rem;
+  background: ${black};
+
   a {
     float: left;
   }
-
+  line-height: 3.5rem;
   z-index: 7678;
   position: fixed;
   width: 100%;
+  top: 0;
 `
 const StyledHeaderH1 = styled.h1`
   color: ${black};
-  font-size: ${msize};
-  text-align: left;
-  padding: 0;
-  @media (min-width: 320px) {
-    margin-left: 5px;
+  font-size: ${lgsize};
+  text-align: center;
+  @media (min-width: 1200px) {
+    padding: 0;
   }
-  @media (min-width: 720px) {
-    margin-left: 20px;
+
+  > span {
+    color: #ee7501;
   }
 `
 const StyledLogo = styled.div.attrs({
-  className: 'grid-d-10 grid-t-9 grid-tl-9 grid-m-9',
-})``
+  className: 'grid-d-6 grid-t-4 grid-tl-4 grid-m-12',
+})`
+  padding: 0;
+`
 
 const StyledCart = styled.div.attrs({
-  className: 'grid-d-2 grid-t-3 grid-tl-3 grid-m-3',
+  className: 'grid-d-1 grid-t-1 grid-tl-1 grid-m-2 right',
 })``
 
 const StyledCartIcon = styled.div.attrs({})`
-  color: ${black};
-  line-height: 1.6rem;
+  color: ${white};
+  line-height: 2.3rem;
   position: relative;
   cursor: pointer;
   float: right;
@@ -49,17 +52,18 @@ const StyledCartIcon = styled.div.attrs({})`
   }
   &[data-count]:after {
     position: absolute;
-    right: -30%;
-    top: -20%;
+    right: -60%;
+    top: -10%;
     content: attr(data-count);
-    font-size: 0.5rem;
-    padding: 0.6em;
+    font-size: 0.8rem;
+
     border-radius: 50%;
-    line-height: 0.75em;
-    color: ${white};
-    background: ${danger};
+    line-height: 1.2rem;
+    color: white;
+    background: #e6401b;
     text-align: center;
-    min-width: 2em;
+    min-width: 1.2rem;
+    min-height: 1.2rem;
     font-weight: bold;
   }
   @media (min-width: 320px) {

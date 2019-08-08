@@ -1,93 +1,203 @@
 /* eslint-disable prefer-destructuring */
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import Form from '@/components/Form'
+import Tippy from '@tippy.js/react'
 import FilterConst from '@/components/Filter/constants'
-import FilterSelect from '@/components/Filter/FilterSelect'
+import StyledFilter from '@/components/Filter/StyledFilter'
 
-const { COLOR, TAGS, SIZE, SORT_BY } = FilterConst
+const { COLOR, TAGS, SIZE } = FilterConst
 
 class Filter extends Component {
   state = {
-    sortBy: [
-      { value: 'price', label: 'Price Desc' },
-      { value: 'priceAsc', label: 'Price Asc' },
-      { value: 'rating', label: 'Rating Desc' },
-      { value: 'ratingAsc', label: 'Rating Asc' },
-    ],
+    popularColors: 5,
+    selectedSize: [],
+    selectedCategories: {},
+    selectedColors: [],
   }
 
-  handleChange = (selectedOption, type) => {
+  handleSize = value => {
     const { setFilterBy } = this.props
-    let value = selectedOption
-    if (value === null) {
-      value = []
-    }
+    this.setState(prevState => {
+      let state = {
+        ...prevState,
+        selectedSize: [...new Set([...prevState.selectedSize, value.value])],
+      }
 
-    switch (type.name) {
-      case COLOR:
-        return setFilterBy(COLOR, value)
-      case TAGS:
-        if (type.name === TAGS && value.length !== 0) {
-          value = [value]
+      if (prevState.selectedSize.includes(value.value)) {
+        state = {
+          ...state,
+          selectedSize: state.selectedSize.filter(size => {
+            return size !== value.value
+          }),
         }
-        return setFilterBy(TAGS, value)
-      case SIZE:
-        return setFilterBy(SIZE, value)
-      case SORT_BY:
-        if (type.name === SORT_BY) {
-          selectedOption !== null ? (value = selectedOption.value) : (value = '')
+      }
+
+      setFilterBy(
+        SIZE,
+        state.selectedSize.map(size => {
+          return {
+            value: size,
+            label: size,
+          }
+        }),
+      )
+      return state
+    })
+  }
+
+  handleColor = value => {
+    const { setFilterBy } = this.props
+    return this.setState(prevState => {
+      let state = {
+        ...prevState,
+        selectedColors: [...new Set([...prevState.selectedColors, value])],
+      }
+
+      if (prevState.selectedColors.includes(value)) {
+        state = {
+          ...state,
+          selectedColors: state.selectedColors.filter(color => {
+            return color !== value
+          }),
         }
-        return setFilterBy(SORT_BY, value)
-      default:
-        throw new Error('Filter default')
-    }
+      }
+
+      setFilterBy(
+        COLOR,
+        state.selectedColors.map(color => {
+          return {
+            value: color,
+            label: color,
+          }
+        }),
+      )
+      return state
+    })
+  }
+
+  handleTags = value => {
+    this.setState(prevState => {
+      const { setFilterBy } = this.props
+      let state = {
+        ...prevState,
+        selectedCategories: value,
+      }
+
+      if (prevState.selectedCategories.value === state.selectedCategories.value) {
+        state = {
+          ...prevState,
+          selectedCategories: [],
+        }
+        setFilterBy(TAGS, [])
+      } else {
+        setFilterBy(TAGS, [state.selectedCategories])
+      }
+
+      return state
+    })
+  }
+
+  showAllColors = () => {
+    this.setState(prevState => {
+      return {
+        ...prevState,
+        popularColors: this.props.colors.length,
+      }
+    })
+  }
+
+  showLessColors = () => {
+    this.setState(prevState => {
+      return {
+        ...prevState,
+        popularColors: 5,
+      }
+    })
   }
 
   render () {
-    const { colors, size, tags, mobile } = this.props
-    const { sortBy } = this.state
+    const { colors, size, tags } = this.props
+    const { selectedCategories, selectedSize, selectedColors } = this.state
+    const visibleColor = colors
+      .sort((a, b) => {
+        const value1 = a.count
+        const value2 = b.count
+
+        if (value1 < value2) return 1
+        if (value1 > value2) return -1
+
+        return 0
+      })
+      .slice(0, this.state.popularColors)
+
+    const visibleSize = selectedSize.reduce((acc, size) => ({ ...acc, [size]: size }), {})
+    const selectedColor = selectedColors.reduce((acc, color) => ({ ...acc, [color]: color }), {})
+
     return (
-      <div className={`content ${!mobile ? 'desktop' : 'mobile'}`}>
-        <Form handleSubmit={this.handleSubmit}>
-          <h3>Filter</h3>
-          <FilterSelect
-            label="Sort By"
-            name="sortBy"
-            options={sortBy}
-            isMulti={false}
-            handleChange={this.handleChange} />
-          <FilterSelect
-            label="Color"
-            name="color"
-            options={colors}
-            isMulti
-            handleChange={this.handleChange} />
-          <FilterSelect
-            label="Size"
-            name="size"
-            options={size}
-            isMulti
-            handleChange={this.handleChange} />
-          <FilterSelect
-            label="Type"
-            name="tags"
-            options={tags}
-            isMulti={false}
-            isClearable
-            handleChange={this.handleChange} />
-        </Form>
-      </div>
+      <StyledFilter>
+        <div className={`content`}>
+          <div className="filter-field">
+            <h3>Filter by size</h3>
+            <div className="size-field">
+              {size.map(size => (
+                <div
+                  className={`size ${size.value === visibleSize[size.value] ? ' active' : ''}`}
+                  onClick={e => this.handleSize(size)}
+                  key={size.value}
+                >
+                  {size.value}
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className="filter-field">
+            <h3>Categories</h3>
+            <div className="size-field">
+              {tags.map(tag => (
+                <div
+                  key={tag.value}
+                  className={`categories ${
+                    tag.value === selectedCategories.value ? ' active' : ''
+                  }`}
+                  onClick={e => this.handleTags(tag)}
+                >
+                  {tag.value}
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className="filter-field">
+            <h3>Color</h3>
+            <div className="colors">
+              {visibleColor.map(color => (
+                <Tippy content={color.value} key={color.value}>
+                  <div className="color" onClick={e => this.handleColor(color.value)}>
+                    <div
+                      style={{ background: color.value }}
+                      className={`block ${
+                        color.value === selectedColor[color.value] ? ' active' : ''
+                      }`} />
+                  </div>
+                </Tippy>
+              ))}
+              {this.state.popularColors > 5 ? (
+                <span onClick={this.showLessColors}>&uarr;</span>
+              ) : (
+                <span onClick={this.showAllColors}>&darr;</span>
+              )}
+            </div>
+          </div>
+        </div>
+      </StyledFilter>
     )
   }
 }
 
 Filter.propTypes = {
   setFilterBy: PropTypes.func.isRequired,
-  colors: PropTypes.array,
-  size: PropTypes.array,
-  tags: PropTypes.array,
-  mobile: PropTypes.bool,
+  colors: PropTypes.array.isRequired,
+  size: PropTypes.array.isRequired,
+  tags: PropTypes.array.isRequired,
 }
 
 export default Filter

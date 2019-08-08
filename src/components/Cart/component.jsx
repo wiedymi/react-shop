@@ -14,7 +14,8 @@ const modalStyles = {
     bottom: 'auto',
     marginRight: '-50%',
     transform: 'translate(-50%, -50%)',
-    border: '2px solid #eee',
+    border: '2px solid #e6e6e6',
+    borderRadius: '1rem',
   },
 }
 

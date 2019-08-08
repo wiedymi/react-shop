@@ -33,6 +33,9 @@ const StyledModal = styled.div`
     div.content.desktop {
       display: inline-block;
     }
+    .cart-modal-purchase .price {
+      margin-top: 0.6rem;
+    }
     div.mobile {
       display: none;
     }

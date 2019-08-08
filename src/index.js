@@ -1,18 +1,42 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
-import { createStore, applyMiddleware } from 'redux'
+import { createStore, applyMiddleware, compose } from 'redux'
+import { createBrowserHistory } from 'history'
+import { NotificationContainer } from 'react-notifications'
 import thunk from 'redux-thunk'
+import { routerMiddleware, ConnectedRouter } from 'connected-react-router'
 import * as OfflinePluginRuntime from 'offline-plugin/runtime'
-import '@/index.scss'
-import App from '@/App'
+import Header from '@/components/Header'
+import Product from '@/components/Product'
+import Content from '@/components/Content'
+import StyledApp from '@/components/styled/StyledApp'
+import { Route, Switch } from 'react-router' // react-router v4/v5
+import initState from '@/redux/thunk'
 import shop from '@/redux/store'
+import '@/index.scss'
 
-const store = createStore(shop, applyMiddleware(thunk))
+const history = createBrowserHistory()
+
+const store = createStore(shop(history), compose(applyMiddleware(thunk, routerMiddleware(history))))
+
+store.dispatch(initState())
 
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <ConnectedRouter history={history}>
+      <>
+        <Switch>
+          <StyledApp>
+            <Route component={Header} />
+            <Route exact path="/"
+              component={Content} />
+            <Route path="/product/:id" component={Product} />
+          </StyledApp>
+        </Switch>
+        <NotificationContainer />
+      </>
+    </ConnectedRouter>
   </Provider>,
   document.getElementById('root'),
 )

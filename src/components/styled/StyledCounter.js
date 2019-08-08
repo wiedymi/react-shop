@@ -8,7 +8,10 @@ const { mdsize } = StyleSize
 
 const StyledCounter = styled.div`
   .counter div {
-    padding: 0.7rem 0.4rem;
+    padding: 0.7rem 1rem;
+    @media (min-width: 1200px) {
+      padding: 0.7rem 0.4rem;
+    }
     margin-top: 1rem;
     font-size: ${mdsize};
   }
