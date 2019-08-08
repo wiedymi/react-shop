@@ -17,22 +17,28 @@ const StyledHeader = styled.div`
   z-index: 7678;
   position: fixed;
   width: 100%;
+  top: 0;
 `
 const StyledHeaderH1 = styled.h1`
   color: ${black};
   font-size: ${lgsize};
-  text-align: left;
-  padding: 0;
+  text-align: center;
+  @media (min-width: 1200px) {
+    padding: 0;
+  }
+
   > span {
     color: #ee7501;
   }
 `
 const StyledLogo = styled.div.attrs({
   className: 'grid-d-6 grid-t-4 grid-tl-4 grid-m-12',
-})``
+})`
+  padding: 0;
+`
 
 const StyledCart = styled.div.attrs({
-  className: 'grid-d-1 grid-t-1 grid-tl-1 grid-m-1 right',
+  className: 'grid-d-1 grid-t-1 grid-tl-1 grid-m-2 right',
 })``
 
 const StyledCartIcon = styled.div.attrs({})`

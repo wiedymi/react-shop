@@ -195,9 +195,9 @@ class Filter extends Component {
 
 Filter.propTypes = {
   setFilterBy: PropTypes.func.isRequired,
-  colors: PropTypes.array,
-  size: PropTypes.array,
-  tags: PropTypes.array,
+  colors: PropTypes.array.isRequired,
+  size: PropTypes.array.isRequired,
+  tags: PropTypes.array.isRequired,
 }
 
 export default Filter

@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
 const ProductDescription = ({ description }) => {
   const charectersToShowInPreview = 350
   return (
-    <div className="m-top text-break-and-justify desktop">
+    <div className="m-top text-break-and-justify ">
       <ReadMoreAndLess
         className="m-top"
         charLimit={charectersToShowInPreview}

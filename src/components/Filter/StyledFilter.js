@@ -4,6 +4,10 @@ const { primaryoff } = StyleColors
 
 const StyledFilter = styled.div`
   margin-top: 4.74rem;
+  display: none;
+  @media (min-width: 1200px) {
+    display: inline-block;
+  }
   .filter-field {
     h3 {
       border: 1px solid #ccc;

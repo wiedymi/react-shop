@@ -5,16 +5,15 @@ import ProductInfo from '@/components/Cards/Card/InfoContainer'
 
 const Card = ({ product }) => {
   return (
-    <div className="card" key={product._id.$oid}>
-      <ProductImage image={product.images[0]} />
+    <div className="card grid-d-12 grid-t-3 grid-tl-3 grid-m-6" key={product._id.$oid}>
+      <a href={`/product/${product._id.$oid}`}>
+        <ProductImage image={product.images[0]} />
+      </a>
       <ProductInfo
         id={product._id.$oid}
         title={product.title}
         rating={product.rating}
         description={product.description}
-        tags={product.tags}
-        color={product.color}
-        size={product.size}
         price={product.price} />
     </div>
   )

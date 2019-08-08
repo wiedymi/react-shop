@@ -14,6 +14,10 @@ const content = css`
 `
 
 const StyledSort = styled.div`
+  display: none;
+  @media (min-width: 1200px) {
+    display: block;
+  }
   p {
     float: left;
     margin-top: 1.2rem;
@@ -54,7 +58,7 @@ const StyledSort = styled.div`
   }
 `
 const StyledSearch = styled.div.attrs({
-  className: 'grid-d-9 grid-t-8 grid-tl-8 grid-m-12 no-padding',
+  className: 'grid-d-9 grid-t-12 grid-tl-12 grid-m-12 no-padding',
 })`
   padding: 0;
   @media (min-width: 720px) {

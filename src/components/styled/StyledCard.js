@@ -11,42 +11,92 @@ const StyledCard = styled.div`
   margin: 1.6rem 0;
   margin-top: 0.6rem;
   width: 100%;
+  @media (min-width: 1200px) {
+    width: 100%;
+  }
+
   .desktop {
     display: none;
   }
   .card {
     display: flex;
+    padding: 0 !important;
+    flex-direction: column;
     margin-bottom: 0.6rem;
     overflow: hidden;
+
+    @media (min-width: 1200px) {
+      flex-direction: row;
+    }
+  }
+  .cards {
+    padding: 1rem;
+    text-align: center;
+    @media (min-width: 1200px) {
+      text-align: left;
+      padding: 0;
+    }
   }
   .text-break-and-justify {
     text-align: justify;
     text-justify: inter-word;
     word-break: break-word;
     margin-top: 0.4rem;
+    display: none;
+    @media (min-width: 1200px) {
+      display: block;
+    }
   }
   .card .info {
-    margin-left: 0.6rem;
     flex: 1;
     min-width: 0;
+    width: 100%;
+    overflow: hidden;
+    @media (min-width: 1200px) {
+      margin-left: 0.6rem;
+      width: 100%;
+    }
+
+    h3 {
+      &:hover {
+        color: rgb(0, 123, 255);
+      }
+      transition: 0.2s all;
+    }
   }
 
   .card img {
-    height: 10rem;
-    min-width: 110px;
-    max-width: 110px;
+    @media (min-width: 1200px) {
+      height: 10rem;
+      min-width: 110px;
+      max-width: 110px;
+    }
+    height: 14rem;
+    min-width: 160px;
+    max-width: 160px;
+
     border: 3px solid ${bgimg};
   }
 
   .card h3 {
     color: ${black};
-    font-size: 2rem;
-    height: 2.6rem;
+    text-align: left;
+    font-size: 1.3rem;
+    height: 1.5rem;
+    @media (min-width: 1200px) {
+      font-size: 2rem;
+      height: 2.6rem;
+      margin-bottom: 0.4rem;
+    }
+
     transition: 0.3s all;
-    margin-bottom: 0.4rem;
   }
   .info h4 {
-    font-size: 1.6rem;
+    font-size: 1.3rem;
+    text-align: left;
+    @media (min-width: 1200px) {
+      font-size: 1.6rem;
+    }
     color: ${primaryoff};
   }
   .card a:hover {
@@ -61,10 +111,21 @@ const StyledCard = styled.div`
   }
   .info h3 {
     float: left;
+
+    width: 100%;
     white-space: nowrap;
-    overflow: hidden;
     text-overflow: ellipsis;
-    padding-top: 0.4rem;
+    word-break: break-word;
+
+    overflow: hidden;
+
+    @media (min-width: 1200px) {
+      height: 2.3rem;
+      width: 70%;
+      white-space: nowrap;
+      white-space: normal;
+      padding-top: 0.4rem;
+    }
   }
 
   .info div {
@@ -75,7 +136,11 @@ const StyledCard = styled.div`
     }
     .star-ratings {
       float: right;
-      padding: 0.2rem 0;
+      display: none !important;
+      @media (min-width: 1200px) {
+        display: inline-block !important;
+        display: block;
+      }
     }
   }
 
@@ -140,6 +205,10 @@ const StyledCard = styled.div`
   .purchase {
     width: 100%;
     float: left;
+    display: none;
+    @media (min-width: 1200px) {
+      display: block;
+    }
   }
 
   .cards .card:first-child {

@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { NotificationContainer } from 'react-notifications'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { setFilterBy } from '@/redux/action'
@@ -61,7 +60,6 @@ class Content extends Component {
             </div>
           </div>
         </StyledFilterMobile>
-        <NotificationContainer />
       </Container>
     )
   }
