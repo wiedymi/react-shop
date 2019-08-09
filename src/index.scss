@@ -11,7 +11,7 @@
 }
 [class*='grid-'] {
   float: left;
-  padding: 10px;
+
   width: 100%;
 }
 .clear-grid {
@@ -19,8 +19,13 @@
   float: inherit;
 }
 .container {
+  display: flex;
+
   margin: 0;
   width: 100%;
+}
+.flex-end {
+  justify-content: flex-end;
 }
 .container:after,
 .container:before {
@@ -233,45 +238,13 @@ img.responsive {
   height: auto;
 }
 
-//Helpers
 a {
   text-decoration: none;
-}
-
-.left {
-  float: left;
-}
-
-.right {
-  float: right;
 }
 
 body {
   background: #fff;
   font-family: 'Quicksand', sans-serif;
-}
-
-.lf-padding {
-  padding: 0 0 0 1rem;
-}
-
-.m-top {
-  margin-top: 0.7rem;
-}
-
-.tn-top {
-  margin-top: 0;
-}
-.no-padding {
-  padding: 0;
-}
-.no-margin {
-  margin-top: 0;
-  padding: 0;
-}
-
-.m-bottom {
-  margin-bottom: 1.1rem;
 }
 
 input:-webkit-autofill,
@@ -307,4 +280,8 @@ select:-webkit-autofill:focus {
 
 .notification-container {
   top: 3.5rem;
+}
+.react-select__single-value {
+  height: 20px;
+  line-height: 20px;
 }

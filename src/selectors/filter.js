@@ -1,73 +1,82 @@
 /* eslint-disable no-fallthrough */
 import { createSelector } from 'reselect'
+import { filter } from '@/constants'
 
 const getFilter = ({ filter }) => filter
 const getProducts = ({ products }) => products
+const { priceAsc, ratingAsc, search, TAGS, COLOR, SIZE, SORT_BY } = filter
 
-const filterList = (filterValue, value, type) => {
-  let result = value
-  let types = type
-  if (types === 'rating' || types === 'price' || types === 'priceAsc' || types === 'ratingAsc') {
-    let asc = false
-    result = result.sort((a, b) => {
-      if (types === 'priceAsc' || types === 'ratingAsc') {
-        types = types.slice(0, -3)
-        asc = true
-      }
-      const value1 = a[types]
-      const value2 = b[types]
+const listAsc = [priceAsc, ratingAsc]
 
-      if (value1 < value2) return 1
-      if (value1 > value2) return -1
-
-      return 0
-    })
-
-    if (asc) {
-      result = result.reverse()
-    }
-  } else if (types === 'search') {
-    result = result.filter(product => {
-      return product.title.toLowerCase().includes(filterValue.toLowerCase())
-    })
-  }
-
-  if (types === 'tags' || types === 'color' || types === 'size') {
-    const i = result.filter(product => {
-      const productVal = product[types]
-      const sizes = filterValue.map(size => size.value)
-      return sizes.every(id => productVal.includes(id))
-    })
-    result = i
-  }
-  return result
-}
-
-const applyFilter = filter => {
-  return filter.length > 0 && filter !== null
-}
-
-const filterProduct = (products, filter) => {
-  let result = products
-  switch (true) {
-    case applyFilter(filter.search):
-      result = filterList(filter.search, result, 'search')
-    case applyFilter(filter.sortBy):
-      result = filterList(filter.sortBy, result, filter.sortBy)
-    case applyFilter(filter.tags):
-      result = filterList(filter.tags, result, 'tags')
-    case applyFilter(filter.size):
-      result = filterList(filter.size, result, 'size')
-    case applyFilter(filter.colors):
-      result = filterList(filter.colors, result, 'color')
+const applyFilter = (type, value, products) => {
+  switch (type) {
+    case SORT_BY:
+      return applyFilterBySort(value, products)
+    case search:
+      return applyFilterBySearch(value, products)
+    case TAGS:
+      return applyFilterByMultiSelect(TAGS, value, products)
+    case COLOR:
+      return applyFilterByMultiSelect(COLOR, value, products)
+    case SIZE:
+      return applyFilterByMultiSelect(SIZE, value, products)
     default:
-      return result
+      return products
   }
+}
+
+const applyFilterBySort = (value, products) => {
+  return products.sort((a, b) => {
+    if (listAsc.includes(value)) {
+      const removeCharsToGetType = -3
+      const asc = value.slice(0, removeCharsToGetType)
+      if (a[asc] < b[asc]) return 1
+      if (a[asc] > b[asc]) return -1
+    } else {
+      if (a[value] < b[value]) return -1
+      if (a[value] > b[value]) return 1
+    }
+
+    return 0
+  })
+}
+
+const applyFilterByMultiSelect = (type, value, products) => {
+  return products.filter(product => {
+    return value.map(field => field.value).every(id => product[type].includes(id))
+  })
+}
+
+const applyFilterBySearch = (value, products) => {
+  return products.filter(product => {
+    return product.title.toLowerCase().includes(value.toLowerCase())
+  })
+}
+
+const applyFilters = (filter, products) => {
+  if (products.length > 0) {
+    return Object.entries(filter)
+      .map(field => {
+        const [type, value] = field
+        return applyFilter(type, value, products)
+      })
+      .reduce((acc, filter) => {
+        if (acc.length > 0) {
+          const allTitles = filter.map(item => item.title)
+
+          return acc.filter(item => {
+            return allTitles.includes(item.title)
+          })
+        }
+        return filter
+      }, [])
+  }
+  return products
 }
 
 export default createSelector(
   [getProducts, getFilter],
   (products, filter) => {
-    return filterProduct(products, filter)
+    return applyFilters(filter, products)
   },
 )

@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 import Modal from 'react-modal'
 import PropTypes from 'prop-types'
-import Button from '@/components/Button'
-import { Price } from '@/components/Cards/subcomponents/index'
-import CartProductsContainer from '@/components/Cart/CartProductsContainer'
-import StyledModal from '@/components/styled/StyledModal'
+import Button from '@/components/common/Button/component'
+import { Price } from '@/components/Products/subcomponents'
+import CartProduct from '@/components/Cart/CartProduct'
+import CartWrapper from '@/components/Cart/styles'
 
 const modalStyles = {
   content: {
@@ -26,6 +26,7 @@ class CartModal extends Component {
 
   render () {
     const { isOpen, toggleModal, products, price } = this.props
+
     return (
       <>
         <Modal
@@ -35,11 +36,24 @@ class CartModal extends Component {
           style={modalStyles}
           overlayClassName="modal-overlay"
         >
-          <StyledModal>
+          <CartWrapper>
             <div className="cart-modal">
               <h3>Your Cart</h3>
               <div className="sm-cards">
-                <CartProductsContainer products={products} />
+                <div className="cart-list-product">
+                  {products.length > 0 ? (
+                    products.map(product => (
+                      <CartProduct
+                        key={product._id.$oid}
+                        id={product._id.$oid}
+                        title={product.title}
+                        price={product.price}
+                        count={product.count} />
+                    ))
+                  ) : (
+                    <div>Nothing to show</div>
+                  )}
+                </div>
               </div>
               <hr />
               <div className="cart-modal-purchase">
@@ -47,7 +61,7 @@ class CartModal extends Component {
                 <Price price={price} text="Total: " />
               </div>
             </div>
-          </StyledModal>
+          </CartWrapper>
         </Modal>
       </>
     )

@@ -1,10 +1,12 @@
-import CardSelector from '@/selectors/card'
+import CardSelector from '@/selectors/products'
 import FilterSelector from '@/selectors/filter'
 import CartSelector from '@/selectors/cart'
-import ProductsReducer from '@/redux/reducers/products'
-import CartReducer from '@/redux/reducers/cart'
-import FilterReducer from '@/redux/reducers/filter'
-import { fetchedItem } from '@/redux/action'
+import ProductsReducer from '@/reducers/products'
+import CartReducer from '@/reducers/cart'
+import FilterReducer from '@/reducers/filter'
+import { products } from '@/actions'
+
+const { fetchedProducts } = products
 
 describe('Selectors', () => {
   const product = [
@@ -28,7 +30,7 @@ describe('Selectors', () => {
   ]
 
   const state = {
-    products: ProductsReducer(undefined, fetchedItem(product)),
+    products: ProductsReducer(undefined, fetchedProducts(product)),
     filter: FilterReducer(undefined, { type: '' }),
     cart: CartReducer(undefined, { type: '' }),
   }

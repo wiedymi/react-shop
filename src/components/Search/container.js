@@ -1,6 +1,8 @@
 import { connect } from 'react-redux'
-import { search } from '@/redux/action'
+import { filter } from '@/actions'
 import Search from '@/components/Search/component'
+
+const { search } = filter
 
 const mapDispatchToProps = dispatch => ({
   searchByText: text => dispatch(search(text)),

@@ -2,10 +2,10 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import Tippy from '@tippy.js/react'
-import FilterConst from '@/components/Filter/constants'
-import StyledFilter from '@/components/Filter/StyledFilter'
+import { filter } from '@/constants'
+import FilterWrapper from '@/components/Filter/styles'
 
-const { COLOR, TAGS, SIZE } = FilterConst
+const { COLOR, TAGS, SIZE } = filter
 
 class Filter extends Component {
   state = {
@@ -134,8 +134,8 @@ class Filter extends Component {
     const selectedColor = selectedColors.reduce((acc, color) => ({ ...acc, [color]: color }), {})
 
     return (
-      <StyledFilter>
-        <div className={`content`}>
+      <FilterWrapper>
+        <div>
           <div className="filter-field">
             <h3>Filter by size</h3>
             <div className="size-field">
@@ -188,7 +188,7 @@ class Filter extends Component {
             </div>
           </div>
         </div>
-      </StyledFilter>
+      </FilterWrapper>
     )
   }
 }

@@ -1,26 +1,23 @@
 import React from 'react'
-import Header from '@/components/Header'
-import Product from '@/components/Product'
-import Content from '@/components/Content'
-import StyledApp from '@/components/styled/StyledApp'
 import { Route, Switch } from 'react-router'
 import { ConnectedRouter } from 'connected-react-router'
+import Header from '@/components/Header'
+import Product from '@/components/pages/Product'
+import Home from '@/components/pages/Home'
 
 import { history } from '@/Store'
 
 const Router = () => {
   return (
     <ConnectedRouter history={history}>
-      <>
-        <Switch>
-          <StyledApp>
-            <Route component={Header} />
-            <Route exact path="/"
-              component={Content} />
-            <Route path="/product/:id" component={Product} />
-          </StyledApp>
-        </Switch>
-      </>
+      <Switch>
+        <>
+          <Route component={Header} />
+          <Route exact path="/"
+            component={Home} />
+          <Route path="/product/:id" component={Product} />
+        </>
+      </Switch>
     </ConnectedRouter>
   )
 }

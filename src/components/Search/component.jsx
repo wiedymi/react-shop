@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { StyledInput } from '@/components/styled/StyledInputs'
+import Input from '@/components/common/Input'
 
 class Search extends Component {
   handleChange = ({ target }) => {
@@ -11,8 +11,8 @@ class Search extends Component {
 
   render () {
     return (
-      <div className="search grid-d-4 grid-t-4 grid-tl-4 grid-m-8 no-padding right">
-        <StyledInput
+      <div className="search grid-d-4 grid-t-4 grid-tl-4 grid-m-8">
+        <Input
           name="search"
           onChange={this.handleChange}
           placeholder="Search for your style..."

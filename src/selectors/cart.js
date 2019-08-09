@@ -5,8 +5,7 @@ const getProducts = state => state.products.products
 
 const getPrice = products => {
   return products.reduce((acc, product) => {
-    const productPrice = product.price * product.count
-    return productPrice
+    return product.price * product.count
   }, 0)
 }
 

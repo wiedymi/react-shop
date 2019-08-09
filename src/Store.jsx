@@ -1,11 +1,12 @@
 import React from 'react'
+import thunk from 'redux-thunk'
 import { Provider } from 'react-redux'
 import { createStore, applyMiddleware, compose } from 'redux'
 import { createBrowserHistory } from 'history'
-import thunk from 'redux-thunk'
 import { routerMiddleware } from 'connected-react-router'
-import initState from '@/redux/thunk'
-import shop from '@/redux/reducers'
+import PropTypes from 'prop-types'
+import { getProducts as initState } from '@/actions'
+import shop from '@/reducers'
 
 export const history = createBrowserHistory()
 
@@ -15,6 +16,10 @@ store.dispatch(initState())
 
 const Store = ({ children }) => {
   return <Provider store={store}>{children}</Provider>
+}
+
+Store.propTypes = {
+  children: PropTypes.node.isRequired,
 }
 
 export default Store
